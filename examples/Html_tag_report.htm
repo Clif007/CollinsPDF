@@ -1,0 +1,331 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>HTML Report Tags</title>
+<link  href=PDF.css type=text/css rel=stylesheet>
+</head>
+  
+<body class=clearbody> 
+<center>
+<div>
+	
+<a href="examples/report_presidents/example.htm"  target=_blank>Example 1</a>&nbsp;&nbsp;
+<a href="examples/report_code/example.htm"  target=_blank>Example 2</a> &nbsp;
+<a href="examples/report_cancer/example.htm"  target=_blank>Example 3</a></b>&nbsp;&nbsp;
+
+<br><br>
+
+<p align=left style="width:700">
+		<b>&lt;REPORT&gt;...&lt;/REPORT&gt;</b> Begin A Report, Includes all 
+	statements between the &lt;report&gt; &lt;/report&gt; tags.	Macro Statements &lt;ASSIGN&gt; &lt;STORE&gt; &lt;RANDOM&gt; &lt;IF&gt; that are within the 	&lt;Report&gt;...&lt;/Report&gt; tags are re-processed for each record permitting sums, averages and other values to be calculated and used in the report. 
+		Reports can be nested to any level at any point within the report
+</p>
+
+	<table border="1" id="table43" cellpadding=2 cellspacing=0 width="700">
+		<tr>
+			<td width="236" bgcolor="#EEEEEE" align="center"><b>
+			Property</b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			Description</b></td>
+		</tr>
+		<tr>
+			<td width="236">ID=name</td>
+			<td>Tag identifier</td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="236">SQL=statement</td>
+			<td>SQL statement of Report Records</td>
+		</tr>
+		<tr>
+			<td width="236">
+			Table=id</td>
+			<td>Reference to a &lt;ReportTable 
+			ID=name&gt; ID for 
+			the Report Records</td>
+		</tr>
+		<tr>
+			<td width="236">
+			<p align="left"><font face="Arial">Detail=macro-id</td>
+			<td>Set the Active Detail based on ID as 
+			each record is processed. The macro-ref should resolve to a valid 
+			&lt;DETAIL id=name&gt; value</td>
+		</tr>
+		<tr>
+			<td width="236">
+			Width=size</td>
+			<td>Report Width, if width and height 
+			specified the report is clipped to this area</td>
+		</tr>
+		<tr>
+			<td width="236">
+			Height=size</td>
+			<td>Report Minimum Height</td>
+		</tr>
+		<tr>
+			<td width="236">
+			
+			Fit=true | false</td>
+			<td>Fit report in a single PDF Page, if 
+			true page width and length is increased to contain the full report, Default 
+			= false perform page 
+			breaks  </td>
+		</tr>
+		<tr>
+			<td width="236">
+			
+			clipCell=true | false</td>
+			<td>Clip Cell, CellHeight and CellWidth qualifiers 
+			are required</td>
+		</tr>
+		<tr>
+			<td width="236">
+			
+			CellHeight=n</td>
+			<td>Cell Height, default=calculated</td>
+		</tr>
+		<tr>
+			<td width="236">
+			
+			CellWidth=n</td>
+			<td>Cell Width</td>
+		</tr>
+		<tr>
+			<td width="236">
+			
+			Columns=n</td>
+			<td>Number of Columns in report, Default=1</td>
+		</tr>
+		<tr>
+			<td width="236">
+			
+			ColumnOrder=true | false</td>
+			<td>Output Report in Column Order, default=false (row order) see: <a href="Html_report_layout.htm">
+			report layout</a></td>
+		</tr>
+		<tr>
+			<td width="236">
+			RowsPerColumn=n | *</td>
+			<td>Output Records in even length columns, * = calculate see:
+			<a href="Html_report_layout.htm">report layout</a></td>
+		</tr>
+		<tr>
+			<td width="236">
+			cellspacing=n</td>
+			<td>space between cells (default=2)</td>
+		</tr>
+		<tr>
+			<td width="236">
+			Border=n</td>
+			<td>Size of Border</td>
+		</tr>
+		<tr>
+			<td width="236">
+			BorderColorDark=color</td>
+			<td>Dark Border Color (left,top), Default= #ACA899</td>
+		</tr>
+		<tr>
+			<td width="236">
+			BorderColorLight=color</td>
+			<td>Light Border Color (right,bottom), Default = #ECE9D8</td>
+		</tr>
+		</table>
+	
+	<br>
+	<br>
+	<b>&lt;REPORTGROUP&gt;...&lt;/REPORTGROUP&gt;</b> Create A Report Group, 
+	any number of reporting group can be created<br>
+	Each group requires a KEY macro reference to determine when a group change occurs<table border="1" id="table44" cellpadding=2 cellspacing=0 width="700">
+		<tr>
+			<td width="236" bgcolor="#EEEEEE" align="center"><b>
+			Property</b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			Description</b></td>
+		</tr>
+		<tr>
+			<td width="236">ID=NAME</td>
+			<td>Report Group identifier</td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="236">PageBreakAfter=true | false</td>
+			<td>Page Break After Creating Group, 
+			Default=false</td>
+		</tr>
+		<tr>
+			<td width="236">PageBreakBefore=True | False</td>
+			<td>Page Break Before Creating Group, 
+			Default=false</td>
+		</tr>
+		<tr>
+			<td width="236">KeepTogether=True | False</td>
+			<td>If true force a page break if 
+			required to keep group detailed on the same 
+			page, Default = false</td>
+		</tr>
+		<tr>
+			<td width="236">SkipIfBlank=True | False</td>
+			<td>Skip Group Header / Footer if no detailed were generated, 
+			Default = false</td>
+		</tr>
+		<tr>
+			<td width="236">Key=macro-ref</td>
+			<td>Values to determine when the group 
+			changes as the records are read. A Macro of {F1},{F2},...{Fn} 
+			references the fields in the record by number. A Macro reference by 
+			field name is also permitted {State_Name} </td>
+		</tr>
+	</table>
+		
+	<br>
+	<b>&lt;DETAIL&gt;... &lt;/DETAIL&gt;</b> Report, Create a report detail<table border="1" id="table45" cellpadding=2 cellspacing=0 width="700">
+		<tr>
+			<td width="236" bgcolor="#EEEEEE" align="center"><b>
+			Property</b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			Description</b></td>
+		</tr>
+		<tr>
+			<td width="236">ID=NAME</td>
+			<td>Report Detail identifier</td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="236">Cellspacing=n</td>
+			<td>cell spacing default=1</td>
+		</tr>
+		<tr>
+			<td width="236">Cellpadding=n</td>
+			<td>cell padding default=2</td>
+		</tr>
+		<tr>
+			<td width="236">Border=n</td>
+			<td>Border Line Width, Default=0</td>
+		</tr>
+		<tr>
+			<td width="236">Header=&quot;fontcolor, 
+			bgcolor&quot;</td>
+			<td>Define Color of Column Header font 
+			and background Colors<br>
+			Default=&quot;Black,White&quot;</td>
+		</tr>
+		</table>
+		
+	<b><br>
+		&lt;COLUMN&gt;...&lt;/COLUMN&gt;</b> Report, Define Detail Columns<table border="1" id="table46" cellpadding=2 cellspacing=0 width="700">
+		<tr>
+			<td width="236" bgcolor="#EEEEEE" align="center"><b>
+			Property</b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			Description</b></td>
+		</tr>
+		<tr>
+			<td width="236">WIDTH=N</td>
+			<td>Column Width (REQUIRED)</td>
+		</tr>
+		<tr>
+			<td width="236"><font size="2" face="Arial">Align=just</td>
+			<td>Left, Center, Right</td>
+		</tr>
+		<tr>
+			<td width="236"><font size="2" face="Arial">Valign=just</td>
+			<td>Top, Middle, Bottom</td>
+		</tr>
+		</table>
+		<p>
+		<b>&lt;HEADER&gt;... &lt;/HEADER&gt;</b> Report, &lt;REPORT&gt;, &lt;REPORTGROUP&gt; or 
+		&lt;DETAIL&gt; headers
+		<table border="1" id="table47" cellpadding=2 cellspacing=0 width="700">
+		<tr>
+			<td width="236" bgcolor="#EEEEEE" align="center"><b>
+			Property</b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			Description</b></td>
+		</tr>
+		<tr>
+			<td width="236"><font size="2" face="Arial">Align=just</td>
+			<td>Left, Center, Right</td>
+		</tr>
+		<tr>
+			<td width="236"><font size="2" face="Arial">Valign=just</td>
+			<td>Top, Middle, Bottom</td>
+		</tr>
+		<tr>
+			<td width="236">ColSpan=n</td>
+			<td>&lt;DETAIL&gt; Column to Span Default=1</td>
+		</tr>
+		</table>
+		
+		<b><br>
+<br>
+&lt;REPORTTABLE&gt;...&lt;/REPORTTABLE&gt;</b>&nbsp; Reporting Table of 
+	Text Comma Seperated Values (CSV) Records<table border="1"  id="table48" cellpadding=2 cellspacing=0 width="701">
+		<tr>
+			<td width="237" bgcolor="#EEEEEE" align="center"><b>
+			Property</b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			Description</b></td>
+		</tr>
+		<tr>
+			<td width="237">
+			ID=id</td>
+			<td>Table Identifier</td>
+		</tr>
+		<tr>
+			<td width="237">
+			Delimiter=comma </td>
+			<td>Field Delimiter Default = comma</td>
+		</tr>
+		<tr>
+			<td width="237">
+			
+			FirstRowNames = true | false</td>
+			<td>Does first row of records contain field names, default = false</td>
+		</tr>
+		<tr>
+			<td width="237" valign="top">
+			Src=&quot;file-spec&quot;</td>
+			<td>Report Table is a CSV File. If not 
+			specified the records are in-line</td>
+		</tr>
+		<tr>
+			<td width="237" valign="top">
+			Fields=&quot;spec-list&quot;<br>
+&nbsp;</td>
+			<td valign="top">A List of Field Names 
+			and Formats contained in the table<p><b>
+			NAME:text;<br>
+			LENGTH:n;<br>
+			FORMAT: char | Integer | Float;</b></td>
+		</tr>
+		</table>
+
+</div>
+</center>
+
+</body>
+
+</html>

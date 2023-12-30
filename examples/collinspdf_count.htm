@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CollinsPDF.js with line numbers</title>
+<script>
+function pp(data)
+{
+	var i,list;
+		
+	list = data.split('\r\n');
+	a = new Array();
+	for (i=0; i < list.length; ++i)
+	{
+		line = i + 1;
+		number = line;
+		if (line < 10) number = '0000' + number;
+		if (line >= 10 && line < 100) number = '000' + number;
+		if (line >= 100 && line < 1000) number = '00' + number;
+		if (line >= 1000 && line < 10000) number = '0' + number;
+	
+		text = list[i].replace(/\</g,'&lt;');
+		if (text == '"use strict";') text = '<font color=blue>' + text; 
+		a[i] = number + ' ' + text;
+	}
+	
+	myData.value = '<html><body><pre>' +  a.join('\r\n') + '</body></html>';
+
+}
+//=========================================================
+//			readUrl
+//=========================================================
+function readUrl(url)
+{
+	var file;
+	
+	try { http = new XMLHttpRequest(); } catch (e) { }
+	if (! http) http = window.createRequest();
+
+	http.open('get',url,true);
+	http.responseType = '';
+	http.onreadystatechange = waitForFile;
+	http.send();
+
+	function waitForFile(e)
+	{
+		var data;
+		data = '';
+		if (this.readyState !=4) return;
+		if (this.status == 200) 
+		{
+			data = this.responseText;
+			pp(data);
+		}
+	}
+}
+</script>
+</head>
+
+<body onload="readUrl('CollinsPDF.txt')">
+<textarea id=myData style="width:100%" rows=40></textarea>
+
+</body></html>

@@ -1,0 +1,22 @@
+<DOC margin=1.5 fontSize=10pt onDocumentOpen="zoom=75">
+<script load>
+function monthName()
+{
+	var names = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+	var date;
+	date = new Date();
+	return names[date.getMonth()];	
+}
+</script>
+
+<ol>
+<li><i>Using a Built-in function</i><b> The Current Year is = {year}</b><br>
+<li><i>Writing your own function</i><b>The Current Month is = {monthName()}</b> 
+</ol>
+<br>
+<br>
+<i>Execute a script within a clipped region of the PDF</i><br>
+<eval height=200 width=200 cellpadding=4 border=3 style="font-size:4; background-color:lightsteelblue">
+{pdf}.addText({pdf}.read('sample.txt'));</eval>
+<br>
+

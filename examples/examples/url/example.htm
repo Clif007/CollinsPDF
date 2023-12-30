@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Macro Example</title>
+</head>
+
+<frameset rows="120,*" frameborder=0   >
+<frame src="top.htm" scrolling=auto>
+	<frameset cols="50%,*" frameborder=1 >
+		<frame src="http://theinternetfoundation.org/" target="main" scrolling="auto" name="left">
+		<frame src="theInternetFoundation.pdf" application=yes scrolling="auto" name="left">
+	</frameset>
+
+	<noframes>
+	<body>
+
+	<p>This page uses frames, but your browser doesn't support them<br></p>
+
+	<p>This page in frame mode shows 2 panels:<br>In the first panel is the web page that was converted to PDF
+	<a href="http://theinternetfoundation.org" target=_blank>http://theinternetfoundation.org</a><br>In the second frame is the converted 
+	<a href="theInternetFoundation.pdf" target="_blank">PDF document</a> </p>	
+	
+	<p>Also shown is the source code needed to convert the web page:</p>
+	
+	<blockquote>
+	
+	html = new html$();<br>pdf  = new pdf$();<br>html.loadFromUrl("http://theInter...");
+		<br>html.writeToPdfFit(pdf);<br>html.sendToServer(); <br>
+
+	</body>
+	</noframes>
+
+</frameset>
+
+&nbsp;
+
+</blockquote>
+
+</html>

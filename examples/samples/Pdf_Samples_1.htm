@@ -1,0 +1,333 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Javascript Examples to create PDF Files</title>
+<link  href=../PDF.css type=text/css rel=stylesheet>
+</head>
+
+<body>
+
+	<p align="left"><br>
+	<font size="2">The PDF creator handles many of the standard reporting functions, most 
+notably is the handling of table structures, which is accomplished by use of a 
+ruler.&nbsp; A ruler is a list of values that define columns and how they should 
+treat the text within the cells.&nbsp; Text within a cell can be left, right, 
+center or period justified. Text that exceeds the cell width can be truncated, 
+truncated with 3 dots (...), or word wrapped. You may use as many rulers as 
+required to format the text.&nbsp; Text can be placed into the document without 
+a ruler, in this case the text will be word warped and paginated, and as text is 
+added it will be positioned to the end of the previous text allowing font 
+characteristics to be adjusted on a character by character basis. </font> </p>
+<p align="left">Client Side - Using Header / Footer Callback Example: 
+</p>
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+<pre>
+//===========================================================
+//			createPdf
+//===========================================================
+function createPdf()
+{
+	pdf = new pdf$('', pageheader, pagefooter);
+	
+	pdf.setFontSize(24);
+	pdf.addText('Hello World');
+
+	pdf.writeToFile('c:/temp/sample_header.pdf');
+}
+//===========================================================
+//			pageheader
+//===========================================================
+function pageheader(page,totalPages,pdf)
+{
+	pdf.lineBreak();	
+	pdf.setFontSize(14);
+	pdf.centerText('Collins Software');
+}
+//===========================================================
+//			pagefooter
+//===========================================================
+function pagefooter(page,totalPages,pdf)
+{
+	pdf.setFontSize(10);
+	pdf.centerText('Page: ' + page + ' of ' + totalPages);
+}
+</pre> 
+</div>
+	<p>
+			<a href="sample_header.pdf">Show PDF</a><br>
+			<br></font><b>Client Side - Using <a href="CollinsRuler.htm">Ruler</a> Example</b>:&nbsp;<br>A Ruler defines left, right margins and 0 or more tab 
+			positions. This example sets 3 tab positions first tab 4&quot; for the 
+			part number, second tab at 5&quot; right justified for Quantity, and the 
+			third tab at 6&quot; justified on the decimal place (Period) for the price.
+</p>
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+<pre>
+//===========================================================
+//			createPdf
+//===========================================================
+function createPdf()
+{
+	pdf = new pdf$();
+	pdf.setRuler('1,4,R5,P6,7.5');
+
+//---------- Column Headings ----------
+	&nbsp;&nbsp;&nbsp;
+	values = new Array();
+	values[0] = 'Name';
+	values[1] = 'Part';
+	values[2] = 'Qnty';
+	values[3] = 'Price';
+	pdf.addHeader(values};
+
+//---------- Details ----------
+
+	values[0] = 'Power switch (mini SPDT* toggle)';
+	values[1] = 7313;
+	values[2] = 3;
+	values[3] = '$150.50';
+	pdf.addRow(values);
+
+	values[0] = 'DIP-8 IC sockets, gold contacts';
+	values[1] = 'AE5432';
+	values[2] = 12;
+	values[3] = '$1,234.75';
+	pdf.addRow(values);
+
+	pdf.writeToFile('c:/temp/sample_ruler.pdf');
+}
+</pre>
+</div>
+<a href='sample_ruler.pdf' target=_blank>show PDF</a>
+<br><br>Client Side - Full ADO Example PDF Report: 
+<br>
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+<pre>
+//===========================================================
+//			createPdf
+//===========================================================
+function createPdf()
+{
+var i,line,cnn,rs;
+
+	pdf = new pdf$('DRAFT',onPageheader,onPagefooter,onPagebreak,false);
+	pdf.setRuler('R0.5,1.25W,4,5.3,6,8');
+	pdf.setRulerAlign('middle');
+	pdf.setBorderWidth(1);
+
+	onPagebreak();
+
+//---------- Details ----------
+
+	line = 0
+	cnn = new ActiveXObject('ADODB.Connection');
+	cnn.open(&quot;provider= microsoft.jet.oledb.4.0; data source=pdf_sample.mdb&quot;);
+	rs = new ActiveXObject('ADODB.recordset');
+	rs.Open('select * from data order by st,city,sortname' ,cnn,2,3);
+	rs.MoveFirst();
+
+	values = new Array();</font>
+	while (! rs.EOF)
+	{
+		line = line + 1;
+		values[0] = line;
+		values[1] = rs('fullname').Value;
+		values[2] = rs('city').Value;
+		values[3] = rs('st').Value;
+		values[4] = rs('controlName').Value;
+		pdf.addReportDetail(values);
+		if (line &gt; 200) break;
+		rs.MoveNext();
+	}
+
+	pdf.writeToFile('c:/temp/sample_ado.pdf');
+}
+//=================================================================
+// 			onPageheader
+//=================================================================
+function onPageheader(page,totalPages.pdf)
+{
+	pdf.setFontSize(24);
+	pdf.setFontColor('darkRed');
+	pdf.centerText('Collins Software');
+	pdf.lineBreak();
+	pdf.setFontSize(12);
+	pdf.centerText('Sample ADO Report');
+}
+//=================================================================
+// 			onPagefooter
+//=================================================================
+function onPagefooter(page,totalPages.pdf)
+{
+	pdf.setFontSize(8);
+	pdf.setFontColor('silver');
+	pdf.addText(' http://collinssoftware.com');
+
+	pdf.setFontSize(10);
+	pdf.setFontColor('black');
+	pdf.centerText('Page: ' + page + ' of ' + totalPages);
+}
+//=================================================================
+//			 onPagebreak
+//=================================================================
+function onPagebreak()
+{
+	values = new Array();
+	values[0] = 'Name';
+	values[1] = 'City';
+	values[2] = 'State';
+	values[3] = 'Type';	
+	pdf.addHeader(values);
+}
+</pre></div>
+
+<a href='sample_ado.pdf' target=_blank >showPDF</a> 
+			
+<br><br>Using Graphics and Jpeg Images to create Letter Head:
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+<pre>
+//==================================================================
+// 			createPdf
+//==================================================================
+function createPdf()
+{
+	pdf = new pdf$();
+
+	pdf.setGraphicColor('HoneyDew');
+	pdf.drawRectangle(0,0,8.5,1.2);
+	pdf.setGraphicColor('black');
+	pdf.placeImage(0.5,0,'ShoppingCart.jpg',1.2,0,0);
+
+	pdf.setFontSize(24);
+	pdf.setBold(true);
+	pdf.setItalic(true);
+	pdf.placeText(2,0.5,'Collins Software');
+
+	pdf.setBold(false);
+	pdf.setItalic(false);
+	pdf.setFontSize(48);
+	pdf.placeText(2,1.1,'I N V O I C E');
+	pdf.setLineWeight(3);
+	pdf.drawLine(0,1.2,8.5,1.2);
+
+	pdf.setFontSize(8);
+	pdf.placeText(6.2,0.2,'Send payment to:');
+	pdf.placeText(6.5,0.35,'Collins Software');
+	pdf.placeText(6.5,0.5,'7710 Janak Drive');
+	pdf.placeText(6.5,0.65,'Houston, Texas 77055');
+
+	pdf.setBold(true);
+	pdf.placeText(6.5,1.0,'(713) 682-1556');
+
+	pdf.writeToFile('c:/temp/sample_3.pdf')
+	
+</pre></div>
+<a href='sample_3.pdf' target=_blank >show PDF</a><br>
+
+<br>
+Add Hyperlinks:
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+<pre>
+	pdf = new pdf$();
+	pdf.addText('Welcome to the world of ');
+	pdf.addText('Collins Software','http://CollinsSoftware.com');
+</pre>
+</div>
+<a target="_blank" href="sample_href.pdf">Show Pdf</a><br>
+<br>
+		Add
+		BookMarks:<br>
+		create a multi-level document outline to assist navigation.
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+<pre>
+	parent = pdf.addOutline(null,'Chapter 1',ypos);
+	child = pdf.addOutline(parent,'References',ypos);
+	
+	pdf.addOutline(child,'PDF Examples',ypos);
+</pre>
+</div>
+<a href='bookmark_ado.pdf' target=_blank >show PDF</a> <br>
+
+<a name=Javascript>&nbsp;</a>
+<p>Add
+		JavaScript to PDF Document: (See:
+	<a target="_blank" href="AcroJavascript.pdf">JavaScript Documentation</a>)</font></p>
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+<pre>
+	pdf = new pdf$();
+	pdf.onDocumentOpen('app.alert(&quot;Open Document &quot; + this.path,3)');
+
+	pdf.addText('This is Page 1');
+	pdf.lineBreak();
+	pdf.onPageOpen('app.alert(&quot;Open Page: &quot; + (this.pageNum + 1) + &quot; of &quot; + this.numPages),3');
+	pdf.onPageClose('app.alert(&quot;Close Page &quot; + (this.pageNum + 1),3)');
+	
+	pdf.pageBreak();
+	pdf.addText('This is Page 2');
+	pdf.onPageOpen('app.alert(&quot;Open Page: &quot; + (this.pageNum + 1) + &quot; of &quot; + this.numPages,3)');
+	pdf.onPageClose('app.alert(&quot;Close Page &quot; + (this.pageNum + 1),3)');
+
+	pdf.sendToClient();
+</pre>
+</div>
+<a href='sample_javascript.pdf' target=_blank>show PDF</a>
+<br>
+<a name=Form>&nbsp;</a>
+	</p>
+	<p>Add Form to PDF Document<br>
+	This example places components at the next available 
+	location, use the &quot;placeForm...&quot; methods to place them at absolute positions 
+	(see: <a href="../CollinsPDF_Guide.htm#form">Ref. Guide</a>)
+<div style="font-family:courier; font-size:12; background-color:#EEEEEE; width: 750px;">
+pdf = new pdf$();<br>
+pdf.setMargin(1,1,0.3,1);<br>
+<br>
+options = ['Apple','Pear','Banana','Orange','Tomato','Potato',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'Grape','Carrot','Lemon','Lime','Watermelon','Cantaloupe'];<br>
+<br>
+pdf.addFormButton('My Button','app.alert(&quot;Hello World&quot;)');<br>
+pdf.addFormSelect('My Select',options,null,'Potato','',14,64);<br>
+pdf.addFormListbox('My ListBox',options,'Lime','',100,100);<br>
+pdf.addFormCheckbox('My Checkbox','My Checkbox',true);<br>
+<br>
+field = pdf.addFormText('My Text','Clif Collins (readonly)');<br>
+field.readonly = true;<br>
+<br>
+pdf.lineBreak();<br>
+pdf.addText('Password ');<br>
+pdf.addFormPassword('My Password','test');<br>
+<br>
+pdf.lineBreak();<br>
+pdf.addFormText('My TextBox','Line 1\nLine 2','',120,300);<br>
+<br>
+pdf.lineBreak();<br>
+pdf.addFormRadio('Radio1','group1','Option 1');<br>
+pdf.addFormRadio('Radio2','group1','Option 2');<br>
+pdf.addFormRadio('Radio3','group1','Option 3',true); <br>
+pdf.addFormRadio('Radio4','group1','Option 4');<br>
+<br>
+pdf.lineBreak();<br>
+pdf.addFormRadio('RadioA','group2','Option A',true); <br>
+pdf.addFormRadio('RadioB','group2','Option B');<br>
+<br>
+pdf.lineBreak();<br>
+pdf.lineBreak();<br>
+<br>
+pdf.addFormSubmit('Submit','Receive_Pdf.asp');<br>
+pdf.addFormReset('Reset');<br>
+<br>
+pdf.addFormHidden('My Hide','Hidden Value');<p>
+<span style="font-family: courier; font-size: 12px">pdf.sendToClient();</span><br>
+&nbsp;</div>
+
+
+<a href="Sample_Form.pdf">Show PDF</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="../Receive_Pdf.asp">Show ASP to Receive Form Data
+
+</a>
+
+</blockquote>
+
+</body>
+</html>

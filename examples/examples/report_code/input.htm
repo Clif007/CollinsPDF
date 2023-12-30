@@ -1,0 +1,44 @@
+<head>
+<style>
+
+div
+{
+	background-color:#eeeeee;
+	font-familty:courier;
+	font-size:10pt;
+}
+
+</style>
+<base target="main">
+</head>
+
+<body>
+<span style="Width:250;font-size:10pt">
+Report of Telephone Country Codes<br>
+(2 Reports - 2 Pages)
+</span>
+
+<div>
+<pre>
+
+&lt;group id=type list="Country,Code">
+  &lt;center>Telephone Country Codes&lt;br>By {type}&lt;/center>
+
+  &lt;Report columns=5 columnOrder=true style="font-size:8pt" 
+  SQL="select * from t908_Phone_International_Codes order by {type}">
+  &lt;detail nowrap border=1 cellspacing=0 header="white,black">
+	&lt;Column width=40 align=right>{Code}&lt;/Column>
+	&lt;Column width=*>{Country}&lt;/Column>
+	&lt;HEADER align=right>Code&lt;/HEADER>
+	&lt;HEADER align=center>Country&lt;/HEADER>
+  &lt;/detail>
+  &lt;/Report>
+
+  &lt;if value={type.count} lessthan={type.total}>&lt;pagebreak>&lt;/if>
+&lt;/group>
+
+</pre>
+</div>
+
+</body>
+</html>

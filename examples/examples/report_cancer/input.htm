@@ -1,0 +1,76 @@
+<head>
+<style>
+
+div
+{
+	background-color:#eeeeee;
+	font-familty:courier;
+	font-size:10pt;
+}
+
+</style>
+<base target="main">
+</head>
+
+<body>
+<b>Report Example 3</b><br>
+Macros to sum columns and draw pie chart<br>
+
+<div>
+<pre>
+&lt;pdf margin=1&gt;
+&lt;center&gt;&lt;a href=&quot;http://www.cdc.gov/cancer/npcr/uscs/2005/download_data.htm&quot;&gt;
+&lt;u&gt;&lt;h1&gt;United States Cancer Statistics (USCS)&lt;/h1&gt;&lt;/u&gt;&lt;/a&gt;&lt;/center&gt;
+
+&lt;Report columns=2 cellspacing=10 border=0 style=&quot;font-size:10pt&quot;
+SQL=&quot;select top 20 * from qChildBySite&quot;&gt;
+
+&lt;reportgroup key="{year}">
+  &lt;header>{year}
+    &lt;store id=yearTotal clear value=0>
+    &lt;store id=yearLabel value={year}>
+  &lt;/header>
+  &lt;footer>
+    &lt;Column width=250 align=right>{yearLabel} Grand Total = {yearTotal}&lt;/Column>
+  &lt;/footer>
+&lt;/reportgroup>
+
+&lt;reportgroup key="{race}">
+  &lt;header>{race} Population {comma({population})}
+    &lt;store id=subTotal clear value=0>
+    &lt;store id=apple clear value=0>
+    &lt;assign id=slice value=0>
+  &lt;/header>
+  &lt;footer>
+    &lt;Column width=250 align=right>Sub Total = {subTotal}&lt;/Column>&lt;br>&lt;br>
+	&lt;graphic height=100 width=100 border=0 style="position:relative; top:-200; left:500">
+	Pie 50,50,50,0,Black,1,solid,Black,6,,,{apple.pie};
+	&lt;/graphic>
+  &lt;/footer>
+&lt;/reportgroup>
+
+&lt;detail cellspacing=0 border=1 cellpadding=5 header="white,navy">
+  &lt;Column width=30 align=right bgcolor="{colorByCount({slice})}">{slice}&lt;/Column>
+  &lt;Column width=220>{site}&lt;/Column>
+  &lt;Column width=60 align=right>{comma({events})}&lt;/Column>
+  &lt;Column width=* align=center>{Age-Adjusted_Rate}&lt;/Column>
+
+  &lt;HEADER>&lt;/HEADER>
+  &lt;HEADER align=center>Site&lt;/HEADER>
+  &lt;HEADER align=center>Events&lt;/HEADER>
+  &lt;HEADER align=center>Age Adjust Rate&lt;/HEADER>
+
+  &lt;assign id=slice command=increment>
+  &lt;store id=subTotal command=add value="{events}">
+  &lt;store id=yearTotal command=add value="{events}">
+  &lt;store id=apple command=add value="{events}" Name="{slice}">
+
+&lt;/detail>
+
+&lt;/Report>
+
+</pre>
+</div>
+
+</body>
+</html>

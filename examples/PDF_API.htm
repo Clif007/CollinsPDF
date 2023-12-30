@@ -1,0 +1,302 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>PDF_Objects</title>
+<link  href=PDF.css type=text/css rel=stylesheet>
+<meta name="Microsoft Border" content="none">
+
+<script>
+// ===============================================================
+//                         tabActive
+//================================================================
+function tabActive(newtab)
+{
+	var tab,page;
+	var i,stat;
+
+	i = 0;
+
+	try
+	{
+		while (true)
+		{
+			i = i + 1;
+			tab = document.getElementById('tab' + i);
+			if (tab == null) break;
+
+			page = document.getElementById('page' + i);
+				
+			if (tab == newtab)
+			{
+			  tab.className = "tabactive";
+			  page.className = "pageVisible";
+			  tab.blur();
+			}
+			else
+			{
+			   tab.className = "active";
+			   page.className = "pageHidden";
+			}
+		}
+	}
+	catch (e) { alert(e.message);}
+
+}
+</script>
+
+</head>
+<style>
+body { }
+
+</style>
+
+<body>
+<p>
+PDF internal programming objects can be accessed for direct calls to the methods of the API 
+interface</p>
+
+<blockquote>
+	<p><font face="Courier New" size="3">pdf&nbsp; = Adam('PDF&nbsp; Return 
+	as=Object_PDF');<br>
+	html = Adam('html Return as=Object_HTML');</font></p>
+</blockquote>
+
+<div class="tablive" >
+<font face="Courier New" size="3">
+<!-- ==================================================================
+						Tabs
+======================================================================== -->						
+  </font>						
+  <ul class="tabnav">
+
+	<li id="tab1" class="tabactive" onclick="tabActive(this)">
+	  <A onclick="" nohref style="cursor:hand">HTML</A>
+	</li>
+
+	<li id="tab2" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">PDF</A>
+	</li>
+
+  </ul>
+</div>
+
+<div class=page>
+
+<!-- ****************************************************************
+						HTML
+*********************************************************************-->
+<div id="page1" class="pagevisible" style="WIDTH:100%;HEIGHT: 73%">
+
+<blockquote>
+	<table border="0" width="650" id="table1">
+		<tr>
+			<td width="190">html.<b><font color="#000080">parse</font></b>(data);
+			</td>
+			<td width="397">load html document</td>
+		</tr>
+		<tr>
+			<td width="190">html.<b><font color="#000080">loadFromUrl</font></b>(url)</td>
+			<td width="397">load html document from url</td>
+		</tr>
+		<tr>
+			<td width="190">html.<b><font color="#000080">loadFromFile</font></b>(filename)</td>
+			<td width="397">load html document from file</td>
+		</tr>
+		<tr>
+			<td width="190">&nbsp;</td>
+			<td width="397">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="190">html.<b><font color="#000080">resize</font></b>(width,height);</td>
+			<td width="397">size html document to given dimensions</td>
+		</tr>
+		<tr>
+			<td width="190">html.<b><font color="#000080">writeToPdf</font></b>(pdf);&nbsp;&nbsp;&nbsp;
+			</td>
+			<td width="397">write paganated html to pdf</td>
+		</tr>
+		<tr>
+			<td width="190">html.<b><font color="#000080">writeToPdfFit</font></b>(pdf);&nbsp;&nbsp;&nbsp;
+			</td>
+			<td width="397">expand a PDF page to the extents of the html document</td>
+		</tr>
+		<tr>
+			<td width="190">html.<font color="#000080"><b>writeToCanvas</b></font>(canvas)</td>
+			<td width="397">output HTML document as an Image to an HTML5 Canvas</td>
+		</tr>
+		<tr>
+			<td width="190">&nbsp;</td>
+			<td width="397">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="190">width = html.<b><font color="#000080">width</font></b>();</td>
+			<td width="397">document width (pixels)</td>
+		</tr>
+		<tr>
+			<td width="190">height = html.<b><font color="#000080">height</font></b>();</td>
+			<td width="397">document height (pixels)</td>
+		</tr>
+		<tr>
+			<td width="190">&nbsp;</td>
+			<td width="397">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2">html.<font color="#000080"><b>convertImageCommand</b></font> 
+			= 'http://yoursite/cgi-bin/Collin</a>sImage.cgi?input={href}&amp;format=.jpg';</td>
+		</tr>
+		<tr>
+			<td colspan="2">html.<font color="#000080"><b>imagePath</b></font> = 
+			&quot;./Images/&quot;;</td>
+		</tr>
+	</table>
+</blockquote>
+
+</div>
+<!-- ****************************************************************
+						PDF
+*********************************************************************-->
+<div id="page2" class="pagehidden" style="WIDTH:100%;HEIGHT: 73%">
+
+<p>Saving the PDF File </p>
+<blockquote>
+	<p>contents = pdf.<font color="#000080"><b>toString</b></font>();<br>
+	contents = pdf.<b><font color="#000080">toHex64</font></b>();<br>
+	<font size="2">window.location.href </font>
+	= pdf.<b><font color="#000080">toUrlData</font></b>()&nbsp; // hex64 encoded 
+	(CHROME)</p>
+	<p>pdf.<b><font color="#000080">writeToFile</font></b>(filename)<br>pdf.<b><font color="#000080">sendToClient</font></b>()
+	<br>pdf.<b><font color="#000080">sendToServer</font></b>(filename)<br>pdf.<b><font color="#000080">downloadToClient</font></b>(filename)</p>
+</blockquote>
+<p>Setting Margins and Page Size</p>
+<blockquote>
+	<p>pdf.<b><font color="#000080">setMargins</font></b>(left,right,top,bottom)
+
+	<br>
+	pdf.<font color="#000080"><b>setLandscape</b></font>(landscape) true = lanscape, false = portrait<br>
+	pdf.<b><font color="#000080">setPageSize</font></b>(name)&nbsp; name = 
+	&quot;letter&quot;, &quot;legal&quot;, &quot;ledger&quot;, &quot;executive&quot;, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot; or size 
+	in inches &quot;width,height&quot;</p>
+
+</blockquote>
+<p>Font and Graphic Characteristics</p>
+<blockquote>
+	<p>pdf.<b><font color="#000080">setFont</font></b>([color] [,size] [,bold] [,italic] [,underline] [,name] 
+	[,subscript] [,superscript] ) <br>pdf.<b><font color="#000080">setFontRender</font></b>(name)<br>pdf.<b><font color="#000080">setFontSkew</font></b>(angle)<br>pdf.<b><font color="#000080">setFontScale</font></b>(xscale,yscale)<br>pdf.<b><font color="#000080">setLetterSpacing</font></b>(points)<br>pdf.<b><font color="#000080">setWordSpacing</font></b>(points)<br>
+	<br>pdf.<b><font color="#000080">setGraphic</font></b>([lineColor] [,lineWeight] [,fillColor])<br>pdf.<b><font color="#000080">setGraphicColor</font></b>(color)<br>pdf.<b><font color="#000080">setGraphicLineWeight</font></b>(weight)<br>pdf.<b><font color="#000080">setGraphicFillColor</font></b>(color)<br>pdf.<b><font color="#000080">setGraphicGrayscale</font></b>(value)&nbsp; 0.0 
+	to 1.0<br>pdf.<b><font color="#000080">setGraphicLineStyle</font></b>(style)&nbsp; 
+	&quot;solid&quot;, &quot;dot&quot;, &quot;dash&quot;, or a pdf pattern &quot;[1,2] 3&quot;</p>
+</blockquote>
+<p>Lines and Page Breaks</p>
+<blockquote>
+	<p>pdf.<b><font color="#000080">lineBreak</font></b>()
+	<br>pdf.<b><font color="#000080">pageBreak</font></b>()
+
+
+
+</p>
+</blockquote>
+<p>Adding Text</p>
+<blockquote>
+	<p>pdf.<b><font color="#000080">addText</font></b>(text [,url])<br>pdf.<b><font color="#000080">leftText</font></b>(text [,url])<br>pdf.<b><font color="#000080">centerText</font></b>(text [,url])<br>pdf.<b><font color="#000080">rightText</font></b>(text [,url])<br>pdf.<b><font color="#000080">placeText</font></b>(x,y,text [,url])
+	<br>pdf.<font color="#000080"><b>place</b></font><b><font color="#000080">TextBox</font></b>(x,y,height,width,text,just,vjust,shape,dropx,dropy)<br>
+	pdf.<b><font color="#000080">addTextBox</font></b>(height,width,text,just,vjust,shape,dropx,dropy)</p>
+</blockquote>
+<p>Adding Graphic  </p>
+<blockquote>
+	<p>pdf.<b><font color="#000080">drawLine</font></b>(x1,y1,x2,y2)
+	<br>pdf.<b><font color="#000080">drawLinestring</font></b>(points)
+	<br>pdf.<b><font color="#000080">drawRectangle</font></b>(x1,y1,x2,y2)
+	<br>pdf.<b><font color="#000080">drawArc</font></b>(cx,cy,radius,start,sweep)<br>pdf.<b><font color="#000080">drawCone</font></b>(cx,cy,radius,start,sweep)<br>pdf.<b><font color="#000080">drawPie</font></b>(cx,cy,radius,start,slices)<br>pdf.<b><font color="#000080">drawNumberline</font></b>(g)<br>pdf.<b><font color="#000080">drawCircle</font></b>(cx,cy,radius)<br>pdf.<b><font color="#000080">drawMarker</font></b>(x,y,name,size)<br>pdf.<b><font color="#000080">drawSymbol</font></b>(x,y,char,angle)<br>pdf.<b><font color="#000080">drawGrid</font></b>(x1,y1,x2,y2,rows,cols,absolute)<br>
+	<br>pdf.<b><font color="#000080">addGraphic</font></b>(data,height,width,angle,lineColor,lineWeight,bgColor,grayscale,clip,range)</p>
+</blockquote>
+<p>Adding Images (jpeg and u3d)</p>
+<blockquote>
+	<p>pdf.<b><font color="#000080">addImage</font></b>(filename [,height] [,width] [,angle])
+	<br>pdf.<b><font color="#000080">placeImage</font></b>(x,y,filename [,height] [,width] [,angle])
+	</p>
+	<p>pdf.<font color="#000080"><b>hexEncodeImages</b></font> = true&nbsp; | 
+	false</p>
+	<p>Image file extensions: (use the supplied ImageConvert.exe utility)</p>
+	<ul>
+		<li>.<b><font color="#000080">jpg</font></b>&nbsp; binary jpeg file</li>
+		<li>.<font color="#000080"><b>jpgx</b></font>&nbsp; HEX encoded jpeg 
+		file&nbsp; </li>
+		<li>.<b><font color="#000080">jpg8</font></b> ASCII 85 encoded jpeg file</li>
+		<li>.<b><font color="#000080">u3d</font></b> binary 3D image</li>
+		<li>.<font color="#000080"><b>u3dx</b></font> hex encoded 3D image</li>
+		<li>.<font color="#000080"><b>u3d8</b></font> ASCII 85 encoded 3D image</li>
+	</ul>
+	<p>Encoded file's filename format::&nbsp; any-name_<b>W</b>nnn<b>H</b>nnn<b>S</b>nnn.jpgx 
+	or .jpg8</p>
+	<ul>
+		<li><font color="#000080"><b>W</b></font>nnn = File's Image Width in 
+		Pixels </li>
+		<li><font color="#000080"><b>H</b></font>nnn = File's Image Height in 
+		Pixels</li>
+		<li><font color="#000080"><b>S</b></font>nnn = Encoded File Size in 
+		Bytes</li>
+	</ul>
+	<p>example: </p>
+	<ul>
+		<li>North_Arrow.jpg (size 234 bytes)</li>
+		<li>North_Arrow_w32h64s323.jpg8</li>
+		<li>North_Arrow_w32h64s469.jpgx</li>
+	</ul>
+</blockquote>
+<p>Bookmarks</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pdf.<b><font color="#000080">addOutline</font></b>(parent,title,ypos)</p>
+<p>Report Generation</p>
+<blockquote>
+	<p>pdf.<font color="#000080"><b>r</b></font><b><font color="#000080">eportCreateGroup</font></b>(headerLines,footerLines,onGroupHeader,onGroupFooter,onBeforePagebreak,onAfterPagebreak,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; keepTogether,skipIfBlank,pagebreakBefore,pageBreakAfter)</p>
+	<p>pdf.<b><font color="#000080">reportAddHeader</font></b>(values-list 
+	[,url-list]) <br>
+	pdf.<b><font color="#000080">reportAddDetail</font></b>(values-list 
+	[,group-key-list] [,url-list]) <br>
+	pdf.<b><font color="#000080">reportAddText</font></b>(tabbed-text) <br>pdf.<b><font color="#000080">reportColumns</font></b>(columns-spec 
+	[,left-margin-inches] [,border-width-pixels])</p>
+	<blockquote>
+		<p><b>columns-spec</b>: &quot;column<sub>1</sub>,column<sub>2</sub>,...column<sub>n</sub>"</p>
+		<blockquote>
+			<p><b>column</b>: alignment size overflow<br>&nbsp;&nbsp;&nbsp; 
+			<font color="#0000FF">alignment</font>: L = left (default), C = center, 
+		R = right<br>&nbsp;&nbsp;&nbsp; <font color="#0000FF">size</font>: width of column in inches<br>&nbsp;&nbsp;&nbsp; 
+			<font color="#0000FF">overflow</font>: T = truncate 
+		(default), W = wrap, D = Truncate with dots...</p>
+		</blockquote>
+		<p><b>example</b>: pdf.reportColumns(&quot;3W,2&quot;,1);<br>
+		1 inch left margin 2 columns, first 3 inch column wraps text, second 2 
+		inch column truncates text</p>
+	</blockquote>
+</blockquote>
+<p>Using Report Columns to return lines to determine if a page-break will occur, 
+(i.e. lines.length = max number of lines in the report detail)</p>
+<blockquote>
+	<p>lines = pdf.<b><font color="#000080">reportSplit</font></b>(text)
+
+	
+
+	</p>
+</blockquote>
+<p><a name=form>&nbsp;</a>PDF Form Components </p>
+<blockquote>
+	<p>field = pdf.<b><font color="#000080">addFormButton</font></b>(caption,onclick,height,width)<br>field = pdf.<b><font color="#000080">addFormImage</font></b>(caption,src,height,width)<br>field = pdf.<b><font color="#000080">addFormRadio</font></b>(name,group,caption,checked,onclick)<br>field = pdf.<b><font color="#000080">addFormCheckbox</font></b>(name,caption,checked,onclick)<br>field = pdf.<b><font color="#000080">addFormSubmit</font></b>(caption,url,height,width)<br>field = pdf.<b><font color="#000080">addFormReset</font></b>(caption,height,width)<br>field = pdf.<b><font color="#000080">addFormText</font></b>(name,value,onchange,height,width)<br>field = pdf.<b><font color="#000080">addFormPassword</font></b>(name,value,onchange,height,width)<br>field = pdf.<b><font color="#000080">addFormFile</font></b>(name,value,onchange,height,width)<br>field = pdf.<b><font color="#000080">addFormSelect</font></b>(name,options,selected,onchange,height,width)<br>field = pdf.<b><font color="#000080">addFormListbox</font></b>(name,options,selected,onchange,height,width)</p>
+	<p>field = pdf.<b><font color="#000080">placeFormButton</font></b>(x,y,caption,onclick,height,width)<br>field = pdf.<font color="#000080"><b>place</b></font><b><font color="#000080">FormImage</font></b>(x,y,caption,src,height,width)<br>field = pdf.<b><font color="#000080">placeFormRadio</font></b>(x,y,name,group,caption,checked,onclick)<br>field = pdf.<b><font color="#000080">placeFormCheckbox</font></b>(x,y,name,caption,checked,onclick)<br>field = pdf.<b><font color="#000080">placeFormSubmit</font></b>(x,y,caption,url,height,width)<br>field = pdf.<b><font color="#000080">placeFormReset</font></b>(x,y,caption,height,width)<br>field = pdf.<b><font color="#000080">placeFormText</font></b>(x,y,name,value,onchange,height,width)
+	<br>field = pdf.<b><font color="#000080">placeFormPassword</font></b>(x,y,name,value,onchange,height,width)<br>field = pdf.<b><font color="#000080">placeFormFile</font></b>(x,y,name,value,onchange,height,width)<br>field = pdf.<b><font color="#000080">placeFormSelect</font></b>(x,y,name,options,selected,onchange,height,width)<br>field = pdf.<b><font color="#000080">placeFormListbox</font></b>(x,y,name,options,selected,onchange,height,width)</p>
+	<p>field = pdf.<b><font color="#000080">addFormHidden</font></b>(name,value)</p>
+	<p>field.readonly&nbsp; = false<br>field.required&nbsp; = false<br>field.noExport = false<br>
+	<br>field.onKeyDown = &quot;script...&quot;<br>field.onKeyUp = &quot;script...&quot;<br>field.onEnter = &quot;script...&quot;<br>field.onExit = &quot;script...&quot;<br>field.onMouseUp = &quot;script...&quot;<br>field.onMouseDown = &quot;script...&quot;<br>field.onFocus = &quot;script...&quot;<br>field.onBlur = &quot;script...&quot;</p>
+</blockquote>
+<p>PDF Events to execute JavaScript</p>
+<blockquote>
+	<p>pdf.<b><font color="#000080">onPageOpen</font></b>(javascript)<br>pdf.<b><font color="#000080">onPageClose</font></b>(javascript)<br>
+	<br>pdf.<b><font color="#000080">onDocumentOpen</font></b>(javascript)<br>
+	<br>pdf.<b><font color="#000080">onWillClose</font></b>(javascript)<br>pdf.<b><font color="#000080">onWillSave</font></b>(javascript)<br>pdf.<b><font color="#000080">onDidSave</font></b>(javascript)<br>pdf.<b><font color="#000080">onWillPrint</font></b>(javascript)<br>pdf.<b><font color="#000080">onDidPrint</font></b>(javascript)</p>
+</blockquote>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>200 page sample</title>
+<script src="CollinsPDF.js"></script>
+<script src="textarea.js"></script>
+
+<script>
+"use strict";
+//==========================================================================
+//				fileToString
+//==========================================================================
+function fileToString(file) 
+{
+	var http, url, text;
+
+	http = null;
+	try { http = new XMLHttpRequest(); } catch (e) { }
+	if (!http) try { http = window.createRequest(); } catch (e) { }
+
+try
+{
+	http.open('get', file, false);
+	http.send();
+
+	if (http.status != 200) return '';
+	return http.responseText;
+}
+catch (e) { return ""; }
+}
+//================================================================================
+//				onKeydown
+//================================================================================
+function onKeydown(e)
+{
+	var a, b, c, key, ele;
+
+	key = e.which || e.keyCode;
+
+	if (key == 9) {
+		ele = e.target || e.srcElement;
+		e.preventDefault();
+
+		ele = e.srcElement || e.target;
+		a = ele.value.substr(0, ele.selectionStart);
+		b = ele.value.substr(ele.selectionEnd);
+		c = ele.selectionStart + 1;
+
+		ele.value = a + '\t' + b;
+		ele.selectionStart = c;
+		ele.selectionEnd = c;
+		return false;
+	}
+}
+//=====================================================================
+//			resize
+//=====================================================================
+function resize() 
+{
+	var height, width, dy, h, w, elements, element,key;
+
+	if (typeof (myEdit) == 'undefined') return;
+
+	height = window.innerHeight || document.body.clientHeight;
+	width = window.innerWidth || document.body.clientWidth;
+
+	h = height - 60;
+	w = width;
+
+	elements = myGetByElementsClassName('edit');
+	for (key in elements)
+	{
+		element = elements[key];
+
+		if (typeof (element) != 'object') continue;
+		element.style.height = h + 'px';
+		element.style.width = w + 'px';
+		if (element.resize) element.resize(w, h);
+	}
+}
+//=====================================================================
+//			myGetByElementsClassName
+//=====================================================================
+function myGetByElementsClassName(name) {
+	var i, list, element, all;
+
+	if (document.getElementsByClassName) return document.getElementsByClassName(name);
+
+	list = new Array();
+
+	all = document.body.getElementsByTagName("*");
+
+	for (i = 0; i < all.length; ++i) {
+		element = all[i];
+		if (element.className == name) list[list.length] = element;
+	}
+
+	return list;
+}
+//=======================================================================================
+//			run
+//=======================================================================================
+function run()
+{
+	var script;
+	script = myEdit.getValue();
+try
+{
+	eval(script);
+}
+catch (e) { alert(e.message) }
+
+}
+//=======================================================================================
+//			init
+//=======================================================================================
+function init()
+{
+	var list,key,ele;
+
+	window.myEdit = new textarea$(source_code);
+	
+	list = document.getElementsByTagName('textarea');
+
+	for (key in list) {
+		ele = list[key];
+		if (typeof (ele) != 'object') continue;
+		ele.wrap = 'off';
+		ele.onkeydown = onKeydown;
+		ele.autocomplete = false;
+		ele.autocorrect = false;
+		ele.autocapitalize = false;
+		ele.spellcheck = false;
+		ele.style.resize = false;
+		ele.style.padding = "6px";
+	}
+
+	resize();
+
+	myEdit.setValue(fileToString('pdf_api_sample1.js'));
+
+}
+</script>
+</head>
+<body onload="init()" style="height:100%;overflow:hidden;margin:0px;padding:0px;">
+<button onclick="run()">Make PDF (100% client)</button>&nbsp;&nbsp;&nbsp;&nbsp;<b> <b> 
+EDIT the script to make changes</b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="./">CollinsPDF</a>
+<div class="edit" id="source_code" style="width:100%"></div>
+
+<table id="myFooter" style="width:100%;overflow:hidden;height:40px;text-align:center;background-color:navy;color:white">
+	<tr>
+		<td id="myFooterMessage" style="width:300px">&nbsp;</td>
+		<td>
+			<i>Copyright © 2024 <a href="http://CollinsSoftware.com" target="_top" style="color:white">Collins Software</a></i>
+		</td>
+		<td style="width:300px;"></td>
+	</tr>
+</table>
+
+</body></html>

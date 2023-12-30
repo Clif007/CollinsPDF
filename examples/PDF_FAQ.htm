@@ -1,0 +1,246 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>FAQ</title>
+<link  href=../../CollinsSoftware.css type=text/css rel=stylesheet>
+<link  href=PDF.css type=text/css rel=stylesheet>
+
+</head>
+
+<body>
+<table width=100%>
+<tr>
+<td width=150px>&nbsp;</td>
+<td>
+
+<div class=page>
+
+<b><font size="2">What is the Pixels size of a PDF Page?</font></b><font size="2">&nbsp;
+</font>
+<div class=faq>
+A standard PDF page is defined as a portrait Letter Document of 8.5" by 11", I have defined 110 Pixels per inch as the resolution of the PDF document, therefore: 8.5 * 110 = 935 Width by 11 * 110 = 1210 Height. (Standard Page = 935 Pixels by 1210 pixels).<br>
+<br>
+Note: the 110 Pixels per inch was selected as a best match to the screen resolution. This is a very arbutary number, since screens come in a varity of pixels per inch resoltions. The internal units of the PDF document are <i>Points</i> (72 units per inch), so I selected a resolution that better matched what the browser displayed to the paper output.<br>
+<br>
+Also NOTE: unlike the Screen resolution, the PDF resolution is real numbers, therefore you can specify factional units, for example a font-size=4.5px is valid
+</div>
+
+<b><font size="2">What is the difference between the Client and Server versions of PDF?</font></b><font size="2">
+</font>
+<div class=faq>
+The server version uses ActiveX ADO Stream and the FileSystemObject to perform 
+disk I/O. The client version will only read files from the server using the XmlHttp 
+browser function. 
+The client version has no security restrictions and can be ran from all levels 
+of security on the client. You should never use the client version on the server, 
+it just does not have the I/O capabilities needed. You can use the server version on the client if you lower the browser's security to allow activeX 
+to run</div>
+
+<b><font size="2">How do I create a 3D image?</font></b><font size="2"> </font>
+<div class=faq>
+You can use Google's 
+<a target="_blank" href="http://sketchup.google.com/download/">Sketch-up</a> to 
+create the 3D image and then Save-AS&nbsp; to a .DAE 3D image format, then using 
+the <a target="_blank" href="http://meshlab.sourceforge.net/">MeshLab</a> program  
+import the .DAE file and then immediately export the file as a .U3D. The 
+.U3D file goes into the PDF document as a dynamic 3D image &lt;IMG SRC=&quot;sample.u3d&quot;&gt; 
+(all free). The 3D .DAE (COLLADA) format is an XML ascii text file, I was able 
+to generate my <a href="Sample_3d_Network.pdf">3D network model</a> into this 
+format, then used MeshLab to create the U3D form
+click <a href="Sample_DAE_maker.htm">HERE</a> to see my (crude) 3D 
+network model builder<br>
+</div>
+
+<b><font size="2">Can I Use True-Type FONTS in the PDF?</font></b><font size="2">
+</font>
+<div class=faq>
+You can use True-Type Fonts by 
+converting them to TYPE 1 Postscript fonts. I tried the program <i>FontXChange</i> by Fontgear 
+(http://www.fontgear.net/fontxchange.html) and this seemed to have worked. Make sure 
+you read the License on the font files before you include them in a PDF document, there are 
+generally license restrictions 
+on the use of fonts by their owners. </div>
+
+<b><font size="2">How do I add a captured signature to the PDF?</font></b><font size="2">
+</font>
+<div class=faq>
+<div class=code>
+<pre>
+htmlData += '&lt;center>&lt;img src="Canvas:myCanvas" height=200>&lt;/center>';
+window.location.href = CollinsPDF('return as=DataURL',htmlData);	
+</pre>
+</div>
+You can draw on a HTML5 canvas and convert the canvas directly to the PDF in an &lt;IMG SRC="CANVAS:element-id"&gt;.
+<br>
+Click <a href="SampleCanvas.htm">HERE</a> to open A 100% Client side example to draw on canvas using mouse, and converting the canvas to PDF
+<br>
+<i>Use: Chrome, IE9, Safari, Opera</i>
+...
+</div>
+<font size="2">
+<!-- ================================================================== -->
+<br>
+<b>How do I add a Google Map to the PDF?</b>
+</font>
+<div class=faq>
+<div class=code>
+<pre>
+	var url = "";
+	url += "http://maps.google.com/maps/api/staticmap?";
+	url += "center=Brooklyn+Bridge,New+York,NY&quot;;
+	url += &quot;&zoom=14";
+	url += "&size=512x512&quot;;
+	url += &quot;&amp;maptype=roadmap";
+	url += "&markers=color:blue|label:S|40.702147,-74.015794";
+	url += "&markers=color:green|label:G|40.711614,-74.012318";
+	url += "&markers=color:red|color:red|label:C|40.718217,-73.998284";
+	url += "&sensor=false&quot;;
+	url += &quot;&key=your-key-code";
+	url += "&format=jpg";
+
+<b>Server Side: </b>
+	
+	htmlData = "&lt;center&gt;&lt;img src='" + url + "'>&lt;/center&gt;";
+	CollinsPDF('',htmlData);
+
+<b>Client Side:</b>
+	window.image = document.createElement('img');
+	window.image.src = url;
+	window.image.onload = onLoadImage_openAsPdf;
+</pre><pre>
+	function onLoadImage_openAsPdf()
+	{
+	  htmlData = '&lt;center&gt;&lt;img src=&quot;{defer:window.image.toData()}&quot;&gt;&lt;/center&gt;';
+	  window.location.href = CollinsPDF('return as=DataURL',htmlData);
+	}
+</pre>
+</div>
+</div>
+
+<font size="2">
+
+<!-- ------------------------------------------------------------------------- --><b><br>
+The HTML does not page break, why?</b>
+</font>
+<div class=faq>
+You must put in page break tags as needed. Example: "Hello&lt;Pagebreak>World"<br><br>
+HTML does not have natural page breaks; it is designed as a single page document, as such there are no absolute page boundaries and far too many cases where a page break is impossible to be determined. I could page break like an image where text would be split across page boundaries, I decided this has no real use. It is best for the designer 
+to determine where in the HTML to place page breaks. 
+<br>
+
+<br>
+There are a few methods in the HTML format to page break based on value:
+<ul>
+	<li>&lt;IF> conditionals within the HMTL to page break at a natural boundary such as between tables</li><li>&lt;GROUP> html-statement &lt;/GROUP></li><li>&lt;REPORT> html-report-statements &lt;/REPORT> </li>
+</ul>
+</div>
+
+<font size="2">
+
+<!-- ------------------------------------------------------------------------- -->
+<b>
+Can I use PDF with ASP.NET?</b>
+</font>
+<div class=faq>
+No... You cannot mix languages in the Code Behind if you are using C# or 
+VBScript<br>
+Maybe... I am looking into using JSCRIPT, this requires some syntax / logic 
+changes from javascript to jscript 
+<br>
+Yes... You can use WScript.exe BATCH Command from the Code Behind to create a PDF document<br>
+Yes... Write the html Data to be converted to Disk and use a Response.Redirect(&quot;./pdf.asp?command=send%20to%20client&amp;filename=html.data&quot;) 
+to an ASP file<br>
+<br>
+</div>
+
+<font size="2">
+
+<!-- ------------------------------------------------------------------------- --><b>Can I use PDF as a BATCH command?</b>
+</font>
+<div class=faq>
+<div class=code>
+<pre>
+//--- Add Lines Here to Execute -----
+
+CollinsPDF('write filename=C:/Temp/HelloWorld.pdf',"&lt;B&gt;Hello World&lt;/B&gt;");
+<font color=navy>
+//===================================================================================
+//					PDF_Server.js
+//	Author: Clif Collins					Date: Feb 2013
+//-------------------------------------------------------------------------------------
+//
+//			Terms of Use Agreement
+//
+...</font>
+</pre></div>Yes... Copy and rename the <i>Collins_PDF_Server.js</i> to <i>mySample.js</i> add the JavaScript lines to the top of the 
+file that you want to execute. Using Windows Explorer 
+double Click on the file <i>mySample.js</i> or use WScript.exe Batch Command on the file. </div>
+
+
+<font size="2">
+
+
+<!-- ------------------------------------------------------------------------- --><b>How do I create a pure client side application?</b>
+</font>
+<div class=faq>
+Creating the content of the PDF document on the client is straight forward, getting the browser to load the contents as a PDF document is 
+not. The problem is; how to change the MIME type inside the browser from <i>HTML</i> to 
+<i>PDF</i>? Chrome, Opera, IE9, Safari browsers have this capability, for the other browsers you have 
+to find a way to open a window with the content of the PDF in memory<br>
+<div class=code>
+<pre>
+window.location.href = CollinsPDF('return as=DataURL','Hello World');
+</pre></div>This example works on Chrome, IE9, Safari, Opera, and a few others. The problem is how to open the contents as a 
+PDF file, some solutions for other browsers are:
+<ol>
+<li>Send the PDF contents to a server to be echoed back as a PDF document
+(this always works)<br>On IPhone / Android / Blackberry / Tablets you will have to setup a server App on the device to echo the PDF document</li><li>Save to Local Storage, and then open the file as a PDF document (writing to 
+local storage can be difficult to impossible)
+</li>
+</ol>
+
+</div>
+
+
+<font size="2">
+
+
+<!-- ------------------------------------------------------------------------- -->
+<b>I need an example of using Type1 fonts:</b>
+</font>
+<div class=faq>
+<div class=code>
+<pre>
+htmlData = '&lt;font face="Gothic.pfb,CP1250">Clif Collins&lt;/font>';
+CollinsPDF('',htmlData);</pre></div>This example sets to the Type 1 font <i>C:/temp/fonts/Gothic.pfb</i>, and uses 
+	the CP1250 character encoding scheme<br><br>
+</div>
+
+<PDF margin=1>
+<p><b><font size="2">How do I set a page break?</font></b><font size="2"><br>
+</font>
+</p>
+<div class=faq>
+<div class=code>
+	CollinsPDF('',"Hello&lt;PageBreak>World&quot;);
+</div>
+
+
+</div>
+</div>
+
+<font size="2">
+
+</div>
+
+</div>
+
+</font>
+
+</td>
+<td width=150px>&nbsp;</td>
+</tr>
+</table> 
+
+</body></html>

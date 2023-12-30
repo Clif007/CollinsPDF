@@ -1,0 +1,67 @@
+<html>
+ 
+<head> 
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>HTML Report Order</title>
+<link  href=PDF.css type=text/css rel=stylesheet>
+</head>
+
+<body>
+
+<p align="center">Report Layout in Multiple Columns</p>
+<p>Reporting in multiple columns requires an explanation of Groups, Group 
+Headers / Footers, Detail Headers / Footers, output by Row or Column, the number 
+of rows in a column, and how they contribute to the layout of a report.</p>
+<p>The width of Group Headers / Footers are determined by: </p>
+<blockquote>
+	<table border="0" width="478" id="table1">
+		<tr>
+			<td width="152">ColumnOrder=True </td>
+			<td>width = Column Width</td>
+		</tr>
+		<tr>
+			<td width="152">ColumnOrder=False</td>
+			<td>width = Page Width</td>
+		</tr>
+		<tr>
+			<td width="152">RowsPerColumn=n | *</td>
+			<td>width = Page Width, independent of columnOrder</td>
+		</tr>
+	</table>
+</blockquote>
+Group Headers are placed at:<blockquote>
+	<p>Start of each Group<br>
+	Start of each Page</p>
+</blockquote>
+Group Footers are placed at:<blockquote>
+	<p>End of each Group<br>
+	End of each Page&nbsp; </p>
+</blockquote>
+<p>Detail Headers are placed:</p>
+<blockquote>
+	<p>Before first detail in a Group<br>
+	Top of every Column</p>
+</blockquote>
+<p>RowsPerColumn affect the cell height as follows::</p>
+<blockquote>
+	<table border="0" width="443" id="table2">
+		<tr>
+			<td width="115" valign="top">ColumnOrder=true</td>
+			<td>cell height = largest cell height in a row, or value of 
+			CellHeight</td>
+		</tr>
+		<tr>
+			<td width="115" valign="top">ColumnOrder=false</td>
+			<td>variable cell height, value of CellHeight, or largest cell in a 
+			row if RowHeight=*</td>
+		</tr>
+	</table>
+</blockquote>
+<p>if the RowsPerColumn qualifier is specified then a single group of records make up the 
+content of all cells in a grid. A scan of the input table is performed, if 1 or more REPORTGROUPs are defined for the report, to determine the number of records in 
+each group. The records are then placed into the grid is Column or Row order 
+depending on the value of the ColumnOrder qualifier.<br>
+&nbsp;</p>
+
+</body></html>

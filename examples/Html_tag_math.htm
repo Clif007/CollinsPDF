@@ -1,0 +1,368 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CollinsPDF Math Tags</title>
+<meta name="Description" content="Adding Math expresions from HTML to PDF Documents"> 
+<link  href=PDF.css type=text/css rel=stylesheet>
+</head>
+  
+<body class=clearbody>
+
+<center>
+<div>
+<div style="width:700" align=left>
+
+	Example:
+<font FACE="Arial" size="3" color="#000080">&nbsp;x = &lt;divide&gt; - b|+-| &lt;root&gt; 
+b|^2| - 4ac &lt;/root&gt;&lt;by&gt; 2a &lt;/divide&gt;&nbsp; </font><p align="left">
+	<img border="0" src="images/quad.gif" width="129" height="60"><p>
+	Math tags are identical to a &lt;SPAN&gt;...&lt;/SPAN&gt; where any included html is 
+	treated as the content of the operation, this allows 1 image to be divided 
+	by another, raise X to the power of a Matrix and so on... also all styles 
+	that apply to a span also apply to the math tags, this includes padding, 
+	margins, background-images, background-color, borders and font 
+	characteristics. A set of character macros (i.e. |+-|) help with the entry 
+	of <a target="_blank" href="CollinsPdf_Characters.pdf">Math symbols</a> and 
+	simple functions (i.e. fractions as |f1/2| )<br>
+		<b><br>
+	&lt;MATH&gt;</b>... MathML statements ...
+		<b>&lt;/MATH&gt; </b>&nbsp; Include 
+	MathML statements <br>
+<b><a target="_blank" href="examples/math/example.htm">Example</a></b> <br>
+The MathML 
+statements are converted to my math tags (shown in blue in the example) and 
+these are then used to generate the PDF document. I have just started work on 
+this,</font>
+
+</div>
+
+<table border="1" width=700 id="table27" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="224" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="224" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		</table>
+		
+		<font FACE="CMTT10" SIZE="2">
+		</font>
+		<font face="Arial">
+	<br>
+		<b>&lt;LATEX&gt;</b>... LaTeX statements ...<b> &lt;/LATEX&gt; </b>Include 
+	<a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX</a> Math equations (not 
+		released) <br>
+	This is being included to standardize the spelling of math symbology<table border="1" width=700 id="table36" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="224" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="224" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="224" height="23">sample statements</td>
+			<td height="23">
+		
+		\begin{equation}<br>
+		\Re{x} =\frac{n\pi \dfrac{\theta +\psi}{2}}{<br>
+		\left(\dfrac{\theta +\psi}{2}\right)^2 + \left( \dfrac{1}{2}<br>
+		\log \left\lvert\dfrac{B}{A}\right\rvert\right)^2}.<br>
+		\end{equation}</font></td>
+		</tr>
+		</table>
+		<p>
+		<b>&lt;DIVIDE&gt;&nbsp; ... &lt;BY&gt; ... &lt;/DIVIDE&gt;</b>&nbsp; Math division</font><table border="1" width=700 id="table28" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="226" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="226" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="226">LineColor=COLOR</font></td>
+			<td>Division Line Color</font></td>
+		</tr>
+		<tr>
+			<td width="226">LineWeight=n</font></td>
+			<td>Division Line Weight</font></td>
+		</tr>
+	</table>
+	<p><b>&lt;ROOT&gt; .... &lt;POWER&gt; ... &lt;/ROOT&gt;</b> Math 
+	Root, Square Root if no &lt;power&gt; Tag provided </font>
+	<table border="1" width=700 id="table29" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="227" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="227" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		</table>
+	<p><b>&lt;RAISE&gt; .... &lt;POWER&gt; ... &lt;/RAISE&gt;</b> Math 
+	Raise value to a power. useful for complex exponents </font>
+	<table border="1" width=700 id="table30" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="228" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="228" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		</table>
+	<p><b>&lt;QUANTITY&gt; ....&nbsp; &lt;/QUANTITY&gt;</b> Math 
+	Quantity of a value </font>
+	<table border="1" width=700 id="table31" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="229" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="229" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Type=name</font></td>
+			<td height="23">Bracket = [], Set = {}, 
+			Quantity = (), Absolute= | |</font></td>
+		</tr>
+		</table>
+	<p><b>&lt;INTEGRAL&gt; .... &lt;MIN&gt; ...&lt;MAX&gt;... &lt;/ROOT&gt;</b> 
+	Math Integral, supply Min and Max for upper and lower bounds </font>
+	<table border="1" width=700 id="table32" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="229" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="229" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		</table>
+	<p><b>&lt;SUMMATION&gt; .... &lt;RANGE&gt; ... &lt;/SUMMATION&gt;</b> 
+	Math Summation, </font>
+	<table border="1" width=700 id="table33" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="229" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="229" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		</table>
+	
+	<p><b>&lt;MATRIX&gt; .... &lt;/MATRIX&gt;</b> 
+	Math Matrix <a href="examples/math_matrix/example.htm">Example</a></font><table border="1" width=700 id="table34" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="229" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="229" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Identity=true | false</td>
+			<td height="23">Initialize Matrix as an Identity</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Empty=value</td>
+			<td height="23">Fill any empty cell with specified value</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Rows=n</td>
+			<td height="23">Number of Rows In Matrix</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Cols=n</td>
+			<td height="23">Number of Columns in Matrix</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">CellHeight=n</td>
+			<td height="23">Cell Height, if not given the largest cell height is 
+			used by all cells</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">CellWidth=n</td>
+			<td height="23">Cell Width, if not given the largest cell width is 
+			used by all cells </td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Clip= true | false</td>
+			<td height="23">Clip contents of each cell (CellHeight and CellWidth 
+			values are required)</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">type=bracket | set | absolute</td>
+			<td height="23">Type of Left / Right Terminators Default = Absolute</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Cellspacing</td>
+			<td height="23">Distance between cells (default = 2)</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Align = Left | Center | Right</td>
+			<td height="23">Cell Alignment</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Color=color-name</td>
+			<td height="23">Font Color</td>
+		</tr>
+		</table>
+	
+	<b><br>
+		&lt;CELL&gt; .... &lt;/CELL&gt;</b> 
+	Math MATRIX cell contents</font><table border="1" width=700 id="table35" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="229" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			<font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="229" height="23">ID=NAME</font></td>
+			<td height="23">Tag identifier</font></td>
+		</tr>
+		<tr>
+			<td width="236">Style=&quot;...&quot;</td>
+			<td>Style</td>
+		</tr>
+		<tr>
+			<td width="236">Class=class-name</td>
+			<td>Class Name</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Row=&quot;row-list&quot;</td>
+			<td height="23">List of Rows Cell occupies</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Col=&quot;col-list&quot;</td>
+			<td height="23">List of Columns Cell occupies</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Value=&quot;value-list&quot;</td>
+			<td height="23">List of Values </td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Empty</td>
+			<td height="23">Cell defines All Empty Cells</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Diagonal</td>
+			<td height="23">Fill the diagonal Cells of Range specified by ROW / 
+			COL</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Replace=true | false</td>
+			<td height="23">Replace value if occupied</td>
+		</tr>
+		<tr>
+			<td width="229" height="23">Valign= top | middle | bottom</td>
+			<td height="23">Vertical alignment</td>
+		</tr>
+		</table>
+	
+	</body>
+</div>
+</center> 
+</html>

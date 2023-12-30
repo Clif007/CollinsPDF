@@ -1,0 +1,410 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CollinsPDF Misc Tags</title>
+<meta name="Description" content="A set of extended HTML tags to control HTML to PDF">
+
+<link  href=PDF.css type=text/css rel=stylesheet>
+ </head>
+  
+<body class=clearbody> 
+
+<center>
+<div>
+
+	<p><b>&lt;PAGEBREAK&gt;</b> 
+	Page Break <table border="1" width=700 id="table37" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		</table>
+	<p><b>&lt;TRACE&gt;</b> 
+	Internal Debug Trace Options<table border="1" width=700 id="table36" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>MathML=true | False</b></td>
+			<td >
+			Show MathML to HTML converted statements</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Border=true | false</b></td>
+			<td >
+			Draw Box around every element to determine range</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Errors=true | false</b></td>
+			<td >
+			List error message, example ... &lt;pagebreak&gt; &lt;trace errors&gt;</td>
+		</tr>
+		</table>
+	<p><b>&lt;EVAL&gt;</b> 
+	JavaScript code to create PDF content <b>&lt;/EVAL&gt;</b><table border="1" width=700 id="table40" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr>
+			<td width="237" >
+			<b>
+			Height=pts</b></td>
+			<td >
+			Height of Region (default=100%)</td>
+		</tr>
+		<tr>
+			<td width="237" >
+			<b>
+			Width=pts</b></td>
+			<td >
+			Width of Region (default=100%)</td>
+		</tr>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<p align="left"><b>Border=n</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<p align="left">Border Width (Default = 0)</td>
+		</tr>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<p align="left"><b>Cellpadding=n</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<p align="left">Cell Padding (Default=2)</td>
+		</tr>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<p align="left"><b>BordercolorDark=color</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<p align="left">Dark border color (default = #ACA899)</td>
+		</tr>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<p align="left"><b>BordercolorLight=color</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<p align="left">Light Border Color (Default= #ECE9D8)</td>
+		</tr>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<p align="left"><b>BorderColor=color</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<p align="left">Border Color (all sides)</td>
+		</tr>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<p align="left"><b>Style=&quot;...&quot;</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<p align="left">Element CSS Styles</td>
+		</tr>
+		</table>
+	<p><b>
+	<br>
+	&lt;CALENDAR&gt;...&lt;/CALENDAR&gt;</b> 
+	Create a monthly calendar 
+	<a href="examples/calendar/example.htm">Example</a> 
+	<table border="1" width=700 id="table35" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>
+			Height=pts</b></td>
+			<td >
+			Height of Calendar</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>
+			Width=pts</b></td>
+			<td >
+			Width of Calendar</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>
+			Border=n</b></td>
+			<td >
+			Border Width</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>
+			BorderColor=color</b></td>
+			<td >
+			Border Color</td>
+		</tr>
+	</table>
+	<p> <b>&lt;EVENT&gt;...&lt;/EVENT&gt;</b> 
+	A monthly calendar and timeline event 
+	<table border="1" width=700 id="table38" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Day=1 to 31</b></td>
+			<td >
+			Calendar Day</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>
+			Border=n</b></td>
+			<td >
+			Border Width</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>
+			BorderColor=color</b></td>
+			<td >
+			Border Color</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>StartDate=date</b></td>
+			<td >
+			Timeline Start Date</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Duration</b></td>
+			<td >
+			Timeline Event Duration</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>MarkerColor=color</b></td>
+			<td >
+			Timeline Marker Color</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>MarkerShape=shape</b></td>
+			<td >
+			Timeline Marker Shape </td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>MarkerSize</b>=<b>pixels</b></td>
+			<td >
+			Timeline Marker Size (pixels)</td>
+		</tr>
+	</table>
+
+</div>
+
+	<p> <b>&lt;TIMELINE&gt;...&lt;/TIMELINE&gt;</b> 
+	a timeline indicating events<table border="1" width=700 id="table39" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="237" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Start=date</b></td>
+			<td >
+			Timeline Start Date</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>End=date</b></td>
+			<td >
+			Timeline End Date</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Duration=n</b></td>
+			<td >
+			Timeline Duration (no end date specified)</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>StartDate=date</b></td>
+			<td >
+			Timeline Start Date</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Duration=n</b></td>
+			<td >
+			Timeline Event Duration</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Resolution=name</b></td>
+			<td >
+			Timeline Resolution HOUR | DAY | WEEK | MONTH | YEAR</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Width=size</b></td>
+			<td >
+			Timeline Width</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Height=size</b></td>
+			<td >
+			Timeline Height</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>Border=N</b></td>
+			<td >
+			Timeline Border Size (default=0)</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventMaxLevels=n</b></td>
+			<td >
+			Maximum Levels to stack events (default=3)</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventPlacement=n</b></td>
+			<td >
+			Event Placement</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventHeight=size</b></td>
+			<td >
+			Evert Height</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventWidth=size</b></td>
+			<td >
+			Event Width</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventBorder=N</b></td>
+			<td >
+			Event Border Width</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventAlign=LEFT | CENTER | RIGHT</b></td>
+			<td >
+			Event Alignment</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventLabelShape=name</b></td>
+			<td >
+			Event Timeline Marker Symbol STAR | BOX | TRIANGLE</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventColor=name</b></td>
+			<td >
+			Event Color</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventFontName=name</b></td>
+			<td >
+			Event Font Name</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventFontSize=n</b></td>
+			<td >
+			Event Font Size</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>EventFontColor=name</b></td>
+			<td >
+			Event Font Color</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>LeaderSlant=n</b></td>
+			<td >
+			Slant of Event Leader Line</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>LeaderWidth=n</b></td>
+			<td >
+			Leader Line Width</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>LeaderColor=name</b></td>
+			<td >
+			Leader Line Color</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>LeaderStyle=name</b></td>
+			<td >
+			Leader Line Style SOLID | DOT | DASH</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>LeaderType=LINE | BOX | POINT</b></td>
+			<td >
+			Leader Line Type</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>BaselineWidth=n</b></td>
+			<td >
+			Baseline Width</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>BaselineTics=N</b></td>
+			<td >
+			Baseline Tic marks</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>BaselineLabels=name</b></td>
+			<td >
+			Baseline Labels</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>baselineFontColor=name</b></td>
+			<td >
+			Baseline Font Color</td>
+		</tr>
+		<tr >
+			<td width="237" >
+			<b>BaselineFontSize=N</b></td>
+			<td >
+			Baseline Font size</td>
+		</tr>
+	</table>
+
+</center>
+	
+</body>
+
+</html>

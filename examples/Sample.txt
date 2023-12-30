@@ -1,0 +1,4 @@
+Designed to create large scale web based facility mapping application. If you need a corporate landbase and facility layers in a web application ICMap is the first tool you will need. It is a tool that generates a set of complex tiled images and web related files in a batch project controlled process.  You can reduce your cost of development, and the cost of any dependent database requirements by simply creating all the GIS and Web structures required using ICMap. 
+
+Creates Transparent GIF/PNG files that can be overlaid to produce composite images, creates Hotspots from graphic features (Lines, Polygons, Symbols and Text) for Hyperlinks with hover hints.  The result is a GIS Web site that is composed of static images viewed as an infinite continuous map at multiple scales.
+

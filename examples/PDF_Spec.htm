@@ -1,0 +1,219 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>PDF Specifications</title>
+<link  href=PDF.css type=text/css rel=stylesheet>
+
+</head>
+ 
+<script>
+// ===============================================================
+//                         tabActive
+//================================================================
+function tabActive(newtab)
+{
+	var tab,page;
+	var i,stat;
+
+	i = 0;
+
+	try 
+	{
+		while (true)
+		{
+			i = i + 1;
+			tab = document.getElementById('tab' + i);
+			if (tab == null) break;
+
+			page = document.getElementById('page' + i);
+				
+			if (tab == newtab)
+			{
+			  tab.className = "tabactive";
+			  page.className = "pageVisible";
+			  tab.blur();
+			}
+			else
+			{
+			   tab.className = "active";
+			   page.className = "pageHidden";
+			}
+		}
+	}
+	catch (e) { alert(e.message);}
+
+}
+// ===============================================================
+//                         init
+//================================================================
+function init()
+{
+	var text,i,tab,element;
+	
+	text = document.location.href;
+	i = text.indexOf('?');
+	if (i < 0) 
+	{
+		element =  document.getElementById('tab1');
+		tabActive(element);
+		return;
+	}
+	tab = text.substr(i+1);
+	tab = tab.toUpperCase();
+
+	if (tab == 'PDF') tab = 2;
+	if (tab == 'HTML') tab = 3;
+	if (tab == 'PDFTAG') tab = 4;
+	if (tab == 'MATH') tab = 5;
+	if (tab == 'REPORT') tab = 6;
+	if (tab == 'GRAPHIC') tab = 7;
+	if (tab == 'MACRO') tab = 8;
+	if (tab == 'MISC') tab = 9;
+	if (tab == 'OBJECTS') tab = 10;
+
+	element = document.getElementById('tab' + tab);
+	if (element == null) element =  document.getElementById('tab1');
+	tabActive(element);
+}
+</script>
+
+<body style="padding:0;margin:0" onload="init()">
+<p>This page is being modified Feb 1, 2016, change to Adam Syntax</p>
+<div class="tablive" >
+<!-- ==================================================================
+						Tabs
+======================================================================== -->						
+  <ul class="tabnav">
+
+	<li id="tab1" class="active" onclick="tabActive(this)">
+	  <A onclick="" nohref style="cursor:hand">RobotTalk</A>
+	</li>
+
+	<li id="tab2" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">PDF Specifications</A>
+	</li>
+
+	<li id="tab3" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">HTML Specifications</A>
+	</li>
+
+	<li id="tab4" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">PDF tag</A>
+	</li>
+
+	<li id="tab5" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">MATH tags</A>
+	</li>
+
+	<li id="tab6" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">REPORT tags</A>
+	</li>
+
+	<li id="tab7" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">GRAPHIC tags</A>
+	</li>
+
+	<li id="tab8" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">MACRO tags</A>
+	</li>
+
+	<li id="tab9" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">MISC tags</A>
+	</li>
+
+	<li id="tab10" class="active" onclick="tabActive(this)">
+	<A onclick="" nohref style="cursor:hand">API</A>
+	</li>
+
+
+  </ul>
+</div>
+
+<div class=page>
+
+<!-- ****************************************************************
+						html
+*********************************************************************-->
+<div id="page1" class="pagehidden" style="WIDTH:100%">
+&nbsp;<div class=code><pre>
+window.location.href = CollinsPDF('return as=DataURL','&lt;B&gt;Hello World&lt;/B&gt;');  (Chrome syntax)
+</pre></div>		
+
+<b><font size="2"><br>
+RobotTalk Commands:</font></b><ul>
+<li><b>OPEN </b>[[<b>as</b>=<b>PDF | STRING | BASE64 | DataURL </b>]<b>&nbsp; 
+[Target=name] [Data=html-string]</font></b></li>
+<li><b>WRITE </b>&nbsp;<font size="2">file-specification | url-specification [<b>as</b>=<b>PDF</b> | <b>Base64</b> | <b>DataURL</b>] </font><b>
+[Data=html-string]</b></li>
+<li><b>ADD [Data=html-String] </b></li>
+<li><b>RETURN </b><b>as=STRING | BASE64 | DataURL | OBJECT_PDF</b> | 
+<b>OBJECT_HTML</b><b> | ERROR_MESSAGES</b></li>
+
+</font>
+</ul>
+<p>T<font size="2">he html source string can be passed using the &quot;Data&quot; 
+qualifier, as a file name, or as the second argument of &quot;Adam&quot;<br>
+&nbsp;</font></p>
+		
+<p>&nbsp;</p>
+<p>&nbsp;</div>
+<div id="page2" class="pagehidden" style="WIDTH:100%;height:1300px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="PDF_PDF.htm"></iframe>
+</div>
+<!-- **************************************************************************************************
+											   PAGE 3 (HTML Capablities)
+******************************************************************************************************-->
+<div id="page3" class="pagehidden" style="WIDTH:100%;height:1300px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="PDF_HTML.htm"></iframe>
+</div>
+<!-- **************************************************************************************************
+											   PAGE 4 (PDF Tag)
+******************************************************************************************************-->
+<div id="page4" class="pagehidden" style="WIDTH:100%;height:1300px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="Html_tag_pdf.htm"></iframe>
+</div>
+<!-- **************************************************************************************************
+											   PAGE 5 (Math Tags)
+******************************************************************************************************-->
+<div id="page5" class="pagehidden" style="WIDTH:100%;height:2300px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="Html_tag_math.htm"></iframe>
+</div>
+<!-- **************************************************************************************************
+											   PAGE 6 (Report Tags)
+******************************************************************************************************-->
+<div id="page6" class="pagehidden" style="WIDTH:100%;height:3400px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="Html_tag_report.htm"></iframe>
+</div>
+<!-- **************************************************************************************************
+											   PAGE 7 (Graphic Tags)
+******************************************************************************************************-->
+<div id="page7" class="pagehidden" style="WIDTH:100%;height:5000px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="Html_tag_graphic.htm"></iframe>
+</div>
+<!-- **************************************************************************************************
+											   PAGE 8 (Macro Tags)
+******************************************************************************************************-->
+<div id="page8" class="pagehidden" style="WIDTH:100%;height:2800px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="Html_tag_macro.htm"></iframe>
+</div>
+
+<!-- **************************************************************************************************
+											   PAGE 9 (Misc Tags)
+******************************************************************************************************-->
+<div id="page9" class="pagehidden" style="WIDTH:100%;height:2800px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="Html_tag_misc.htm"></iframe>
+</div>
+
+
+<!-- **************************************************************************************************
+											   PAGE 10 (Objects)
+******************************************************************************************************-->
+<div id="page10" class="pagehidden" style="WIDTH:100%;height:5000px">
+<iframe scrolling=auto width=100% height=100% frameborder=0 src="PDF_API.htm"></iframe>
+</div>
+
+</div>
+</div>
+
+
+</body></html>

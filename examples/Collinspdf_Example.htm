@@ -1,0 +1,32 @@
+<html>
+<script src="CollinsPDF.js"></script>
+<title>CollinsPDF Example</title>
+
+<body>
+
+Options: 
+    <select id="option_as">
+        <option value="" selected>PDF</option>
+        <option value="string">string</option>
+        <option value="base64">base64</option>
+        <option value="dataurl">dataurl</option>
+    </select>
+<br /><br />
+
+HTML file to convert to PDF<br>
+<input  size=80 id=myFile type="file" value="Select Local Html File" onChange="CollinsPDF('file=myFile as='+ option_as.value)"><br><br>
+
+<input  type="button" style="width:160px" value="Convert This File" onClick="CollinsPDF('url=CollinsPDF_Example.htm as=' + option_as.value)"><br><br>
+
+<input type="button" style="width:160px"  value="HTML text To PDF" onclick="CollinsPDF('id=myData as=' + option_as.value)"><br>
+
+<textarea id=myData style="width:100%" rows=5><center>Hello World</center></textarea>
+
+<center>
+<a href="http://CollinsSoftware.com" title="CollinsPDF.js created by">Collins Software</a>
+</center>
+</body>
+<script>
+
+</script>
+</html>

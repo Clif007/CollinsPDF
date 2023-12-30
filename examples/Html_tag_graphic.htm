@@ -1,0 +1,1165 @@
+<html>
+
+<head> 
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>PDF Graphic Tag</title>
+<link  href=PDF.css type=text/css rel=stylesheet> 
+<meta name="Description" content="HTML extensions to add graphics to PDF documents">
+</head>
+ 
+<body class=clearbody> 
+
+<center>
+<div>
+<font face="Arial" size="2">
+<a target="_blank" href="examples/graphic_image/example.htm">Example 1</a>&nbsp;
+<a target="_blank" href="examples/graphic_10th_inch/example.htm">Example 2</a>&nbsp;
+<a target="_blank" href="examples/graphic_1_inch/example.htm">Example 3</a>&nbsp;
+<a target="_blank" href="examples/graphic_protractor/example.htm">Example 4</a>&nbsp;
+<a target="_blank" href="examples/graphic_usa/example.htm">Example 5</a>
+<br>
+
+</font>
+
+<p align=left style=width:829>
+HTML Graphic Commands are included in the HTML file using the &lt;GRAPHIC&gt;...&lt;/GRAPHIC&gt; tags <br>
+Each command begins with the Name of the Graphic (i.e. &quot;ARC&quot;)&nbsp; followed by 
+a comma and a list of comma separated value terminated by a semicolon &quot;;&quot;.&nbsp; A graphic command can span any number of lines. Both 2D and 3D graphics use the same format by adding or subtracting the z component from the coordinate system( 2D coordinate = 100:200, 3D coordinate = 
+100:200:50)</font></p>
+
+<table>
+<tr>
+<td>
+Each graphic element contains a style value of:</font></p>
+<ul>
+	<li>LineColor=&nbsp; name, #Hex, 0.1 to 0.99 gray scale</li>
+	<li>FillColor= name, #Hex, 0.1 to 0.99 gray scale</li>
+	<li>LineWeight= 0 to 99</li>
+	<li>LineStyle=&nbsp; Solid, Dot, Dash, Dot-Dash or PDF pattern</li>
+	<li>Opacity=line[,fill]&nbsp; 0.00 to 1.00 , 1 value for both, 0 = invisible, 1 = solid</li>
+	<li>FontColor= name, #Hex, 0.1 to 0.99 gray scale</li>
+	<li>FontSize=size &quot;px&quot; or &quot;pt&quot;</li>
+	<li>FontName= Times | Arial | Courier</li>
+</ul>
+</td>
+</tr>
+</table>
+
+
+<br>
+
+	<b>&lt;GRAPHIC&gt;...&lt;/GRAPHIC&gt; </b>Create an Image from set of graphic commands
+	
+	</font>
+	
+	<table border="1" width=726 id="table36" cellpadding=2 cellspacing=0>
+		<tr style="font-family: Arial; font-size: 12">
+			<td width="337" bgcolor="#EEEEEE" align="center" style="font-family: Arial; font-size: 12">
+			<b><font color="#000000" face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" style="font-family: Arial; font-size: 12">
+			<b><font color="#000000" face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="337"><font face="Arial" size="2">ID=name</font></td>
+			<td><font face="Arial" size="2">Element Identifier</font></td>
+		</tr>
+		<tr>
+			<td width="337"><font face="Arial" size="2">Style=&quot;...&quot;</font></td>
+			<td><font face="Arial" size="2">Style</font></td>
+		</tr>
+		<tr>
+			<td width="337"><font face="Arial" size="2">Class=class-name</font></td>
+			<td><font face="Arial" size="2">Class Name</font></td>
+		</tr>
+		<tr style="font-family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Height=pixels</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Height of graphic (pixels)</font></td>
+		</tr>
+		<tr style="font-,family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Width=pixels</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Width of graphic (pixels)</font></td>
+		</tr>
+		<tr style="font-,family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Clip=Yes | No</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">If true, Clip all Graphics to Graphic 
+			Box, default=no</font></td>
+		</tr>
+		<tr style="font-,family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Range=&quot;xmin:ymin:zmin,xmax:ymax:zmax&quot;</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Mapping Coordinate Range, 
+			default=xmin:ymin:zmin,xmax:ymax:zmax</font></td>
+		</tr>
+		<tr style="font-,family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Border=n</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Border Width</font></td>
+		</tr>
+		<tr style="font-,family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Origin=BOTTOM-LEFT&nbsp; | TOP-LEFT | 
+			CENTER | x:y</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Default = BOTTOM-LEFT</font></td>
+		</tr>
+		<tr style="font-,family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">BgColor=color</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Background Color</font></td>
+		</tr>
+		<tr style="font-,family: Arial; font-size: 12">
+			<td width="337" style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">3D=&quot;look-at,look-from,rotations&quot;</font></td>
+			<td style="font-,family: Arial; font-size: 12">
+			<font face="Arial" size="2">Projected 3D View, Look At x:y:z , Look From 
+			x:y:z, 
+			3D rotation of graphics
+			(default = &quot;0:0:0&quot;), both 2D and 3D graphic elements can be viewed 
+			as projected 3D images </font></td>
+		</tr>
+	</table><b><font face="Arial" size="2"><br>
+	</font></b><font face="Arial" size="2">Graphic Commands: <br>
+		<a href="#arc">ARC</a>,
+		<a href="#ARCDIMENSION">ARCDIMENSION</a>, 
+		<a href="#CALENDAR">CALENDAR</a>, 
+		<a href="#CIRCLE">CIRCLE</a>, 
+		<a href="#CONE">CONE</a>, 
+		<a href="#DIMENSION">DIMENSION</a>,
+		<a href="#GRID">GRID</a>, 
+		<a href="#GRAPH">GRAPH</a>,
+		<a href="#LINE">LINE</a>,<br>
+		<a href="#NUMBERLINE">NUMBERLINE</a>, 
+		<a href="#POLYGON">POLYGON</a>, 
+		<a href="#RECTANGLE">RECTANGLE</a>,
+		<a href="#PIE">PIE</a>, 
+		<a href="#PROTRACTOR">PROTRACTOR</a>,
+		<a href="#SYMBOL">SYMBOL</a>, 
+		<a href="#TEXT">TEXT</a>, 
+		<a href="#TEXTBOX">TEXTBOX</a></font><p>
+<font face="Arial" size="2"><b><a name=arc>ARC</a> </b> (example ARC,,10:10,100,0,45;) </font>
+
+</p>
+
+<table border="1" id="table37" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" ><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Center</font></td>
+			<td><font face="Arial" size="2">Arc Center X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Radius</font></td>
+			<td><font face="Arial" size="2">Arc Radius</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Start
+			</font></td>
+			<td><font face="Arial" size="2">Arc Start Angle 0 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Sweep</font></td>
+			<td><font face="Arial" size="2">Arc Sweep Angle -360 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+	</table>
+
+<font face="Arial" size="2">
+
+<br>
+<b><a name=ARCDIMENSION>ARCDIMENSION</a></b> (example ArcDimension,,50,60,40,0,60,,10,Hello,Black,12,;)
+</font> 
+
+<table border="1" id="table59" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" ><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="22" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="22"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontName,FontSize,FontColor,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Center</font></td>
+			<td><font face="Arial" size="2">Arc Center X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Radius</font></td>
+			<td><font face="Arial" size="2">Arc Radius</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Start
+			</font></td>
+			<td><font face="Arial" size="2">Arc Start Angle 0 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Sweep 
+			Angle(s)</font></td>
+			<td><font face="Arial" size="2">Arc Sweep Angles-360 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Length (s)</font></td>
+			<td><font face="Arial" size="2">Arc Lengths (IF Sweep is Empty)</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Offset</font></td>
+			<td><font face="Arial" size="2">Offset of Dimension from Arc</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Label</font></td>
+			<td><font face="Arial" size="2">Dimension Label</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+	</table> <font face="Arial" size="2"> </b><b>&nbsp;
+
+<br>
+<a name=CALENDAR>Calendar</a>
+
+	</b>
+
+(example Calendar,Black,1,solid,2013,Feb,0:0,200:200;) </font><b> 
+
+<table border="1" id="table59" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontName,FontSize,FontColor,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Year</font></td>
+			<td><font face="Arial" size="2">Year</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Month</font></td>
+			<td><font face="Arial" size="2">Month</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			Lower-Left</font></td>
+			<td><font face="Arial" size="2">Lower Left X:Y:Z coordinate</font></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">Width:Height:Depth</font></td>
+			<td height="23"><font face="Arial" size="2">Calendar Width:Height:Depth</font></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">reference-months</font></td>
+			<td height="23"><font face="Arial" size="2">true / false, add reference previous and next month 
+			in header</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+		</table>
+
+<font face="Arial" size="2">
+
+<br>
+	<a name=CONE>CONE</a>
+
+	</font>
+
+	</b>
+
+	<font face="Arial" size="2">(example CONE,Red,3,,,10:10,100:0,45;) </font>
+
+	</font>
+
+	<table border="1" id="table45" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Center</font></td>
+			<td><font face="Arial" size="2">Arc Center X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Radius</font></td>
+			<td><font face="Arial" size="2">Arc Radius</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Start
+			</font></td>
+			<td><font face="Arial" size="2">Arc Start Angle 0 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Sweep</font></td>
+			<td><font face="Arial" size="2">Arc Sweep Angle -360 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<b>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+
+	</b>
+
+		</tr>
+	</table>
+		<font face="Arial" size="2">
+		<b>
+		<br>
+		<a name=CIRCLE>CIRCLE </a></b>(example CIRCLE,Red,3,,,10:10,100;) </font>
+
+		</font>
+
+		<table border="1" id="table38" cellpadding=2 cellspacing=0 width="630" >
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Center</font></td>
+			<td><font face="Arial" size="2">Circle Center X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Radius</font></td>
+			<td><b><font face="Arial" size="2">Circle Radius</font></b></td>
+		</tr>
+		<tr>
+			<b>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+
+	</b>
+
+		</tr>
+	</table>
+	<font face="Arial" size="2">
+	<b>
+	<br>	
+		<a name=LINE>LINE</a></b> (example: Line,Black,1,solid,,0:0,100:100,200:0;)</font>
+	</font>
+	<table border="1" id="table40" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X1:Y1</font></td>
+			<td><font face="Arial" size="2">First Point </font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X2:Y2</font></td>
+			<td><font face="Arial" size="2">Second Point</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">...</font></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Xn:Yn</font></td>
+			<td><font face="Arial" size="2">Last point of Line</font></td>
+		</tr>
+	</table>
+<font face="Arial" size="2">
+<br>	
+		<b>	
+<a name=POLYGON>POLYGON </a>
+		</b>(example: Polygon,Black,1,solid,,0:0,100:100,200:0;) </font>
+	<table border="1" id="table58" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X1:Y1:Z1</font></td>
+			<td><font face="Arial" size="2">First Point </font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X2:Y2:Z2</font></td>
+			<td><font face="Arial" size="2">Second Point</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">...</font></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Xn:Yn:Zn</font></td>
+			<td><font face="Arial" size="2">Last point of Line</font></td>
+		</tr>
+	</table>
+<font face="Arial" size="2">
+<br>	
+<b><a name=GRAPH>GRAPH</a></b> (example: Graph,Black,1,solid,,0:0,50:80,Black,12,,0,100,10,4,Black,1,solid,0,true,0,100,10,4,Black,1,solid,0,true;)
+</font>
+<table border="1" id="table41" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontName,FontSize,FontColor,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">
+			lower-left</font></td>
+			<td><font face="Arial" size="2">Lower Left X:Y:Z Coordinate</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">
+			Width:Height:Depth</font></td>
+			<td><font face="Arial" size="2">Width, Height and Depth of Graph</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">X 
+			Minimum</font></td>
+			<td><font face="Arial" size="2">Minimum Label Value of the X Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">X 
+			Maximum</font></td>
+			<td><font face="Arial" size="2">Maximum Label Value of the X Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">X 
+			Division</font></td>
+			<td><font face="Arial" size="2">Number of X Axis Major Divisions</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Tic 
+			Marks</font></td>
+			<td><font face="Arial" size="2">Number of Tic Marks Between 
+			Divisions</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Line 
+			Color</font></td>
+			<td><font face="Arial" size="2">Line Color of of X Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Line 
+			Weight</font></td>
+			<td><font face="Arial" size="2">Line Weight of X Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Line 
+			Style</font></td>
+			<td><font face="Arial" size="2">Line Style of X Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Label 
+			Precision</font></td>
+			<td><font face="Arial" size="2">Number of Decimal Points of the X 
+			Axis Labels</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Label 
+			X</font></td>
+			<td><font face="Arial" size="2">Label X Axis (true or False</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Y 
+			Minimum</font></td>
+			<td><font face="Arial" size="2">Minimum Label Value of the Y Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Y 
+			Maximum</font></td>
+			<td><font face="Arial" size="2">Maximum Label Value of the Y Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Y 
+			Division</font></td>
+			<td><font face="Arial" size="2">Number of Y Axis Major Divisions</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Tic 
+			Marks</font></td>
+			<td><font face="Arial" size="2">Number of Tic Marks Between 
+			Divisions</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Line 
+			Color</font></td>
+			<td><font face="Arial" size="2">Line Color of of Y Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Line 
+			Weight</font></td>
+			<td><font face="Arial" size="2">Line Weight of Y Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font size="2" face="Arial">Line 
+			Style</font></td>
+			<td><font face="Arial" size="2">Line Style of Y Axis</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Label 
+			Precision</font></td>
+			<td><font face="Arial" size="2">Number of Decimal Points of the Y 
+			Axis Labels</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Label 
+			Y</font></td>
+			<td><font face="Arial" size="2">Label Y Axis (true or False</font></td>
+		</tr>
+		<tr>
+			<b>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+
+	</b>
+
+		</tr>
+	</table>
+	<font face="Arial" size="2">
+	<b>
+<br>
+	<a name=IMAGE>IMAGE</a></b> (example: Image 10:20,50:80,a_drill.jpg,0;
+
+	)</font><b><table border="1" id="table42" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">Lower-left</font></td>
+			<td height="23"><font face="Arial" size="2">Lower Left of Image</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			Width:Height:Depth</font></td>
+			<td><font face="Arial" size="2">Width, Height and Depth of Image (pixel) </font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Image</font></td>
+			<td><font face="Arial" size="2">Name of Image or URL</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center">Border</td>
+			<td>Border Size 0 to 99</td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Angle</font></td>
+			<td><font face="Arial" size="2">Angle in degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot;</font></td>
+		</tr>
+		</table>
+
+<font face="Arial" size="2">
+
+<br>
+
+	<a name=GRID>GRID</a>&nbsp;</font></b><font face="Arial" size="2">(example: Grid Black,1,solid,,10:20:50,80,4,6;)</font><b><table border="1" id="table43" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			Lower-Left</font></td>
+			<td><font face="Arial" size="2">Lower Left of Grid X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			Width:Height:Depth</font></td>
+			<td><font face="Arial" size="2">Width / Height and Depth of Grid</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Rows</font></td>
+			<td><font face="Arial" size="2">Number of Rows</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Columns</font></td>
+			<td><font face="Arial" size="2">Number of Columns</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+		</table>
+<font face="Arial" size="2">
+<br>
+<a name=TEXT>TEXT</a> </font> </b><font face="Arial" size="2">(example: Text 0:0,0,Hello World,,12,Black,;)
+</font><b>
+		<table border="1" id="table60" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			FontName,FontSize,Color,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Point</font></td>
+			<td><font face="Arial" size="2">Insertion Point X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Angle</font></td>
+			<td><font face="Arial" size="2">Angle 0-360 of text</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Text</font></td>
+			<td><font face="Arial" size="2">Text</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">URL</font></td>
+			<td><font face="Arial" size="2">Hyperlink </font> </td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+		</table>
+
+		<font size="2" face="Arial">
+
+		<br>
+		<a name=TEXTBOX>TEXTBOX</a> </font> </b><font size="2" face="Arial">(example: Textbox 
+	Black,1,solid,,0:0,50:80,rounded,0:0,left,middle,Hello World,12,Black,;)
+</font>
+		<table border="1" id="table44" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<b> 
+
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontName,FontSize,FontColor,Opacity</font></td>
+
+	</b>
+
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			Lower-left-Point</font></td>
+			<td><font face="Arial" size="2">Lower left X:Y:Z coordinate</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			Width:Height:Depth</font></td>
+			<td><font face="Arial" size="2">Height of Graph</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Shape</font></td>
+			<td><font face="Arial" size="2">Shape of Textbox square | rounded</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Drop-Point</font></td>
+			<td><font face="Arial" size="2">Drop X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Align</font></td>
+			<td><font face="Arial" size="2">Alignment Left | Center | Right</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">VAlign</font></td>
+			<td><font face="Arial" size="2">Vertical Alignment TOP | MIDDLE | BOTTOM</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Text</font></td>
+			<td><font face="Arial" size="2">Text</font></td>
+		</tr>
+		<tr>
+			<b>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+
+	</b>
+
+		</tr>
+		</table>
+
+	<font face="Arial" size="2">
+
+	<br>
+	<b><a name=SYMBOL>SYMBOL</a> </b></b>(example: Symbol 20:20,10,0,Z154;)
+	</font>
+	<b>
+<table border="1" id="table57" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			FontName,FontSize,Color,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Center X:Y:Z</font></td>
+			<td><font face="Arial" size="2">X Center Point of Symbol</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Size</font></td>
+			<td><font face="Arial" size="2">Size in Points</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Angle</font></td>
+			<td><font face="Arial" size="2">Angle of&nbsp; Symbol</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Symbol</font></td>
+			<td><font face="Arial" size="2">Symbol Character Z134</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+		</table>
+	<font size="2" face="Arial">
+	<br>
+	<a name=DIMENSION>DIMENSION</a> </font> </b><font size="2" face="Arial">(example: Dimension,0:0,100:100,10,0,10.5,;)
+
+		</font>
+
+		<b>
+
+<table border="1" id="table46" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontName,FontSize,FontColor,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X1:Y1:Z1</font></td>
+			<td><font face="Arial" size="2">Point 1 of dimension</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X2:Y2:Z2</font></td>
+			<td><font face="Arial" size="2">Point 2 of dimension</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Offset</font></td>
+			<td><font face="Arial" size="2">Dimension Offset</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Angle</font></td>
+			<td><font face="Arial" size="2">Angle of Label</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Label</font></td>
+			<td><font face="Arial" size="2">Dimension Label</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+	</table>
+
+		<font size="2" face="Arial">
+
+		<br>
+
+	<a name=RECTANGLE>RECTANGLE</a> </font> </b><font size="2" face="Arial">(example: Rectangle,,0:0,50:80;)
+
+		</font>
+
+		<b>
+
+<table border="1" id="table52" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X:Y:Z</font></td>
+			<td><font face="Arial" size="2">Lower Left Coordinate</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			Width:Height:Depth</font></td>
+			<td><font face="Arial" size="2">Weight Height and Depth of Rectangle</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+	</table>
+
+<font size="2" face="Arial">
+
+<br>
+
+<a name=NUMBERLINE>NUMBERLINE</a></font></b><font size="2" face="Arial"> (example: NumberLine,,0:0,50:80,0,10:10,0,100,10,4,Black,1,solid,0,true;)</font><b><table border="1" id="table53" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontName,FontSize,FontColor,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">X:Y:Z</font></td>
+			<td><font face="Arial" size="2">Lower Left of Number line</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Width:Height:Depth</font></td>
+			<td><font face="Arial" size="2">Width and Height Depth of Graph</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Angle</font></td>
+			<td><font face="Arial" size="2">Angle in Degrees (0 - 360)</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Marker Points</font></td>
+			<td><font face="Arial" size="2">Set of Point Along Number line x1:label,x2:label...</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Minimum</font></td>
+			<td><font face="Arial" size="2">Minimum Number Line Value</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Maximum</font></td>
+			<td><font face="Arial" size="2">Maximum Number Line Value</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Divisions</font></td>
+			<td><font face="Arial" size="2">Number of Major Divisions</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Tic Marks</font></td>
+			<td><font face="Arial" size="2">Number of Tic Mark Between Divisions</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Label Precision</font></td>
+			<td><font face="Arial" size="2">Number of Decimal Points on Label</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Labels</font></td>
+			<td><font face="Arial" size="2">true | false</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+	</table>
+
+	<font size="2" face="Arial">
+
+	<br>
+	<a name=PROTRACTOR>PROTRACTOR</a> </font> </b><font size="2" face="Arial">(example Protractor,,50:50,50,0,180,18,9,10 
+	30,Black,1,solid,Black,true;) </font>
+
+	<b>
+
+<table border="1" id="table54" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontColor,Fontsize,fontname,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Center</font></td>
+			<td><font face="Arial" size="2">Arc Center X:Y:Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Radius</font></td>
+			<td><font face="Arial" size="2">Arc Radius</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Start
+			Angle</font></td>
+			<td><font face="Arial" size="2">Arc Start Angle 0 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Sweep
+			Angle</font></td>
+			<td><font face="Arial" size="2">Arc Sweep Angle -360 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Divisions</font></td>
+			<td><font face="Arial" size="2">Number of Major Divisions On Protractor (default=18)</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Tic Mark</font></td>
+			<td><font face="Arial" size="2">Tic Marks between Divisions (Default=9)</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Marked Angles</font></td>
+			<td><font face="Arial" size="2">A List of Angle to Mark on Protractor</font></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">Marked Line Color</font></td>
+			<td height="23"><font face="Arial" size="2">Line Color, Name or&nbsp; 
+			#HexColor</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Marked Line 
+			Weight</font></td>
+			<td><font face="Arial" size="2">1 to 100</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Marked Line 
+			Style</font></td>
+			<td><font face="Arial" size="2">Solid, Dot, Dash, or pdf pattern</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Labeled</font></td>
+			<td><font face="Arial" size="2">Label Marked Angles True | False</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+	</table>
+<font face="Arial" size="2">
+<br>
+<a name=PIE>PIE</a> (</font></b><font size="2" face="Arial">example: Pie 50:50,50,0,Black,1,,10:red;)
+</font>
+	
+	<b>
+
+	<table border="1" id="table56" cellpadding=2 cellspacing=0 width="630">
+		<tr>
+			<td width="181" bgcolor="#EEEEEE" align="center"><b>
+			<font face="Arial" size="2">Property</font></b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#EEEEEE"><b>
+			<font face="Arial" size="2">Description</font></b></td>
+		</tr>
+		<tr>
+			<td width="181" height="23" align="center">
+			<font face="Arial" size="2">style=...</font></td>
+			<td height="23"><font face="Arial" size="2">
+			LineColor,FillColor,Weight,LineStyle,FontName,FontSize,FontColor,Opacity</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Center</font></td>
+			<td><font face="Arial" size="2">Pie Center X:Y;Z</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Radius</font></td>
+			<td><font face="Arial" size="2">Pie Radius</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Start
+			Angle</font></td>
+			<td><font face="Arial" size="2">Start Angle 0 to 360 degrees</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Label Radius</font></td>
+			<td><font face="Arial" size="2">Radius to Place Labels</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">
+			3D-Rotation</font></td>
+			<td><font face="Arial" size="2">Arc 3D Plane Xr:Yr:Zr rotation about 
+			center def=&quot;0:0:0&quot; (-360 to 360)</font></td>
+		</tr>
+		<tr>
+			<td width="181" align="center"><font face="Arial" size="2">Segment(s)</font></td>
+			<td><font face="Arial" size="2">List of Pie Segments Sweep:Color:Label,...</font></td>
+		</tr>
+	</table>
+
+</div>
+</center>
+
+</body>
+
+</html>

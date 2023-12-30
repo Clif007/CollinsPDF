@@ -1,0 +1,90 @@
+<DOC OnDocumentOpen="zoom=80;" margins=0.25>
+<html>
+<head>
+</head>
+
+<body>
+<style>
+</style>
+
+<FORM method=post action="Receive_Form.asp">
+
+<table border=1>
+<tr>
+<td width=120 align=right >First Name</td>
+<td><input type=text name="First_Name" value="Clif"></td>
+</tr>
+
+<tr>
+<td align=right>Last Name</td>
+<td><input type=text name="Last_Name"></td>
+</tr>
+
+<tr>
+<td align=right>Password</td>
+<td><input type=password name="Password"></td>
+</tr>
+
+<tr>
+<td align=right>&nbsp;</td>
+<td><input type=checkbox name="Join_Organization">Join Organization</td>
+</tr>
+
+<tr>
+<td align=right>State</td>
+<td><select style="width:90" name=State>
+<option value="Alabama">Alabama</option>
+<option value="California">California</option>
+<option value="Georgia">Georgia</option>
+<option value="Texas">Texas</option>
+</select></td>
+</tr>
+
+<tr>
+<td align=right>Address</td>
+<td><input type=text size=80 name=Address></td>
+</tr>
+
+<tr>
+<td align=right>Web Site</td>
+<td><a href=Http://CollinsSoftware.com>CollinsSoftware.Com</a></td>
+</tr>
+
+<tr>
+<td align=right valign=top >Description</td>
+<td><textarea rows=10 cols=80 Name=Description></textarea></td>
+</tr>
+
+
+<tr>
+<td align=right valign=top >Buttons</td>
+<td>
+<input type=button value="Beep" pdfOnClick="app.beep()">
+<input type=button value="Find" pdfOnClick="app.execMenuItem('Find');">
+<input type=button value="Save As..." pdfOnClick="app.execMenuItem('SaveAs');">
+<input type=button value="Print..." pdfOnClick="app.execMenuItem('Print');">
+<input type=button value="Message..." pdfOnClick="app.alert('Any Message You Want...',3)">
+<input type=button value="Prompt..." pdfOnClick="var name = this.getField('first_name'); var value = app.response('What is your First Name?','form update',name.value); if (value) name.value = value;">
+<input type=button value="Page 2" pdfOnClick="this.pageNum++">
+<input type=button value="Page 3" pdfOnClick="this.pageNum = 2">
+
+<br>
+
+<input type=button  width=200 height=200 value="Import" pdfOnClick="event.target.buttonImportIcon();">
+
+</td>
+</tr>
+</table>
+<br><br>
+<center><input type=submit></center>
+</FORM>
+
+<pageBreak>
+
+Page 2 <input type="button" value="Goto Page 1" PdfonClick="this.pageNum = 0;">
+
+<pageBreak>
+
+Page 3 <input type="button" value="Goto Page 1" PdfonClick="this.pageNum = 0;">
+
+</body></html>

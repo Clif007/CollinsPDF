@@ -1,0 +1,441 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CollinsPDF Macro Tags</title>
+<link  href=PDF.css type=text/css rel=stylesheet>
+<meta name="Description" content="HTML Macro tags used to replace HTML content during the creation of the PDF document ">
+</head>
+ 
+<body class=clearbody> 
+
+<center>
+
+<div>
+<a href="examples/macro/example.htm" target=_blank>Example 1</a>
+<a href="examples/macro_math/example.htm" target=_blank>Example 2</a>&nbsp;&nbsp;
+<br><br>
+
+	<b>&lt;ASSIGN&gt; Macro</b>,&nbsp; assign to a value or to a database record&nbsp; 
+	<table border="1" width=700 id="table34" cellpadding=2 cellspacing=0>
+		<tr>
+			<td width="228" bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" bordercolor="#000080"><b>
+			Description</b></td>
+		</tr>
+		<tr>
+			<td width="228" height="23">ID=NAME</td>
+			<td height="23">Tag identifier</td>
+		</tr>
+		<tr>
+			<td width="228">VALUE=...</td>
+			<td>Value of the assign tag</td>
+		</tr>
+		<tr>
+			<td width="228">SQL=statement</td>
+			<td>SQL statement</td>
+		</tr>
+	</table>
+	<p>
+	<b>&lt;IF&gt;html-statements&lt;/IF&gt;</b> <b>Macro</b>, conditional include HTML 
+	Statements 
+	<table border="1" width=700 id="table19" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="228" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr >
+			<td width="228" >
+			Value=...</td>
+			<td >
+			Value to Compare</td>
+		</tr>
+		<tr>
+			<td width="228" >
+			Contains=match</td>
+			<td >
+			Include if Value 
+			Contains match</td>
+		</tr>
+		<tr >
+			<td width="228" >
+			EQ=match | Equal=match</td>
+			<td >
+			Include if Value 
+			equals match</td>
+		</tr>
+		<tr >
+			<td width="228" >
+			LT=match | LessThan=match</td>
+			<td >
+			Include if Value less 
+			than match</td>
+		</tr>
+		<tr >
+			<td width="228"  height="22">
+			GT=match | GreaterThan=match </td>
+			<td  height="22">
+			Include 
+			if Value greater than match</td>
+		</tr>
+		<tr >
+			<td width="228" >
+			LE=match</td>
+			<td >
+			Include if Value is 
+			less than or equal to match</td>
+		</tr>
+		<tr >
+			<td width="228" >
+			GE=match</td>
+			<td >
+			Include if Value is 
+			greater than or equal to match</td>
+		</tr>
+		<tr >
+			<td width="228" >
+			Not</td>
+			<td >
+			Negate Condition</td>
+		</tr>
+		<tr >
+			<td width="228" >
+			Blank</td>
+			<td >
+			Include if Value is 
+			Blank</td>
+		</tr>
+		<tr >
+			<td width="228" >
+			Zero</td>
+			<td >
+			Include if Value is 
+			Blank</td>
+		</tr>
+		</table>
+	
+	
+	
+	<br>
+	
+	<b>&lt;LOOP&gt;</b> <b>Macro</b>, Loop through a set of Macro statements, 
+	(does not generate output, see group statement for output) 
+	<table border="1" width=700 id="table20" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="229" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr>
+			<td width="229" >
+			ID=NAME</td>
+			<td >
+			Tag identifier</td>
+		</tr>
+		<tr>
+			<td width="229" >
+			LIST=&quot;v1,v2,...&quot;</td>
+			<td >
+			List of Values (1 loop 
+		per value)</td>
+		</tr>
+		<tr>
+			<td width="229" >
+			SQL=statement</td>
+			<td >
+			SQL statement (1 loop 
+		per record)</td>
+		</tr>
+		<tr>
+			<td width="229" >
+			Count=n</td>
+			<td >
+			Repeat Loop N times</td>
+		</tr>
+		<tr>
+			<td width="229" >
+			Min=n</td>
+			<td >
+			Minimum Loop Value</td>
+		</tr>
+		<tr>
+			<td width="229" >
+			Maximum=n</td>
+			<td >
+			Maximum Loop Value</td>
+		</tr>
+		<tr>
+			<td width="229" >
+			Increment=n</td>
+			<td >
+			Increment Loop Value</td>
+		</tr>
+	</table>
+	
+		<br>
+	<b>&lt;RANDOM&gt; Macro, </b>Create a Random List of Values 
+	<table border="1" width=700 id="table38" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="231" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr >
+			<td width="231" >
+			ID=NAME</td>
+			<td >
+			Tag identifier</td>
+		</tr>
+		<tr >
+			<td width="231" >
+			LIST=&quot;v1,v2,...&quot;</td>
+			<td >
+			List of Values</td>
+		</tr>
+		<tr >
+			<td width="231" >
+			SQL=statement</td>
+			<td >
+			SQL statement  </td>
+		</tr>
+		<tr >
+			<td width="231" >
+			Min=value</td>
+			<td >
+			Minimum Value</td>
+		</tr>
+		<tr >
+			<td width="231" >
+			Max=value</td>
+			<td >
+			Maximum Value</td>
+		</tr>
+		<tr >
+			<td width="231" >
+			Unique=true | 
+		false</td>
+			<td >
+			Requires each returned 
+		values to be unique</td>
+		</tr>
+		<tr >
+			<td width="231" >
+			Exclude=&quot;v1,v2,..&quot;</td>
+			<td >
+			Exclude these values from 
+		being returned</td>
+		</tr>
+	</table><br>
+	<br>
+	<b>&lt;STORE&gt; Macro, </b>Store a constant into a List 
+	<table border="1" width=700 id="table39" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="233" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr >
+			<td width="233" >
+			ID=NAME</td>
+			<td Tag identifier</td>
+			Tag Identifier</tr>
+		<tr >
+			<td width="233" >
+			Value=...</td>
+			<td >
+			Value to Store</td>
+		</tr>
+		<tr >
+			<td width="233" >
+			Reverse=&quot;True 
+		| False&quot;</td>
+			<td >
+			If true: Reverse output 
+		order to First In Last Out, Default = First In First Out</td>
+		</tr>
+	</table><br>
+	<br><b>&lt;GROUP&gt;</b> <b>Macro</b>, Create an HTML Group, Repeat 0 or more times. 
+	<br>forces a page break to keep each group on a page<table border="1" width=700 id="table42" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="233" bgcolor="#EEEEEE" align="center" >
+			<b>Property</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Description</b></td>
+		</tr>
+		<tr>
+			<td width="233" >
+			ID=NAME</td>
+			<td >
+			Tag identifier</td>
+		</tr>
+		<tr>
+			<td width="233" >
+			LIST=&quot;v1,v2,...&quot;</td>
+			<td >
+			List of Values (1 group 
+		per value)</td>
+		</tr>
+		<tr>
+			<td width="233" >
+			SQL=statement</td>
+			<td >
+			SQL statement (1 group 
+		per record)</td>
+		</tr>
+		<tr>
+			<td width="233" >
+			Count=n</td>
+			<td >
+			Repeat Group N times</td>
+		</tr>
+		<tr>
+			<td width="233" >
+			Columns=n</td>
+			<td >
+			Create Multiple Columns 
+		(1 to 30)</td>
+		</tr>
+		<tr>
+			<td width="233" >
+			ColumnOrder=true</td>
+			<td >
+			Output Groups in Column Order<br>
+			Default = false, row order</td>
+		</tr>
+	</table>
+		<br>
+	<br><b>MACRO REFERENCE </b>Replace Within the HTML text the Following, References 
+can be nested<table border="1" width=700 id="table40" cellpadding=2 cellspacing=0>
+		<tr >
+			<td width="234" bgcolor="#EEEEEE" align="center" >
+			<b>HTML Reference</b></td>
+			<td bgcolor="#EEEEEE" align="center" >
+			<b>Replace With</b></td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{ID}</td>
+			<td Tag identifier</td>
+			&lt;ASSIGN id=name&gt; value Next <br>
+			&lt;RANDOM id-=name&gt; value Next <br>
+			&lt;STORE id=name&gt; 
+			&lt;LOOP&gt; &lt;GROUP&gt; &lt;ASSIGN&gt; Value
+			
+			</tr>
+		<tr >
+			<td width="234"  align="left">
+			{ID.Last}</td>
+			<td >
+			Last Value Referenced 
+			<br>&lt;RANDOM&gt; &lt;GROUP&gt; &lt;LOOP&gt;, or &lt;STORE&gt;</td>
+		</tr>
+		<tr>
+			<td width="234"  align="left">
+			{ID.Count}</td>
+			<td >
+			Counter (1..n)<br>&lt;RANDOM&gt; &lt;GROUP&gt; 
+			{LOOP}, or &lt;STORE&gt; 
+			 
+			</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{ID.Index}</td>
+			<td >
+			Index (0..n-1)<br>&lt;RANDOM&gt; &lt;GROUP&gt; 
+			&lt;LOOP&gt;, or &lt;STORE&gt; 
+			 
+			</td>
+		</tr>
+		<tr>
+			<td width="234"  align="left">
+			{ID.total}</td>
+			<td >
+			Total Values<br>
+			&lt;GROUP&gt;</td>
+		</tr>
+		<tr>
+			<td width="234"  align="left">
+			{ID.Radian}</td>
+			<td >
+			Return converted Degrees to Radians<br>
+			&lt;STORE&gt; &lt;ASSIGN&gt; &lt;GROUP&gt; &lt;LOOP&gt;</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{ID.Rewind}</td>
+			<td >
+			Rewind List<br>&lt;STORE&gt;</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{ID.field-name}</td>
+			<td >
+			Field Value of SQL 
+		statement<br>&lt;ASSIGN&gt;, &lt;RANDOM&gt; or &lt;GROUP&gt;  </td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{ID,join}</td>
+			<td >
+			Join Values of a LIST separated by commas<br>
+			&lt;ASSIGN&gt; &lt;STORE&gt;</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{Page}</td>
+			<td >
+			PDF Current Page Number</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left" height="26">
+			{PageTotal}</td>
+			<td  height="26">
+			PDF total 
+		Pages, valid only in &lt;PageHeader&gt; and &lt;PageFooter&gt; tags</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{Date}</td>
+			<td >
+			Current Date</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{Time}</td>
+			<td >
+			Current Time</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{DateTime}</td>
+			<td >
+			Current Date and Time</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left">
+			{PI}</td>
+			<td >
+			Value of PI 
+		&quot;3.1415926...&quot;</td>
+		</tr>
+		<tr >
+			<td width="234"  align="left" valign="top">{function(arg-list)}</td>
+			<td >
+			Perform Function: <br>EVAL, TAN, SIN, COS, ATAN,&nbsp; SQRT, PI, MIN, MAX, ABS, CEIL, FLOOR, 
+		ROUND, POW, LOG, RANDOM, ACOS, ASIN, ESCAPE, UNESCAPE, MOD<br><br>Note: <br>Random() return 0 to 1<br>Random(max) return 1 to max-value<br>Random(min,max) return min value to max value</td>
+		</tr>
+	</table>
+	
+</div>
+
+</body>
+
+</html>

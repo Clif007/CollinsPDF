@@ -1,0 +1,16 @@
+﻿<DOC onDocumentOpen="zoom=45">
+<font size=4 color=blue>
+Randomized Protractor Example <br>
+Angles in increments of 5 degrees<br></font>
+
+<random id=a min=0 max=90 modulus=5>
+<random id=b min=95 max=180 modulus=5>
+
+<group count=10 columns=2 columnorder>
+
+   <graphic border=0 height=220 width=300 Range="0,0,200,200" >
+      Protractor,,200:20,160,0,180,18,1,{a} {b},red,true;
+      Text,fontsize:12,50:-10,Answer = {eval({b.last} - {a.last})};
+   </graphic><br>
+
+</group>

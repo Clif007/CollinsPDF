@@ -1,0 +1,24 @@
+<DOC margin=0.5 onDocumentOpen="zoom=75">
+<i>Example to shrink / expand the size of the nested HTML to fit the size of the DIV</i>
+<br>
+
+<assign id=a value=*>
+Designed to create large scale web based facility mapping application. If you need a corporate landbase and facility layers in a web application ICMap is the first tool you will need. It is a tool that generates a set of complex tiled images and web related files in a batch project controlled process.  You can reduce your cost of development, and the cost of any dependent database requirements by simply creating all the GIS and Web structures required using ICMap. Creates Transparent GIF/PNG files that can be overlaid to produce composite images, creates Hotspots from graphic features (Lines, Polygons, Symbols and Text) for Hyperlinks with hover hints.  The result is a GIS Web site that is composed of static images viewed as an infinite continuous map at multiple scales.
+ICMap comes with the JavaScript for the Pan and Zoom capacities this makes creating your GIS Web site easy to setup and requires no server software. Images can be viewed three ways:
+</assign>
+
+<br>scale contents to fit region exactly<br>
+<Div style="background-color:red;Fit:true;Height:100;Width:100">
+{a} </Div>
+
+<br>if required expand contents to fit, otherwise clip<br>
+<Div style="background-color:red;Fit:expand-only;Height:100;Width:100">
+Hello</Div>
+
+<br>if required shrink contents to fit, otherwise do not scale<br>
+<Div style="background-color:red;Fit:shrink-only;Height:100;Width:100">
+Hello </Div>
+
+<br>clip contents to region<br>
+<Div style="background-color:red;Fit:Clip;Height:100;Width:100">
+{a}</Div>

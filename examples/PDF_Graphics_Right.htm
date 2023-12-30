@@ -1,0 +1,275 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Graphics</title>
+<style>
+.menu
+{
+	position:absolute;
+	top:70;
+	left:80;
+	border-color: silver;
+	border-width: 3;
+	border-style: groove; 
+	background-Color:LemonChiffon ;
+}
+
+textarea 
+{
+    wrap: nowrap;
+    overflow:    scroll;
+    overflow-y:  hidden;
+    overflow-x:  scroll;
+    overflow:    -moz-scrollbars-horizontal;
+}
+
+</style>
+<script src="CollinsPDF.js"></script>
+
+<script language=javascript>
+var idata;
+var iedit;
+
+var firstUserScript = 6;
+var activeSave = -1;
+var activeMenu = null;
+var activeType = '';
+var graphicCg2 = null;
+var fontSize = 10;
+//=================================================================
+//                        resize
+//=================================================================
+function resize(up)
+{
+	var html;
+	
+	if (up)
+	{
+		fontSize += 4;
+		if (fontSize > 48) fontSize = 48;
+		
+	}
+	else
+	{
+		fontSize += -2;
+		if (fontSize < 10) fontSize = 10;
+	}
+	
+	html = document.getElementById('edit');
+	html.style.fontSize = fontSize + 'pt';
+
+}
+
+//==============================================================
+//                     trim
+//==============================================================
+function trim(value) 
+{ 
+	value = '' + value;
+	value = value.replace(/^[\s]+/,"");
+	value = value.replace(/[\s]+$/, '');
+	return value;
+}
+//==============================================================
+//                     symbolLibrary
+//==============================================================
+function symbolLibrary(prefix) 
+{ 
+	var height,width,text,i,char;
+	var dx,dy,row,col,x,y,n;
+	var f,name;
+	
+	height = 700;
+	width = 480;
+
+	if (prefix == 'H') name = 'Helvetica';
+	if (prefix == 'T') name = 'Times Roman';
+	if (prefix == 'Z') name = 'ZapfDingbats';
+	if (prefix == 'C') name = 'Courier';
+	if (prefix == 'S') name = 'Symbol';
+	name = 'PDF Font ' + name;
+
+	y = height + 15;
+
+	text = '';
+	text += '<graphic WIDTH=' + width + ' HEIGHT=' + height + ' BORDER=0 clip=false>\r\n'
+	text += 'grid 0,0,' + height + ',' + width + ',26,10;\r\n';
+	text += 'Text 120,' + y + ',16,0,,' + name + ';\r\n';	
+
+	dx = width / 10;
+	dy = height / 26;
+
+	char = 0;
+	xstart = 2;
+
+	for (row=0; row < 26; ++row)
+	{
+		y = height - ((row * dy) + 10);
+
+		for (col=0; col < 10; ++col)
+		{
+			if (char > 255) break;
+			x = xstart + (col * dx);
+			n = char.toString(8);
+			x1 = x + 34;
+			y1 = y;
+			if (prefix == 'S') y1 = y1 - 10;
+			if (prefix == 'T') y1 = y1 - 5;
+			if (prefix == 'H') y1 = y1 - 5;
+			if (prefix == 'C') y1 = y1 - 5;
+			text += 'Symbol ' + v(x1,100) + ',' + v(y1,100) + ',20,0,' + prefix + n + ',;\r\n';
+			text += 'Text '   + v(x,100) + ',' + v(y,100) + ',8,0,,' + prefix + n + ';\r\n';	
+			char = char + 1;
+		}
+	}
+
+	text += '</graphic>';
+	putTextarea(iedit,text);
+
+	idata.value = text;
+	f = document.getElementById('form');	
+	f.submit();
+
+}
+//====================================================================
+//						getTextarea
+//====================================================================
+function getTextarea(ele)
+{
+	return ele.value;
+}
+//====================================================================
+//						putTextarea
+//====================================================================
+function putTextarea(ele,value)
+{
+	if (typeof(ele.textContent) != 'undefined') 
+		 ele.textContent = value;
+	else ele.innerText = value;
+}
+//===========================================================================
+//							executePDF
+//===========================================================================
+function executePDF()
+{
+	var f,text,edit,ele,as;
+
+	edit = document.getElementById('edit');
+	text = getTextarea(edit);
+	
+	as = document.getElementById('open_as');
+	CollinsPDF('target=Graphic as=' + as.value,text);
+}
+//===========================================================================
+//							showMenu
+//===========================================================================
+function showMenu(data)
+{
+	var ele,data,record,menu,table;
+	
+	activeType = data.substr(0, 5);
+	graphicCg2.clear();
+	graphicCg2.activeRecord = graphicCg2.add(data);
+
+	menu = document.getElementById("menu");
+	table = document.getElementById("menutable");
+	
+	table.innerHTML = graphicCg2.activeRecord.toForm();
+	menu.style.display = '';
+}
+//===========================================================================
+//							insertExample
+//===========================================================================
+function insertExample()
+{
+	var text,edit;
+
+	hideMenu();
+	
+	table = document.getElementById("menutable");
+
+	text = '';
+	text += "<doc margin=1>\r\n";
+
+	text += "<font size=5>\r\n";
+	text += "An example of the GRAPHIC tag usage\r\n";
+	text += "</font><br>\r\n";
+	if (activeType == 'image') text += '<img src=../images/kitchen.jpg style="display:none" title="loads image, for use by graphics, but not displayed">\r\n';
+	text += "<graphic WIDTH=300 HEIGHT=300 BORDER=0 clip=true range='0,0,100,100' origin=bottom-left>\r\n";
+	text += graphicCg2.activeRecord.fromForm(table) + "\r\n";
+	text += "</graphic>";
+
+	edit = document.getElementById('edit');
+	putTextarea(edit,text);
+	
+}
+//===========================================================================
+//							hideMenu
+//===========================================================================
+function hideMenu()
+{
+	var menu,table;
+	
+	menu = document.getElementById("menu");	
+	menu.style.display = 'none';
+}
+//===========================================================================
+//							init
+//===========================================================================
+function init()
+{
+	graphicCg2 = new graphicCg2$(null,null);
+
+}
+</script>
+</head>
+
+
+<body onload=init() topmargin=0 bottommargin=0 leftmargin=0 rightmargin=0>
+<center><a target="_top" href="./">CollinsPDF.js</a></center>
+<input id=executeButton type=button value="Generate" onclick="executePDF()">&nbsp;&nbsp;
+    <select id="open_as">
+        <option value="" selected>PDF</option>
+        <option value="string">string</option>
+        <option value="base64">base64</option>
+        <option value="dataurl">dataurl</option>
+    </select>&nbsp;&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+<input type=button onClick='resize(true)' value="Larger">&nbsp;&nbsp;
+<input type=button onClick='resize(false)' value="Smaller">
+
+
+<hr>
+<input type=button value="Line"    onclick='showMenu("line,linecolor=blue weight=4 style=dot,0:0,50:20,60:10,70:40")'>
+<input type=button value="Polygon" onclick='showMenu("polygon,weight=4 linecolor=blue fillcolor=tomato.5,10:0,50:20,60:10,70:40,40:5")'>
+<input type=button value="Arc"     onclick='showMenu("arc,lineColor=red fillcolor=red.4,50:50,30,0,90")'>
+<input type=button value="Cirle"   onclick='showMenu("circle,lineColor=red fillcolor=green.4,50:50,30")'>
+<input type=button value="Cone"    onclick='showMenu("cone,lineColor=red fillcolor=blue.2,50:50,30,0,90")'>
+<input type=button value="Symbol"  onclick='showMenu("Symbol,fillcolor=blue,50:50,box,20,0,CC")'>
+<input type=button value="Text"    onclick='showMenu("Text,fontcolor=blue fontsize=10 fontname=arial,50:50,Hello World,,CC")'>
+<input type=button value="Image"   onclick='showMenu("image,,0:0,100:100,../images/kitchen.jpg,0")'>
+<input type=button value="Rectangle" onclick='showMenu("rectangle, lineColor=red fillcolor=green.2,0:0,50:40")'>
+<input type=button value="Grid"    onclick='showMenu("Grid,lineColor=blue,0:0,80:80,10,10")'>
+
+ <!--
+<input type=button value="Video" onclick='showMenu("video,,0:0,100:100,images/sample.mp4,0")'>
+<input type=button value="Graph" onclick='showMenu("Graph,fillColor=red,0:0,100:100,fontsize:6,0,10,10,,4,true,fontsize:6,0,360,10,,,true")'>
+<input type=button value="NumberLine" onclick='showMenu("Numberline,,0:0,100:100,0,4:A 7:B,,0,10,5,4,,true")'>
+<input type=button value="Textbox" onclick='showMenu("Textbox,,40:40,20:10,80:10,Hello World")'>
+-->
+
+<div class=menu id="menu" style="position:absolute; top:80px;left:120px;z-Index:100;display:none">
+<input type="button" value="Insert" onclick="insertExample()" style="width:100px">
+<input type="button" value="Cancel" onclick="hideMenu()" style="width:100px">
+<br>
+<div id=menutable style="width:500px"></div>
+</div>
+<textarea spellcheck=false id=edit rows=30 style="width:100%;">
+<doc pagesize="3,2.5">
+<img src="images/kitchen.jpg">
+</textarea>
+
+</body></html>

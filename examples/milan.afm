@@ -1,0 +1,804 @@
+StartFontMetrics 2.0 
+FontName MilanGreek
+FullName Milan Greek
+FamilyName Milan Greek
+Weight Regular
+CapHeight 674
+XHeight 427
+Ascender 784
+Descender -248
+Notice (C) Copyright Ralph Hancock 1996
+EncodingScheme FontSpecific 
+ItalicAngle 0 
+UnderlinePosition -220 
+UnderlineThickness 63 
+FontBBox -64 -234 894 785 
+StartCharMetrics 231 
+C 1 ; WX 718 ; N Csigma ; B 51 -11 658 674 ;
+C 2 ; WX 466 ; N csigma ; B 40 -11 414 427 ;
+C 7 ; WX 462 ; N quotedblleftgreek ; B 74 575 391 784 ;
+C 10 ; WX 132 ; N halfspace ; B 0 0 0 0 ;
+C 26 ; WX 462 ; N breve ; B 55 575 400 738 ;
+C 27 ; WX 462 ; N macron ; B 34 612 404 674 ;
+C 28 ; WX 264 ; N quoteleft ; B 70 575 191 784 ;
+C 29 ; WX 264 ; N quoteright ; B 74 575 195 784 ;
+C 32 ; WX 264 ; N space ; B 0 0 0 0 ;
+C 33 ; WX 758 ; N arrowsw ; B 99 -1 701 603 ;
+C 34 ; WX 609 ; N sampi ; B 17 -234 583 784 ;
+C 35 ; WX 473 ; N digamma ; B 29 -234 450 428 ;
+C 36 ; WX 535 ; N stigma ; B 51 -166 526 428 ;
+C 37 ; WX 516 ; N koppa ; B 40 -11 477 784 ;
+C 38 ; WX 466 ; N koppa1 ; B 29 -11 403 784 ;
+C 39 ; WX 242 ; N lenis ; B 57 575 178 784 ;
+C 40 ; WX 440 ; N parenleft ; B 138 -234 387 674 ;
+C 41 ; WX 440 ; N parenright ; B 54 -234 304 674 ;
+C 42 ; WX 460 ; N asterisk ; B 77 410 393 784 ;
+C 43 ; WX 557 ; N segno ; B 39 -14 521 453 ;
+C 44 ; WX 264 ; N comma ; B 73 -88 194 121 ;
+C 45 ; WX 352 ; N hyphen ; B 39 184 311 252 ;
+C 46 ; WX 264 ; N period ; B 75 0 185 110 ;
+C 47 ; WX 242 ; N acutegreek ; B 39 574 186 784 ;
+C 48 ; WX 507 ; N zero ; B 40 -11 466 451 ;
+C 49 ; WX 507 ; N one ; B 169 0 345 440 ;
+C 50 ; WX 507 ; N two ; B 67 -11 462 451 ;
+C 51 ; WX 507 ; N three ; B 67 -234 424 451 ;
+C 52 ; WX 507 ; N four ; B 37 -234 473 451 ;
+C 53 ; WX 507 ; N five ; B 78 -234 435 454 ;
+C 54 ; WX 507 ; N six ; B 51 -11 463 674 ;
+C 55 ; WX 507 ; N seven ; B 48 -234 479 454 ;
+C 56 ; WX 507 ; N eight ; B 39 -11 461 674 ;
+C 57 ; WX 507 ; N nine ; B 45 -234 458 451 ;
+C 58 ; WX 264 ; N periodcenteredgreek ; B 72 317 182 427 ;
+C 59 ; WX 264 ; N semicolon ; B 72 -88 194 427 ;
+C 60 ; WX 495 ; N cornerleft ; B 85 -234 443 674 ;
+C 61 ; WX 594 ; N equal ; B 61 184 531 446 ;
+C 62 ; WX 495 ; N cornerright ; B 47 -234 406 674 ;
+C 63 ; WX 316 ; N question ; B 34 0 299 674 ;
+C 64 ; WX 462 ; N dieresisgreek ; B 87 591 378 674 ;
+C 65 ; WX 760 ; N Alpha ; B 29 0 733 674 ;
+C 66 ; WX 589 ; N Beta ; B 50 0 543 660 ;
+C 67 ; WX 789 ; N Chi ; B 37 0 759 660 ;
+C 68 ; WX 782 ; N Delta ; B 40 0 744 674 ;
+C 69 ; WX 583 ; N Epsilon ; B 61 -11 538 674 ;
+C 70 ; WX 682 ; N Phi ; B 39 0 641 660 ;
+C 71 ; WX 543 ; N Gamma ; B 61 0 514 674 ;
+C 72 ; WX 785 ; N Eta ; B 61 0 723 660 ;
+C 73 ; WX 298 ; N Iota ; B 61 0 237 660 ;
+C 74 ; WX 686 ; N omegaiota ; B 39 -234 648 427 ;
+C 75 ; WX 673 ; N Kappa ; B 61 0 639 660 ;
+C 76 ; WX 760 ; N Lambda ; B 29 0 733 674 ;
+C 77 ; WX 955 ; N Mu ; B 61 -1 894 660 ;
+C 78 ; WX 816 ; N Nu ; B 50 0 755 660 ;
+C 79 ; WX 781 ; N Omicron ; B 40 -10 747 674 ;
+C 80 ; WX 785 ; N Pi ; B 61 0 723 660 ;
+C 81 ; WX 781 ; N Theta ; B 40 -10 747 674 ;
+C 82 ; WX 560 ; N Rho ; B 50 0 519 660 ;
+C 83 ; WX 638 ; N Sigma ; B 61 -11 593 674 ;
+C 84 ; WX 626 ; N Tau ; B 25 0 603 674 ;
+C 85 ; WX 670 ; N Upsilon ; B 25 0 648 674 ;
+C 86 ; WX 556 ; N etaiota ; B 26 -234 502 427 ;
+C 87 ; WX 900 ; N Omega ; B 51 -11 849 674 ;
+C 88 ; WX 703 ; N Xi ; B 51 -11 653 674 ;
+C 89 ; WX 748 ; N Psi ; B 37 0 721 660 ;
+C 90 ; WX 649 ; N Zeta ; B 44 -11 596 674 ;
+C 91 ; WX 440 ; N bracketleft ; B 165 -220 377 660 ;
+C 92 ; WX 242 ; N gravegreek ; B 45 574 193 784 ;
+C 93 ; WX 440 ; N bracketright ; B 62 -220 274 660 ;
+C 94 ; WX 462 ; N circumgreek ; B 35 583 418 755 ;
+C 95 ; WX 510 ; N underscore ; B 0 -220 510 -157 ;
+C 96 ; WX 242 ; N asper ; B 57 575 178 784 ;
+C 97 ; WX 660 ; N alpha ; B 40 -11 637 427 ;
+C 98 ; WX 570 ; N beta ; B 14 -125 531 784 ;
+C 99 ; WX 619 ; N chi ; B 11 -234 600 427 ;
+C 100 ; WX 538 ; N delta ; B 40 -11 556 784 ;
+C 101 ; WX 352 ; N epsilon ; B 65 -11 305 427 ;
+C 102 ; WX 648 ; N phi ; B 40 -234 609 503 ;
+C 103 ; WX 616 ; N gamma ; B 21 -234 592 427 ;
+C 104 ; WX 556 ; N eta ; B 26 -234 502 427 ;
+C 105 ; WX 266 ; N iota ; B 54 -11 221 427 ;
+C 106 ; WX 393 ; N sigma1 ; B 51 -166 350 427 ;
+C 107 ; WX 525 ; N kappa ; B 43 -11 495 427 ;
+C 108 ; WX 600 ; N lambda ; B 29 -11 569 784 ;
+C 109 ; WX 673 ; N mu ; B 43 -234 650 427 ;
+C 110 ; WX 506 ; N nu ; B 21 -11 458 427 ;
+C 111 ; WX 516 ; N omicron ; B 40 -11 477 427 ;
+C 112 ; WX 717 ; N pi ; B 22 -11 707 428 ;
+C 113 ; WX 508 ; N theta ; B 50 -11 460 784 ;
+C 114 ; WX 527 ; N rho ; B 57 -234 488 427 ;
+C 115 ; WX 651 ; N sigma ; B 40 -11 641 427 ;
+C 116 ; WX 651 ; N tau ; B 22 -11 641 428 ;
+C 117 ; WX 533 ; N upsilon ; B 45 -11 483 427 ;
+C 118 ; WX 660 ; N alphaiota ; B 40 -234 637 427 ;
+C 119 ; WX 686 ; N omega ; B 39 -11 648 427 ;
+C 120 ; WX 393 ; N xi ; B 51 -166 349 785 ;
+C 121 ; WX 791 ; N psi ; B 21 -234 762 784 ;
+C 122 ; WX 391 ; N zeta ; B 25 -166 359 784 ;
+C 123 ; WX 495 ; N braceleft ; B 99 -234 439 674 ;
+C 124 ; WX 462 ; N bar ; B 195 -234 261 674 ;
+C 125 ; WX 495 ; N braceright ; B 63 -234 403 674 ;
+C 126 ; WX 572 ; N asciitilde ; B 41 223 525 373 ;
+C 128 ; WX 462 ; N quotedblleft ; B 70 575 387 784 ;
+C 129 ; WX 462 ; N quotedblright ; B 74 575 391 784 ;
+C 130 ; WX 264 ; N exclam ; B 78 0 188 677 ;
+C 131 ; WX 266 ; N iotaasper ; B 54 -11 221 784 ;
+C 132 ; WX 266 ; N iotalenis ; B 54 -11 221 784 ;
+C 133 ; WX 266 ; N iotaacute ; B 54 -11 221 784 ;
+C 134 ; WX 266 ; N iotaasperacute ; B -31 -11 318 784 ;
+C 135 ; WX 266 ; N iotalenisacute ; B -31 -11 318 784 ;
+C 136 ; WX 266 ; N iotagrave ; B 45 -11 221 784 ;
+C 137 ; WX 266 ; N iotaaspergrave ; B -31 -11 325 784 ;
+C 138 ; WX 266 ; N iotalenisgrave ; B -31 -11 325 784 ;
+C 139 ; WX 266 ; N iotacircum ; B -64 -11 319 755 ;
+C 140 ; WX 266 ; N iotaaspercircum ; B -64 -11 319 784 ;
+C 141 ; WX 266 ; N iotaleniscircum ; B -64 -11 319 784 ;
+C 142 ; WX 266 ; N iotadieresis ; B -12 -11 279 674 ;
+C 143 ; WX 266 ; N iotadieresisacute ; B -32 -11 299 784 ;
+C 144 ; WX 266 ; N iotadieresisgrave ; B -33 -11 298 784 ;
+C 145 ; WX 462 ; N aspercircum ; B 35 473 418 784 ;
+C 146 ; WX 462 ; N leniscircum ; B 35 473 418 784 ;
+C 147 ; WX 462 ; N asperacute ; B 57 574 406 784 ;
+C 148 ; WX 462 ; N lenisacute ; B 57 574 406 784 ;
+C 149 ; WX 462 ; N aspergrave ; B 57 574 413 784 ;
+C 150 ; WX 462 ; N lenisgrave ; B 57 574 413 784 ;
+C 151 ; WX 462 ; N dieresisacute ; B 67 574 398 784 ;
+C 152 ; WX 352 ; N epsilonasper ; B 65 -11 305 784 ;
+C 153 ; WX 352 ; N epsilonlenis ; B 65 -11 305 784 ;
+C 154 ; WX 352 ; N epsilonacute ; B 65 -11 307 784 ;
+C 155 ; WX 352 ; N epsilonasperacute ; B 13 -11 362 784 ;
+C 156 ; WX 352 ; N epsilonlenisacute ; B 13 -11 362 784 ;
+C 157 ; WX 352 ; N epsilongrave ; B 65 -11 305 784 ;
+C 158 ; WX 352 ; N epsilonaspergrave ; B 13 -11 369 784 ;
+C 159 ; WX 352 ; N epsilonlenisgrave ; B 13 -11 369 784 ;
+C 160 ; WX 264 ; N nbspace ; B 0 0 0 0 ;
+C 161 ; WX 660 ; N alphaasper ; B 40 -11 637 784 ;
+C 162 ; WX 660 ; N alphalenis ; B 40 -11 637 784 ;
+C 163 ; WX 660 ; N alphaacute ; B 40 -11 637 784 ;
+C 164 ; WX 660 ; N alphaasperacute ; B 40 -11 637 784 ;
+C 165 ; WX 660 ; N alphalenisacute ; B 40 -11 637 784 ;
+C 166 ; WX 660 ; N alphagrave ; B 40 -11 637 784 ;
+C 167 ; WX 660 ; N alphaaspergrave ; B 40 -11 637 784 ;
+C 168 ; WX 660 ; N alphalenisgrave ; B 40 -11 637 784 ;
+C 169 ; WX 660 ; N alphacircum ; B 40 -11 637 755 ;
+C 170 ; WX 660 ; N alphaaspercircum ; B 40 -11 637 784 ;
+C 171 ; WX 660 ; N alphaleniscircum ; B 40 -11 637 784 ;
+C 172 ; WX 660 ; N alphaiotaasper ; B 40 -234 637 784 ;
+C 173 ; WX 660 ; N alphaiotalenis ; B 40 -234 637 784 ;
+C 174 ; WX 660 ; N alphaiotaacute ; B 40 -234 637 784 ;
+C 175 ; WX 660 ; N alphaiotaasperacute ; B 40 -234 637 784 ;
+C 176 ; WX 660 ; N alphaiotalenisacute ; B 40 -234 637 784 ;
+C 177 ; WX 660 ; N alphaiotagrave ; B 40 -234 637 784 ;
+C 178 ; WX 660 ; N alphaiotaaspergrave ; B 40 -234 637 784 ;
+C 179 ; WX 660 ; N alphaiotalenisgrave ; B 40 -234 637 784 ;
+C 180 ; WX 660 ; N alphaiotacircum ; B 40 -234 637 755 ;
+C 181 ; WX 660 ; N alphaiotaaspercircum ; B 40 -234 637 784 ;
+C 182 ; WX 660 ; N alphaiotaleniscircum ; B 40 -234 637 784 ;
+C 183 ; WX 527 ; N rhoasper ; B 57 -234 488 784 ;
+C 184 ; WX 527 ; N rholenis ; B 57 -234 488 784 ;
+C 185 ; WX 556 ; N etaasper ; B 26 -234 502 784 ;
+C 186 ; WX 556 ; N etalenis ; B 26 -234 502 784 ;
+C 187 ; WX 556 ; N etaacute ; B 26 -234 502 784 ;
+C 188 ; WX 556 ; N etaasperacute ; B 26 -234 505 784 ;
+C 189 ; WX 556 ; N etalenisacute ; B 26 -234 505 784 ;
+C 190 ; WX 556 ; N etagrave ; B 26 -234 502 784 ;
+C 191 ; WX 556 ; N etaaspergrave ; B 26 -234 502 784 ;
+C 192 ; WX 556 ; N etalenisgrave ; B 26 -234 502 784 ;
+C 193 ; WX 556 ; N etacircum ; B 26 -234 502 755 ;
+C 194 ; WX 556 ; N etaaspercircum ; B 26 -234 502 784 ;
+C 195 ; WX 556 ; N etaleniscircum ; B 26 -234 502 784 ;
+C 196 ; WX 242 ; N iotasubscript ; B 81 -234 190 -63 ;
+C 197 ; WX 556 ; N etaiotaasper ; B 26 -234 502 784 ;
+C 198 ; WX 556 ; N etaiotalenis ; B 26 -234 502 784 ;
+C 199 ; WX 556 ; N etaiotaacute ; B 26 -234 502 784 ;
+C 200 ; WX 556 ; N etaiotaasperacute ; B 26 -234 502 784 ;
+C 201 ; WX 556 ; N etaiotalenisacute ; B 26 -234 502 784 ;
+C 202 ; WX 556 ; N etaiotagrave ; B 26 -234 502 784 ;
+C 203 ; WX 556 ; N etaiotaaspergrave ; B 26 -234 502 784 ;
+C 204 ; WX 556 ; N etaiotalenisgrave ; B 26 -234 502 784 ;
+C 205 ; WX 556 ; N etaiotacircum ; B 26 -234 502 755 ;
+C 206 ; WX 556 ; N etaiotaaspercircum ; B 26 -234 502 784 ;
+C 207 ; WX 556 ; N etaiotaleniscircum ; B 26 -234 502 784 ;
+C 208 ; WX 516 ; N omicronasper ; B 40 -11 477 784 ;
+C 209 ; WX 516 ; N omicronlenis ; B 40 -11 477 784 ;
+C 210 ; WX 516 ; N omicronacute ; B 40 -11 477 784 ;
+C 211 ; WX 516 ; N omicronasperacute ; B 40 -11 477 784 ;
+C 212 ; WX 516 ; N omicronlenisacute ; B 40 -11 477 784 ;
+C 213 ; WX 516 ; N omicrongrave ; B 40 -11 477 784 ;
+C 214 ; WX 516 ; N omicronaspergrave ; B 40 -11 477 784 ;
+C 215 ; WX 516 ; N omicronlenisgrave ; B 40 -11 477 784 ;
+C 216 ; WX 533 ; N upsilonasper ; B 45 -11 483 784 ;
+C 217 ; WX 533 ; N upsilonlenis ; B 45 -11 483 784 ;
+C 218 ; WX 533 ; N upsilonacute ; B 45 -11 483 784 ;
+C 219 ; WX 533 ; N upsilonasperacute ; B 45 -11 483 784 ;
+C 220 ; WX 533 ; N upsilonlenisacute ; B 45 -11 483 784 ;
+C 221 ; WX 533 ; N upsilongrave ; B 45 -11 483 784 ;
+C 222 ; WX 533 ; N upsilonaspergrave ; B 45 -11 483 784 ;
+C 223 ; WX 533 ; N upsilonlenisgrave ; B 45 -11 483 784 ;
+C 224 ; WX 533 ; N upsiloncircum ; B 45 -11 483 755 ;
+C 225 ; WX 533 ; N upsilonaspercircum ; B 45 -11 483 784 ;
+C 226 ; WX 533 ; N upsilonleniscircum ; B 45 -11 483 784 ;
+C 227 ; WX 533 ; N upsilondieresis ; B 45 -11 483 674 ;
+C 228 ; WX 533 ; N upsilondieresisacute ; B 45 -11 483 784 ;
+C 229 ; WX 533 ; N upsilondieresisgrave ; B 45 -11 483 784 ;
+C 230 ; WX 686 ; N omegaasper ; B 39 -11 648 784 ;
+C 231 ; WX 686 ; N omegalenis ; B 39 -11 648 784 ;
+C 232 ; WX 686 ; N omegaacute ; B 39 -11 648 784 ;
+C 233 ; WX 686 ; N omegaasperacute ; B 39 -11 648 784 ;
+C 234 ; WX 686 ; N omegalenisacute ; B 39 -11 648 784 ;
+C 235 ; WX 686 ; N omegagrave ; B 39 -11 648 784 ;
+C 236 ; WX 686 ; N omegaaspergrave ; B 39 -11 648 784 ;
+C 237 ; WX 686 ; N omegalenisgrave ; B 39 -11 648 784 ;
+C 238 ; WX 686 ; N omegacircum ; B 39 -11 648 755 ;
+C 239 ; WX 686 ; N omegaaspercircum ; B 39 -11 648 784 ;
+C 240 ; WX 686 ; N omegaleniscircum ; B 39 -11 648 784 ;
+C 241 ; WX 686 ; N omegaiotaasper ; B 39 -234 648 784 ;
+C 242 ; WX 686 ; N omegaiotalenis ; B 39 -234 648 784 ;
+C 243 ; WX 686 ; N omegaiotaacute ; B 39 -234 648 784 ;
+C 244 ; WX 686 ; N omegaiotaasperacute ; B 39 -234 648 784 ;
+C 245 ; WX 686 ; N omegaiotalenisacute ; B 39 -234 648 784 ;
+C 246 ; WX 686 ; N omegaiotagrave ; B 39 -234 648 784 ;
+C 247 ; WX 686 ; N omegaiotaaspergrave ; B 39 -234 648 784 ;
+C 248 ; WX 686 ; N omegaiotalenisgrave ; B 39 -234 648 784 ;
+C 249 ; WX 686 ; N omegaiotacircum ; B 39 -234 648 755 ;
+C 250 ; WX 686 ; N omegaiotaaspercircum ; B 39 -234 648 784 ;
+C 251 ; WX 686 ; N omegaiotaleniscircum ; B 39 -234 648 784 ;
+C 252 ; WX 352 ; N epsiloncircum ; B -9 -11 374 755 ;
+C 253 ; WX 516 ; N omicroncircum ; B 40 -11 477 755 ;
+C 254 ; WX 462 ; N dieresisgrave ; B 66 574 397 784 ;
+C 255 ; WX 242 ; N primebase ; B 45 -234 193 -24 ;
+EndCharMetrics 
+StartKernData 
+StartKernPairs 551 
+KPX quotedblleftgreek Alpha -200 
+KPX quotedblleftgreek Omicron -80 
+KPX quotedblleftgreek Omega -150 
+KPX quoteleft Omicron -80 
+KPX quoteleft Omega -150 
+KPX quoteleft Alpha -200 
+KPX stigma lambda -100 
+KPX lenis Alpha -200 
+KPX lenis Omicron -80 
+KPX lenis Omega -150 
+KPX acutegreek Alpha -200 
+KPX acutegreek Omicron -80 
+KPX acutegreek Omega -150 
+KPX zero one -80 
+KPX one nine -80 
+KPX one eight -80 
+KPX one seven -80 
+KPX one six -80 
+KPX one five -80 
+KPX one four -80 
+KPX one three -80 
+KPX one two -100 
+KPX one one -160 
+KPX one zero -80 
+KPX two one -80 
+KPX three one -80 
+KPX four one -80 
+KPX five one -80 
+KPX six one -80 
+KPX seven one -80 
+KPX eight one -80 
+KPX nine one -80 
+KPX Alpha Upsilon -100 
+KPX Alpha Tau -100 
+KPX Alpha Phi -50 
+KPX Alpha Psi -70 
+KPX Alpha Csigma -50 
+KPX Alpha Theta -50 
+KPX Alpha Omicron -50 
+KPX Chi upsiloncircum -50 
+KPX Chi upsilongrave -50 
+KPX Chi upsilonacute -50 
+KPX Chi upsilon -50 
+KPX Chi tau -70 
+KPX Chi rho 30 
+KPX Chi Phi -50 
+KPX Chi Psi -30 
+KPX Chi Omicron -50 
+KPX Chi Theta -50 
+KPX Chi Csigma -50 
+KPX Delta Upsilon -100 
+KPX Delta Tau -100 
+KPX Delta Phi -50 
+KPX Delta Psi -70 
+KPX Delta Csigma -50 
+KPX Delta Omicron -50 
+KPX Delta Theta -50 
+KPX Epsilon iotacircum 50 
+KPX Epsilon iotaaspercircum 50 
+KPX Epsilon iotaleniscircum 50 
+KPX Phi Omega -30 
+KPX Phi Lambda -50 
+KPX Phi Delta -50 
+KPX Phi Alpha -50 
+KPX Phi Upsilon -30 
+KPX Phi Chi -50 
+KPX Phi Sigma -50 
+KPX Gamma Omega -30 
+KPX Gamma omicroncircum -50 
+KPX Gamma omegaiotacircum -100 
+KPX Gamma omegaiotagrave -100 
+KPX Gamma omegaiotaacute -100 
+KPX Gamma omegacircum -100 
+KPX Gamma omegagrave -100 
+KPX Gamma omegaacute -100 
+KPX Gamma upsiloncircum -50 
+KPX Gamma upsilongrave -100 
+KPX Gamma upsilonacute -100 
+KPX Gamma omicrongrave -100 
+KPX Gamma omicronacute -100 
+KPX Gamma etaiotacircum -50 
+KPX Gamma etaiotagrave -100 
+KPX Gamma etaiotaacute -100 
+KPX Gamma etacircum -50 
+KPX Gamma etaacute -100 
+KPX Gamma alphaiotacircum -50 
+KPX Gamma alphaiotagrave -100 
+KPX Gamma alphaiotaacute -100 
+KPX Gamma alphacircum -50 
+KPX Gamma alphagrave -100 
+KPX Gamma alphaacute -100 
+KPX Gamma epsilongrave -100 
+KPX Gamma epsilonacute -100 
+KPX Gamma etaiota -100 
+KPX Gamma omegaiota -100 
+KPX Gamma omega -100 
+KPX Gamma alphaiota -100 
+KPX Gamma upsilon -100 
+KPX Gamma rho -100 
+KPX Gamma omicron -100 
+KPX Gamma nu -100 
+KPX Gamma iota -100 
+KPX Gamma eta -100 
+KPX Gamma epsilon -100 
+KPX Gamma alpha -100 
+KPX Gamma Lambda -100 
+KPX Gamma Delta -100 
+KPX Gamma Alpha -100 
+KPX Gamma epsiloncircum 30 
+KPX Kappa upsiloncircum -50 
+KPX Kappa upsilongrave -50 
+KPX Kappa upsilonacute -50 
+KPX Kappa tau -70 
+KPX Kappa rho 30 
+KPX Kappa upsilon -50 
+KPX Kappa Psi -30 
+KPX Kappa Phi -50 
+KPX Lambda Upsilon -100 
+KPX Lambda Tau -100 
+KPX Lambda Phi -50 
+KPX Lambda Psi -70 
+KPX Lambda Csigma -50 
+KPX Lambda Omicron -50 
+KPX Lambda Theta -50 
+KPX Omicron Chi -50 
+KPX Omicron Sigma -50 
+KPX Omicron Lambda -50 
+KPX Omicron Delta -50 
+KPX Omicron Alpha -50 
+KPX Omicron iotacircum 20 
+KPX Theta Chi -50 
+KPX Theta Sigma -50 
+KPX Theta Alpha -50 
+KPX Theta Delta -50 
+KPX Theta Lambda -50 
+KPX Tau Omega -30 
+KPX Tau omicroncircum -50 
+KPX Tau omegaiotacircum -100 
+KPX Tau omegaiotagrave -100 
+KPX Tau omegaiotaacute -100 
+KPX Tau omegacircum -100 
+KPX Tau omegagrave -100 
+KPX Tau omegaacute -100 
+KPX Tau upsiloncircum -50 
+KPX Tau upsilongrave -100 
+KPX Tau upsilonacute -100 
+KPX Tau omicrongrave -100 
+KPX Tau omicronacute -100 
+KPX Tau etaiotacircum -50 
+KPX Tau etaiotagrave -100 
+KPX Tau etaiotaacute -100 
+KPX Tau etacircum -50 
+KPX Tau etagrave -100 
+KPX Tau etaacute -100 
+KPX Tau alphaiotacircum -50 
+KPX Tau alphaiotagrave -100 
+KPX Tau alphaiotaacute -100 
+KPX Tau alphacircum -50 
+KPX Tau alphagrave -100 
+KPX Tau alphaacute -100 
+KPX Tau epsilongrave -100 
+KPX Tau epsilonacute -100 
+KPX Tau omega -100 
+KPX Tau alphaiota -100 
+KPX Tau upsilon -100 
+KPX Tau rho -100 
+KPX Tau omicron -100 
+KPX Tau mu -100 
+KPX Tau iota -100 
+KPX Tau eta -100 
+KPX Tau epsilon -100 
+KPX Tau alpha -100 
+KPX Tau etaiota -100 
+KPX Tau omegaiota -100 
+KPX Tau Lambda -100 
+KPX Tau Delta -100 
+KPX Tau Alpha -100 
+KPX Upsilon Omega -30 
+KPX Upsilon omicroncircum -50 
+KPX Upsilon omegaiotacircum -100 
+KPX Upsilon omegaiotagrave -100 
+KPX Upsilon omegaiotaacute -100 
+KPX Upsilon omegacircum -100 
+KPX Upsilon omegagrave -100 
+KPX Upsilon omegaacute -100 
+KPX Upsilon omicrongrave -100 
+KPX Upsilon omicronacute -100 
+KPX Upsilon etaiotacircum -50 
+KPX Upsilon etaiotagrave -100 
+KPX Upsilon etaiotaacute -100 
+KPX Upsilon etacircum -50 
+KPX Upsilon etagrave -100 
+KPX Upsilon etaacute -100 
+KPX Upsilon alphaiotacircum -50 
+KPX Upsilon alphaiotagrave -100 
+KPX Upsilon alphaiotaacute -100 
+KPX Upsilon alphacircum -50 
+KPX Upsilon alphagrave -100 
+KPX Upsilon alphaacute -100 
+KPX Upsilon epsilongrave -100 
+KPX Upsilon epsilonacute -100 
+KPX Upsilon iotadieresisgrave 50 
+KPX Upsilon iotadieresisacute 50 
+KPX Upsilon iotadieresis 50 
+KPX Upsilon iotaleniscircum 70 
+KPX Upsilon iotaaspercircum 70 
+KPX Upsilon iotacircum 100 
+KPX Upsilon iotalenisgrave 50 
+KPX Upsilon iotaaspergrave 50 
+KPX Upsilon iotalenisacute 50 
+KPX Upsilon iotaasperacute 50 
+KPX Upsilon zeta 50 
+KPX Upsilon psi -100 
+KPX Upsilon omega -100 
+KPX Upsilon alphaiota -100 
+KPX Upsilon upsilon -100 
+KPX Upsilon tau -100 
+KPX Upsilon sigma -100 
+KPX Upsilon rho -100 
+KPX Upsilon pi -100 
+KPX Upsilon omicron -100 
+KPX Upsilon nu -100 
+KPX Upsilon mu -100 
+KPX Upsilon kappa -100 
+KPX Upsilon sigma1 -100 
+KPX Upsilon iota -100 
+KPX Upsilon eta -100 
+KPX Upsilon gamma -100 
+KPX Upsilon phi -100 
+KPX Upsilon epsilon -100 
+KPX Upsilon chi -100 
+KPX Upsilon alpha -100 
+KPX Upsilon etaiota -100 
+KPX Upsilon omegaiota -100 
+KPX Upsilon csigma -100 
+KPX Upsilon Lambda -100 
+KPX Upsilon Delta -100 
+KPX Upsilon Alpha -100 
+KPX Upsilon Phi -30 
+KPX etaiota rho 30 
+KPX Omega Upsilon -30 
+KPX Omega Tau -30 
+KPX Omega Psi -30 
+KPX Omega Phi -30 
+KPX Psi Omega -30 
+KPX Psi Lambda -50 
+KPX Psi Delta -50 
+KPX Psi Alpha -50 
+KPX Psi Chi -30 
+KPX circumgreek Alpha -200 
+KPX circumgreek Omicron -80 
+KPX circumgreek Omega -150 
+KPX asper Omega -120 
+KPX asper Omicron -80 
+KPX asper Alpha -200 
+KPX alpha psi -50 
+KPX alpha tau -50 
+KPX alpha pi -50 
+KPX alpha nu -50 
+KPX alpha gamma -50 
+KPX alpha upsilon -50 
+KPX alpha upsilonasper -50 
+KPX alpha upsilonlenis -50 
+KPX alpha upsilonacute -50 
+KPX alpha upsilonasperacute -50 
+KPX alpha upsilonlenisacute -50 
+KPX alpha upsilongrave -50 
+KPX alpha upsilonaspergrave -50 
+KPX alpha upsilonlenisgrave -50 
+KPX alpha upsiloncircum -50 
+KPX alpha upsilonaspercircum -50 
+KPX alpha upsilonleniscircum -50 
+KPX alpha upsilondieresis -50 
+KPX alpha upsilondieresisacute -50 
+KPX alpha upsilondieresisgrave -50 
+KPX delta xi 50 
+KPX delta zeta 50 
+KPX delta lenis 50 
+KPX gamma lambda -50 
+KPX eta rho 30 
+KPX kappa rho 20 
+KPX lambda psi -50 
+KPX lambda tau -50 
+KPX lambda pi -50 
+KPX lambda nu -50 
+KPX lambda gamma -50 
+KPX mu psi -50 
+KPX mu tau -50 
+KPX mu pi -50 
+KPX mu nu -50 
+KPX mu gamma -50 
+KPX mu upsilon -50 
+KPX mu upsilonacute -50 
+KPX mu upsilongrave -50 
+KPX pi lambda -50 
+KPX sigma lambda -50 
+KPX tau lambda -50 
+KPX alphaiota psi -50 
+KPX alphaiota tau -50 
+KPX alphaiota pi -50 
+KPX alphaiota nu -50 
+KPX alphaiota gamma -50 
+KPX alphaiota upsilon -50 
+KPX alphaiota upsilonacute -50 
+KPX alphaiota upsilongrave -50 
+KPX alphaiota upsiloncircum -50 
+KPX alphaiota upsilondieresis -50 
+KPX alphaiota upsilondieresisacute -50 
+KPX alphaiota upsilondieresisgrave -50 
+KPX psi lambda -50 
+KPX quotedblleft Alpha -200 
+KPX quotedblleft Omicron -80 
+KPX quotedblleft Omega -150 
+KPX iotaasper zeta 20 
+KPX iotalenis zeta 20 
+KPX iotaacute zeta 20 
+KPX iotaasperacute xi 50 
+KPX iotaasperacute zeta 70 
+KPX iotaasperacute lambda 100 
+KPX iotalenisacute xi 50 
+KPX iotalenisacute zeta 70 
+KPX iotalenisacute lambda 100 
+KPX iotagrave zeta 20 
+KPX iotaaspergrave xi 50 
+KPX iotaaspergrave zeta 100 
+KPX iotaaspergrave lambda 70 
+KPX iotalenisgrave xi 50 
+KPX iotalenisgrave zeta 100 
+KPX iotacircum xi 50 
+KPX iotacircum zeta 100 
+KPX iotacircum lambda 50 
+KPX iotacircum delta 30 
+KPX iotaaspercircum xi 50 
+KPX iotaaspercircum zeta 100 
+KPX iotaaspercircum lambda 70 
+KPX iotaaspercircum delta 30 
+KPX iotaleniscircum xi 50 
+KPX iotaleniscircum zeta 100 
+KPX iotaleniscircum lambda 70 
+KPX iotaleniscircum delta 30 
+KPX iotadieresis xi 30 
+KPX iotadieresis zeta 70 
+KPX iotadieresis lambda 50 
+KPX iotadieresisacute xi 50 
+KPX iotadieresisacute zeta 100 
+KPX iotadieresisacute lambda 50 
+KPX iotadieresisgrave xi 50 
+KPX iotadieresisgrave zeta 100 
+KPX iotadieresisgrave lambda 50 
+KPX aspercircum Alpha -200 
+KPX aspercircum Omicron -80 
+KPX aspercircum Omega -150 
+KPX leniscircum Alpha -200 
+KPX leniscircum Omicron -80 
+KPX leniscircum Omega -150 
+KPX asperacute Alpha -200 
+KPX asperacute Omicron -80 
+KPX asperacute Omega -150 
+KPX lenisacute Alpha -200 
+KPX lenisacute Omicron -80 
+KPX lenisacute Omega -150 
+KPX aspergrave Alpha -200 
+KPX aspergrave Omicron -60 
+KPX aspergrave Omega -130 
+KPX lenisgrave Alpha -200 
+KPX lenisgrave Omicron -60 
+KPX lenisgrave Omega -130 
+KPX epsilonasperacute lambda 50 
+KPX epsilonlenisacute lambda 50 
+KPX epsilonaspergrave lambda 30 
+KPX epsilonlenisgrave lambda 30 
+KPX alphaasper psi -50 
+KPX alphaasper tau -50 
+KPX alphaasper pi -50 
+KPX alphaasper nu -50 
+KPX alphaasper gamma -50 
+KPX alphaasper upsilon -50 
+KPX alphaasper upsilondieresis -50 
+KPX alphaasper upsilondieresisacute -50 
+KPX alphalenis psi -50 
+KPX alphalenis pi -50 
+KPX alphalenis tau -50 
+KPX alphalenis nu -50 
+KPX alphalenis gamma -50 
+KPX alphalenis upsilon -50 
+KPX alphalenis upsilondieresis -50 
+KPX alphalenis upsilondieresisacute -50 
+KPX alphaacute psi -50 
+KPX alphaacute tau -50 
+KPX alphaacute pi -50 
+KPX alphaacute nu -50 
+KPX alphaacute gamma -50 
+KPX alphaacute upsilon -50 
+KPX alphaacute upsilondieresis -50 
+KPX alphaasperacute pi -50 
+KPX alphaasperacute psi -50 
+KPX alphaasperacute tau -50 
+KPX alphaasperacute nu -50 
+KPX alphaasperacute gamma -50 
+KPX alphaasperacute upsilon -50 
+KPX alphaasperacute upsilondieresis -50 
+KPX alphalenisacute psi -50 
+KPX alphalenisacute tau -50 
+KPX alphalenisacute pi -50 
+KPX alphalenisacute nu -50 
+KPX alphalenisacute gamma -50 
+KPX alphalenisacute upsilon -50 
+KPX alphalenisacute upsilondieresis -50 
+KPX alphagrave psi -50 
+KPX alphagrave tau -50 
+KPX alphagrave pi -50 
+KPX alphagrave nu -50 
+KPX alphagrave gamma -50 
+KPX alphagrave upsilon -50 
+KPX alphagrave upsilondieresis -50 
+KPX alphaaspergrave psi -50 
+KPX alphaaspergrave tau -50 
+KPX alphaaspergrave pi -50 
+KPX alphaaspergrave nu -50 
+KPX alphaaspergrave gamma -50 
+KPX alphaaspergrave upsilon -50 
+KPX alphaaspergrave upsilondieresis -50 
+KPX alphalenisgrave psi -50 
+KPX alphalenisgrave tau -50 
+KPX alphalenisgrave pi -50 
+KPX alphalenisgrave nu -50 
+KPX alphalenisgrave gamma -50 
+KPX alphalenisgrave upsilon -50 
+KPX alphalenisgrave upsilondieresis -50 
+KPX alphacircum psi -50 
+KPX alphacircum tau -50 
+KPX alphacircum pi -50 
+KPX alphacircum nu -50 
+KPX alphacircum gamma -50 
+KPX alphacircum upsilondieresis -50 
+KPX alphaaspercircum psi -50 
+KPX alphaaspercircum tau -50 
+KPX alphaaspercircum pi -50 
+KPX alphaaspercircum nu -50 
+KPX alphaaspercircum gamma -50 
+KPX alphaaspercircum upsilondieresis -50 
+KPX alphaleniscircum psi -50 
+KPX alphaleniscircum tau -50 
+KPX alphaleniscircum pi -50 
+KPX alphaleniscircum nu -50 
+KPX alphaleniscircum gamma -50 
+KPX alphaleniscircum upsilon -50 
+KPX alphaleniscircum upsilondieresis -50 
+KPX alphaiotaasper psi -50 
+KPX alphaiotaasper tau -50 
+KPX alphaiotaasper pi -50 
+KPX alphaiotaasper nu -50 
+KPX alphaiotaasper gamma -50 
+KPX alphaiotaasper upsilon -50 
+KPX alphaiotaasper upsilondieresis -50 
+KPX alphaiotaasper upsilondieresisacute -50 
+KPX alphaiotalenis psi -50 
+KPX alphaiotalenis tau -50 
+KPX alphaiotalenis pi -50 
+KPX alphaiotalenis nu -50 
+KPX alphaiotalenis gamma -50 
+KPX alphaiotalenis upsilon -50 
+KPX alphaiotalenis upsilondieresis -50 
+KPX alphaiotalenis upsilondieresisacute -50 
+KPX alphaiotaacute psi -50 
+KPX alphaiotaacute tau -50 
+KPX alphaiotaacute pi -50 
+KPX alphaiotaacute nu -50 
+KPX alphaiotaacute gamma -50 
+KPX alphaiotaacute upsilon -50 
+KPX alphaiotaacute upsilondieresis -50 
+KPX alphaiotaasperacute psi -50 
+KPX alphaiotaasperacute tau -50 
+KPX alphaiotaasperacute pi -50 
+KPX alphaiotaasperacute nu -50 
+KPX alphaiotaasperacute gamma -50 
+KPX alphaiotaasperacute upsilon -50 
+KPX alphaiotaasperacute upsilondieresis -50 
+KPX alphaiotalenisacute psi -50 
+KPX alphaiotalenisacute tau -50 
+KPX alphaiotalenisacute pi -50 
+KPX alphaiotalenisacute nu -50 
+KPX alphaiotalenisacute gamma -50 
+KPX alphaiotalenisacute upsilon -50 
+KPX alphaiotalenisacute upsilondieresis -50 
+KPX alphaiotagrave psi -50 
+KPX alphaiotagrave tau -50 
+KPX alphaiotagrave pi -50 
+KPX alphaiotagrave nu -50 
+KPX alphaiotagrave gamma -50 
+KPX alphaiotagrave upsilon -50 
+KPX alphaiotagrave upsilondieresis -50 
+KPX alphaiotaaspergrave psi -50 
+KPX alphaiotaaspergrave tau -50 
+KPX alphaiotaaspergrave pi -50 
+KPX alphaiotaaspergrave nu -50 
+KPX alphaiotaaspergrave gamma -50 
+KPX alphaiotaaspergrave upsilon -50 
+KPX alphaiotaaspergrave upsilondieresis -50 
+KPX alphaiotalenisgrave psi -50 
+KPX alphaiotalenisgrave tau -50 
+KPX alphaiotalenisgrave pi -50 
+KPX alphaiotalenisgrave nu -50 
+KPX alphaiotalenisgrave gamma -50 
+KPX alphaiotalenisgrave upsilon -50 
+KPX alphaiotalenisgrave upsilondieresis -50 
+KPX alphaiotacircum psi -50 
+KPX alphaiotacircum tau -50 
+KPX alphaiotacircum pi -50 
+KPX alphaiotacircum nu -50 
+KPX alphaiotacircum gamma -50 
+KPX alphaiotacircum upsilon -50 
+KPX alphaiotacircum upsilondieresis -50 
+KPX alphaiotaaspercircum psi -50 
+KPX alphaiotaaspercircum tau -50 
+KPX alphaiotaaspercircum pi -50 
+KPX alphaiotaaspercircum nu -50 
+KPX alphaiotaaspercircum gamma -50 
+KPX alphaiotaaspercircum upsilon -50 
+KPX alphaiotaaspercircum upsilondieresis -50 
+KPX alphaiotaleniscircum psi -50 
+KPX alphaiotaleniscircum tau -50 
+KPX alphaiotaleniscircum pi -50 
+KPX alphaiotaleniscircum nu -50 
+KPX alphaiotaleniscircum gamma -50 
+KPX alphaiotaleniscircum upsilon -50 
+KPX alphaiotaleniscircum upsilondieresis -50 
+KPX etaasper rho 30 
+KPX etalenis rho 30 
+KPX etaacute rho 30 
+KPX etaasperacute rho 30 
+KPX etalenisacute rho 30 
+KPX etagrave rho 30 
+KPX etaaspergrave rho 30 
+KPX etalenisgrave rho 30 
+KPX etacircum rho 30 
+KPX etaaspercircum rho 30 
+KPX etaleniscircum rho 30 
+KPX etaiotaasper rho 30 
+KPX etaiotalenis rho 30 
+KPX etaiotaacute rho 30 
+KPX etaiotaasperacute rho 30 
+KPX etaiotalenisacute rho 30 
+KPX etaiotagrave rho 30 
+KPX etaiotaaspergrave rho 30 
+KPX etaiotalenisgrave rho 30 
+KPX etaiotacircum rho 30 
+KPX etaiotaaspercircum rho 30 
+KPX etaiotaleniscircum rho 30 
+KPX epsiloncircum lambda 30 
+KPX epsiloncircum zeta 70 
+EndKernPairs 
+EndKernData 
+EndFontMetrics 

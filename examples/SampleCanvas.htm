@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html>
+<head>
+<title>CollinsPDF Canvas to PDF Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<LINK href="CollinsPDF.css" type=text/css rel=stylesheet>
+<script SRC="CollinsPDF.js" language="JavaScript"></script>
+
+<script>
+var sig = null;
+var ele;
+var isIE = false;
+//==============================================================================
+//							openPDF_IE
+//==============================================================================
+function openPDF_IE()
+{
+	var ele,htmlData;
+
+	ele = document.getElementById('graphic');
+
+	htmlData = '';
+	htmlData += '<doc margin=0.5 marginColor="lightSteelBlue">';
+	htmlData += '<i>Example Draw on Canvas</i><br>';
+	htmlData += '<center>' + ele.value + '</center>';
+	
+	CollinsPDF('',htmlData);
+
+}
+//==============================================================================
+//							openPDF
+//==============================================================================
+function openPDF()
+{
+	var htmlData,text,ele;
+
+	if (isIE) return openPDF_IE();
+
+	htmlData = '';
+	htmlData += '<doc margin=0.5 marginColor="lightSteelBlue">';
+	htmlData += '<i>Example Draw on Canvas</i><br>';
+	htmlData += '<center><img src="Canvas:myCanvas" height=150></center>';
+	
+	CollinsPDF('open',htmlData);
+
+}
+//==============================================================================
+//							openGraphic
+//==============================================================================
+function openGraphic()
+{
+	var htmlData,ele;
+
+//	if (isIE) return openPDF_IE();
+
+	ele = document.getElementById('graphic');
+
+	htmlData = '';
+	htmlData += '<doc margin=0.5 marginColor="lightSteelBlue">';
+	htmlData += '<i>Example Draw using graphic x/y coordinates</i><br>';
+	htmlData += '<center>' + ele.value + '</center>';
+
+	CollinsPDF('open', htmlData);
+}
+//===================================================
+//                   bodyOnMouseUp
+//===================================================
+function bodyOnMouseUp(e)
+{ 
+	var ele;
+	ele = document.getElementById('myCanvas');
+	ele.isDown = false;
+}
+//===================================================
+//                   onMouseDown
+//===================================================
+function onMouseDown(e)
+{ 
+	var ele,p;
+	
+	if (!e) e = window.event;
+
+	ele = (e.srcElement);
+	if (! ele) ele = e.target;
+	ele.isDown = true;	
+	ele.context = ele.getContext("2d");
+
+	ele.context.lineWidth = 2;
+ 	ele.context.beginPath();	
+	ele.context.moveTo(e.offsetX,e.offsetY);
+
+	sig.line = new Array();
+
+	p = new Object();
+	p.x = e.offsetX;
+	p.y = e.offsetY;
+	sig.p = p;
+	sig.line[sig.line.length] = p;
+	sig.lines[sig.lines.length] = sig.line;
+
+}
+//===================================================
+//                   onMouseMove
+//===================================================
+function onMouseMove(e)
+{ 
+	var ele,dx,dy,p;
+
+	if (!e) e = window.event;
+	ele = (e.srcElement);
+	if (! ele) ele = e.target;
+	if (! ele.isDown) return;
+
+	ele.context.lineTo(e.offsetX,e.offsetY);
+	ele.context.stroke();
+
+	dx = e.offsetX - sig.p.x;
+	dy = e.offsetY - sig.p.y;
+	if (dx == 0 && dy == 0) return;
+
+	sig.p = new Object();
+	sig.p.x = e.offsetX;
+	sig.p.y = e.offsetY;
+	sig.line[sig.line.length] = sig.p;
+}
+//===================================================
+//                   onMouseUp
+//===================================================
+function onMouseUp(e)
+{ 
+	var ele;
+
+	if (!e) e = window.event;
+	ele = (e.srcElement);
+	if (! ele) ele = e.target;
+	ele.isDown = false;
+	ele.context.lineTo(e.offsetX,e.offsetY);
+	ele.context.stroke();
+	save();
+}
+//===================================================
+//                   clear
+//===================================================
+function xclear(name)
+{ 
+	var canvas,context;
+	var i,j,line,ln,text,p;
+
+	sig = new Object();
+	sig.lines = new Array();
+
+try
+{
+
+	isIE = false;
+	if (navigator.appName == 'Microsoft Internet Explorer') isIE = true;
+
+	canvas = document.getElementById(name);
+	context = canvas.getContext("2d");
+
+	context.fillStyle = 'red'; 
+	context.fillRect(0, 0, canvas.width, canvas.height); 		
+	
+}
+catch (e) { alert('Your Browser does not support Canvas, Use Chrome, Safari, Opera, or IE9'); }
+}
+//===================================================
+//                   
+//===================================================
+function save()
+{ 
+	var canvas,context,data;
+	var i,j,line,ln,text,p,ele;
+	var myCanvas,message;
+
+	ele = document.getElementById('graphic');
+
+	if (sig != null && sig.lines.length == 0) return;
+	
+	myCanvas = document.getElementById('myCanvas');
+	message = document.getElementById('message');
+	data = myCanvas.toDataURL("image/jpg");
+
+	text = '<graphic height=150 width=300 border=1 bgcolor=red origin=top-left range="0,0,400,200">\r\n';
+	for (i=0; i < sig.lines.length; ++i)
+	{
+		line = sig.lines[i];
+		if (line.length < 2) continue;
+		ln = "line,'weight=2 linecolor=navy'";
+		for (j=0; j < line.length; ++j)
+		{
+			p = line[j];
+			ln += ',' + Math.round(p.x * 100) / 100 + ':' + Math.round(p.y * 100) / 100;
+		}
+		
+		text += ln + ';\r\n';
+	}
+
+	text += '</graphic>';
+	ele.value = text;
+
+	message.innerText = 'canvas size = ' + data.length + ' graphic size = ' + text.length;
+}
+
+//===================================================
+//                   GraphicToCanvas
+//===================================================
+function graphicToCanvas()
+{ 
+	var canvas,context,data;
+	var i,j,line,ln,text,p,ele;
+	var list,a,b,c;
+
+	ele = document.getElementById('graphic');
+	canvas = document.getElementById('myCanvas');
+	context = canvas.getContext("2d");
+
+	context.fillStyle = 'red'; 
+	context.fillRect(0, 0, canvas.width, canvas.height); 		
+ 
+	text = ele.value;
+	i = text.indexOf('>');
+	text = text.substr(i+1);
+	i = text.indexOf('<');
+	text = text.substr(0,i);
+	
+	list = text.split(';');
+
+	for (i=0; i < list.length; ++i)
+	{
+		text = list[i];
+		a = text.split(',');
+		if (a.length < 3) continue;
+	
+		context.lineWidth = 2;
+	 	context.beginPath();	
+	 	
+	 	b = a[3];
+	 	c = b.split(':');
+	 	if (c.length != 2) continue;	 	
+		context.moveTo(c[0],c[1]);
+		
+		for (j=1; j < a.length; ++j)
+		{
+			b = a[j];
+			c = b.split(':');
+			if (c.length < 2) continue;
+			context.lineTo(c[0],c[1]);
+		}
+		context.endPath;	
+		context.stroke();
+	}
+
+}
+</script>
+</head>
+
+<body onload="if (sig == null) xclear('myCanvas')" onmouseup="bodyOnMouseUp()">
+<br>
+<center><a href="./"><font size="4">CollinsPDF</font></a><font size="4"> 100% Client Side PDF Generation Example</font></center>
+<input type=button value="Canvas To PDF" onclick="openPDF()">&nbsp;
+<input type=button value="Clear" onclick="xclear('myCanvas')">&nbsp;&nbsp;<span id=message>&nbsp;</span>
+<br>
+<i>Use Mouse to draw on the Red Canvas</i>
+<br>
+<table>
+<tr>
+<td width=560 valign=top>
+<canvas border=1 id="myCanvas" height=200 width=400 onMouseDown="onMouseDown()" onMouseUp="onMouseUp()" onMouseMove="onMouseMove()">Your browser does not support the application</canvas>
+</td>
+<td valign=top>
+Source Code used to convert Canvas to PDF:
+<div class=code>
+<pre>
+htmlData = '';
+htmlData += '&lt;doc margin=0.5 marginColor=&quot;lightSteelBlue&quot;&gt;';
+htmlData += '&lt;i&gt;Example Draw on Canvas&lt;/i&gt;&lt;br&gt;';
+htmlData += '&lt;center&gt;&lt;img src=&quot;Canvas:myCanvas&quot; height=200&gt;&lt;/center&gt;';
+CollinsPDF('Open',htmlData);
+</pre>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan=2>
+&nbsp;<input type=button value="Graphic to PDF" onclick="openGraphic()">&nbsp;
+&nbsp;<input type=button value="Graphic to Canvas" onclick="graphicToCanvas()"><br>
+<i>Graphic has a sharper image and can be stored in a database</i>
+
+<textarea id=graphic style="width:100%" rows=20 cols="20"></textarea>
+</td>
+</tr>
+</table>
+</body>
+

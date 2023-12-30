@@ -1,0 +1,44 @@
+<head>
+<style>
+
+div
+{
+	background-color:#eeeeee;
+	font-familty:courier;
+	font-size:10pt;
+}
+
+</style>
+<base target="main">
+</head>
+
+<body>
+<span style="Width:250;font-size:10pt">
+Graphic Tags Example Protractor<br>
+</span>
+
+<div>
+<pre>
+&lt;pdf margin=&quot;0.5&quot;&gt;
+&lt;font size=4 color=blue&gt;
+Randomized Protractor Example &lt;br&gt;
+Angles in Increments of 5 Degrees&lt;br&gt;&lt;/font&gt;
+
+&lt;random id=a min=0 max=90 modulus=5&gt;
+&lt;random id=b min=95 max=180 modulus=5&gt;
+
+&lt;group count=6 columns=2 columnorder&gt;
+
+&lt;graphic border=0 height=220 width=200 Range=&quot;0,0,200,200&quot; &gt;
+Protractor,,120:75,120,0,180,18,1,{a} {b},red,true;
+Text,fontsize:12,0:45,Answer = {eval({b.last} - {a.last})};
+&lt;/graphic&gt;
+
+&lt;br&gt;
+&lt;/group&gt;
+
+</pre>
+</div>
+
+</body>
+</html>

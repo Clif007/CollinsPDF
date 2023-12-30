@@ -1,0 +1,75 @@
+<DOC margin=0.5>
+<center><a href="http://www.cdc.gov/cancer/npcr/uscs/2005/download_data.htm">
+<u><h1>United States Cancer Statistics (USCS)</h1></u></a></center>
+
+<Report columnWidth=450 cellspacing=10 border=0 style="font-size:10pt" TABLE=childBySite>
+
+<reportgroup key="{year}">
+  <header>{year}
+    <store id=yearTotal clear value=0>
+    <store id=yearLabel value={year}>
+  </header>
+
+  <footer>
+    <Column width=250 align=right>{yearLabel} Grand Total = {yearTotal}</Column>
+  </footer>
+</reportgroup>
+
+<reportgroup key="{race}">
+  <header>{race} Population {comma({population})}
+    <store id=subTotal clear value=0>
+    <store id=apple clear value=0>
+    <assign id=slice value=0>
+  </header>
+
+  <footer>
+    <Column width=250 align=right>Sub Total = {subTotal}</Column><br><br>
+	<graphic height=100 width=100 border=0 style="position:relative; top:-200; left:500">
+	Pie,fontsize:6,50:50,50,0,30,{apple.pie};
+	</graphic>
+  </footer>
+</reportgroup>
+
+<detail cellspacing=0 border=1 cellpadding=5 header="white,blue">
+  <Column width=30 align=right bgcolor="{colorByCount({slice})}">{slice}</Column>
+  <Column width=220>{site}</Column>
+  <Column width=60 align=right>{comma({events})}</Column>
+  <Column width=* align=center>{Age-Adjusted_Rate}</Column>
+
+  <HEADER></HEADER>
+  <HEADER align=center>Site</HEADER>
+  <HEADER align=center>Events</HEADER>
+  <HEADER align=center>Age Adjust Rate</HEADER>
+
+  <assign id=slice command=increment>
+  <store id=subTotal command=add value="{events}">
+  <store id=yearTotal command=add value="{events}">
+  <store id=apple command=add value="{events}" Name="{slice}">
+
+</detail>
+
+</Report>
+
+<reportTable id=childBySite firstRowNames=true>
+"ID","Year","Site","Sex","Race","EventType","Age-Adjusted_Rate","Age-Adjusted_CI_Lower","Age-Adjusted CI Upper","Crude Rate","Crude CI Lower","Crude CI Upper","Events","Population","Siteorder","Sexorder","Raceorder"
+218,"1999","Bones and Joints","Male and Female","White","Mortality","0.3","0.2","0.3","0.3","0.2","0.3","168",62644958,2,1,2
+236,"1999","Brain and Other Nervous System","Male and Female","White","Mortality","0.7","0.6","0.8","0.7","0.6","0.8","431",62644958,3,1,2
+254,"1999","Hodgkin Lymphoma","Male and Female","White","Mortality","0.1","0.0","0.1","0.1","0.0","0.1","34",62644958,4,1,2
+272,"1999","Kidney and Renal Pelvis","Male and Female","White","Mortality","0.1","0.1","0.1","0.1","0.1","0.1","44",62644958,5,1,2
+290,"1999","Leukemia","Male and Female","White","Mortality","0.9","0.8","0.9","0.9","0.8","0.9","534",62644958,6,1,2
+651,"1999","Acute Lymphocytic","Male and Female","White","Mortality","0.4","0.3","0.4","0.4","0.3","0.4","236",62644958,7,1,2
+669,"1999","Acute Myeloid","Male and Female","White","Mortality","0.3","0.2","0.3","0.3","0.2","0.3","158",62644958,8,1,2
+687,"1999","Non-Hodgkin Lymphoma","Male and Female","White","Mortality","0.1","0.1","0.2","0.1","0.1","0.2","75",62644958,9,1,2
+705,"1999","Soft Tissue","Male and Female","White","Mortality","0.2","0.2","0.2","0.2","0.2","0.2","116",62644958,10,1,2
+723,"1999","Other","Male and Female","White","Mortality","0.6","0.5","0.6","0.6","0.5","0.6","352",62644958,11,1,2
+219,"1999","Bones and Joints","Male and Female","Black","Mortality","0.2","0.2","0.3","0.2","0.2","0.3","29",12938519,2,1,3
+237,"1999","Brain and Other Nervous System","Male and Female","Black","Mortality","0.7","0.6","0.9","0.7","0.6","0.9","93",12938519,3,1,3
+255,"1999","Hodgkin Lymphoma","Male and Female","Black","Mortality","~","~","~","~","~","~","~",12938519,4,1,3
+273,"1999","Kidney and Renal Pelvis","Male and Female","Black","Mortality","~","~","~","~","~","~","~",12938519,5,1,3
+634,"1999","Leukemia","Male and Female","Black","Mortality","0.8","0.7","1.0","0.8","0.7","1.0","104",12938519,6,1,3
+652,"1999","Acute Lymphocytic","Male and Female","Black","Mortality","0.3","0.2","0.4","0.3","0.2","0.4","37",12938519,7,1,3
+670,"1999","Acute Myeloid","Male and Female","Black","Mortality","0.3","0.2","0.4","0.3","0.2","0.4","36",12938519,8,1,3
+688,"1999","Non-Hodgkin Lymphoma","Male and Female","Black","Mortality","0.2","0.1","0.3","0.2","0.1","0.3","26",12938519,9,1,3
+706,"1999","Soft Tissue","Male and Female","Black","Mortality","0.3","0.2","0.4","0.2","0.2","0.3","32",12938519,10,1,3
+724,"1999","Other","Male and Female","Black","Mortality","0.6","0.5","0.8","0.6","0.5","0.8","79",12938519,11,1,3
+</reportTable>

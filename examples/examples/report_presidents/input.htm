@@ -1,0 +1,59 @@
+<head>
+<style>
+
+div
+{
+	background-color:#eeeeee;
+	font-familty:courier;
+	font-size:10pt;
+}
+
+</style>
+<base target="main">
+</head>
+
+<body>
+<span style="Width:250;font-size:10pt">
+Report Document Examples<br>
+</span>
+
+<div>
+<pre>
+&lt;Report columns=2 border=0 columnOrder=true 
+SQL="select * from President Order By Century,Position">
+
+&lt;reportgroup key="{century}" keeptogether>
+	&lt;header>{myfirst({century})} Century Presidents&lt;/header>
+	&lt;footer>&lt;br>&lt;/footer>
+&lt;/reportgroup>
+
+&lt;detail cellspacing=0 border=1 cellpadding=2 header="white,black">
+	&lt;Column width=40 align=right>{Position}&lt;/Column>
+	&lt;Column width=120>&lt;font color=blue>{First_Name}&lt;/font>&lt;/Column>
+	&lt;Column width=*>{Last_Name}&lt;/Column>
+
+	&lt;HEADER align=right>Pos&lt;/HEADER>
+	&lt;HEADER align=center>First Name&lt;/HEADER>
+	&lt;HEADER align=center>Last Name&lt;/HEADER>
+&lt;/detail>
+&lt;/Report>
+
+&lt;SCRIPT LOAD&gt;
+function myfirst(value)
+{
+	var n,text,i;
+	n = parseInt(value);
+	if (isNaN(n)) return value;
+	text = '' + n;
+	i = text.substr(text.length-1);
+	if (i == '1') return n + 'st';
+	if (i == '2') return n + 'nd';
+	if (i == '3') return n + 'th';
+	return n + 'th';
+}
+&lt;/SCRIPT&gt;
+</pre>
+</div>
+
+</body>
+</html>

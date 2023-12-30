@@ -1,0 +1,44 @@
+<DOC margin=0.25 marginColor="0.85">
+
+<font size=4 color=blue>
+Sample Math Worksheet Generation<br></font>
+Answers are on second page<br>
+A new set of random questions are created each time the script is run<br>
+<br>
+<br>
+
+<assign id=count value="40">
+
+<random id=a min=50 max=99>
+<random id=b min=50 max=99>
+<random id=sign_a list=",-">
+<random id=sign_b list=",-">
+<random id=op list="+,-"> 
+
+<group id=g count={count} columns=5 columnOrder=true >
+<style> td {font-size:12pt} </style>
+
+  <table border=0 cellpadding=0 cellspacing=0>
+  <tr>
+      <td width=24 align=right><font size=1>({g.count})</font></td>
+      <td width=12></td>
+      <td width=50 align=right>|{sign_a}|{a}</td>
+  </tr>
+  <tr>
+      <td width=24></td>
+      <td width=12><b>|{op}|</b></td>
+      <td width=50 align=right><u> |{sign_b}|{b}</u></td>
+  </tr>
+  </table>
+
+  <div style="height:72"></div>
+
+<store id=answers value="{eval({sign_a.last}{a.last} {op.last} {sign_b.last}{b.last}}">
+<br>
+</group> 
+
+<pagebreak>
+Answers<br>
+<group id=g count={count} columns=5 columnOrder=true>
+<table border=0 width=130 cellpadding=4><tr><td width=50% align=right>{g.count})</td><td width=50%> {answers}</td></tr></table>
+</group>

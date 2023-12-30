@@ -1,0 +1,422 @@
+<html>
+<title>CollinsPDF Examples</title>
+<link  href=PDF.css type=text/css rel=stylesheet>
+<script src="CollinsPDF.js"></script>
+</head>
+
+<script>
+var modified = true;
+var modified_pdf = true;
+var modified_html = true;
+var ecount = 0;
+var ticker = false;
+var fontSize = 10;
+//=================================================================
+//                        resize
+//=================================================================
+function resize(up)
+{
+	var html;
+	
+	if (up)
+	{
+		fontSize += 2;
+		if (fontSize > 32) fontSize = 32;
+		
+	}
+	else
+	{
+		fontSize += -2;
+		if (fontSize < 10) fontSize = 10;
+	}
+	
+	html = document.getElementById('htmlData');
+	html.style.fontSize = fontSize + 'pt';
+
+}
+//=================================================================
+//                        validEmail
+//=================================================================
+function validEmail(email)
+{
+	var s,list,a;
+	var add,name,text;
+
+	text = '' + email;
+
+	text = text.replace(/^[\s]+/,"");
+	text = text.replace(/[\s]+$/, '');
+
+	add = text;
+	s = true;
+	list = add.split('@');
+
+	if (list[0].length == 0) s = false;
+	if (list[0].length > 40) s = false;
+
+	if (list.length == 2)
+	{
+		a = list[1].split('.');
+		if (a.length == 1) s = false;
+		if (a[0].length == 0) s = false;
+
+		name = a[0];
+		name = name.toLowerCase();	
+		
+		if (a[a.length-1].length == 0) s = false;
+		if (a[a.length-1].length > 6) s = false;
+		
+	}
+
+	else s = false;
+
+	if (add.length < 4) s = false; 				// length >= 4
+	if (add.length > 255) s = false; 			// length < 255
+	if (add.indexOf('%') >= 0) s = false; 		// no escape characters
+	
+	return s;
+}
+//================================================================
+//  				setModified                       
+//================================================================
+function setModified()
+{
+	if (modified) return;
+	modified = true;
+	modified_html = true;
+	modified_pdf = true;
+	
+//	iframe = document.getElementById('iframe_pdf');
+//	iframe.src="about:blank";	
+
+//	iframe = document.getElementById('iframe_html');
+//	iframe.src="about:blank";	
+}
+//================================================================
+//                  loadExample
+//================================================================
+function loadExample(name)
+{
+	var ele,url,html,data,tab;
+
+	setModified();	
+
+/*
+	var isIE = navigator.appName.indexOf("Microsoft") != -1;
+
+	if ((! isIE) && typeof(html.value) == 'string')
+	{
+		html.value = data;	
+	}
+	else
+	{
+		html.innerText = data;
+	}
+*/
+
+	
+	tab = document.getElementById('tab1');
+	tabActive(tab);
+
+	url = './exampleData/TestSheet_HTML_' + name + '.htm?' + (1 * new Date()) ;
+
+	data = urlToStr(url);
+	html = document.getElementById('htmlData');
+	html.value = data;
+
+	setModified();	
+}
+//==========================================================================================
+//                                   urlToStr
+//==========================================================================================
+function urlToStr(url)
+{
+	http  = getHttp();
+	http.open('get',url + '?' + new Date(),false);
+	http.send();
+	return http.responseText;
+
+}
+//==========================================================================================
+//                                   getHttp
+//==========================================================================================
+function getHttp()
+{
+//	try { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); return xmlhttp; } catch (e) {}
+	try { xmlhttp = new XMLHttpRequest(); return xmlhttp; } catch (e) {}
+//	try { xmlhttp = new ActiveXObject("Msxml2.XMLHTTP.6.0"); return xmlhttp; } catch (e) {}
+//	try { xmlhttp = new ActiveXObject("Msxml2.XMLHTTP.3.0"); return xmlhttp; } catch (e) {}
+//	try { xmlhttp = new ActiveXObject("Msxml2.XMLHTTP"); return xmlhttp; } catch (e) {}
+	try { xmlhttp = window.createRequest(); return xmlhttp; } catch (e) {}
+
+	throw new Error( "This browser does not support XMLHttpRequest" );
+}
+// ===============================================================
+//                         tabActive
+//================================================================
+function tabActive(newtab)
+{
+	var tab,page;
+	var i,stat,iframe;
+
+	i = 0;
+
+	iframe = document.getElementById('iframe_pdf');
+	iframe.src="";
+	setModified();
+
+	try
+	{
+		while (true)
+		{
+			i = i + 1;
+			tab = document.getElementById('tab' + i);
+			if (tab == null) break;
+
+			page = document.getElementById('page' + i);
+		
+			if (tab == newtab)
+			{
+			  tab.className = "tabactive";
+			  page.className = "pageVisible";
+			  tab.blur();
+			}
+			else
+			{
+			   tab.className = "active";
+			   page.className = "pageHidden";
+			}
+		}
+	}
+	catch (e) { alert(e.message);}
+
+}
+
+//===========================================================
+//                pdfName
+//===========================================================
+function pdfName()
+{
+      var name,n;
+      name = window.location.pathname;
+      if (name.substr(0,1) == '/') name = name.substr(1);
+      n = name.lastIndexOf('.');
+      name = name.substr(0,n) + '.pdf';
+      return name;
+}
+//==============================================================
+//					previewPDF
+//==============================================================
+function previewPDF()
+{
+	var ele;
+
+	if (! modified_pdf) return;
+	modified_pdf = false;
+	modified = false;
+
+	myTicker.style.display = '';
+	setTimeout(load,100);
+	return;
+	
+	function load()
+	{
+	  var ele = document.getElementById('htmlData');
+      CollinsPDF('target=iframe_pdf',ele.value);
+	  myTicker.style.display = 'none';
+	}
+	
+}
+//==============================================================
+//					sendEmail
+//==============================================================
+function sendEmail()
+{
+} 
+//==============================================================
+//					PreviewHTML
+//==============================================================
+function previewHTML()
+{
+	var ele,data,iframe;
+ 
+	if (! modified_html) return;
+	modified_html = false;
+	modified = false;
+
+	ele = document.getElementById('htmlData');
+	data = ele.value;
+	
+	iframe = document.getElementById('iframe_html');
+	iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+
+	iframe.document.open();
+	iframe.document.write(data);
+	iframe.document.close();
+}
+//==============================================================
+//					init
+//==============================================================
+function init()
+{
+	loadExample("simpleForm");
+}
+</script>
+<body onload="init()" style="padding:0;margin:0">
+<iframe src="PDF_Header.htm" width=100% height=44 frameborder=0></iframe>
+<center style="width:1100px">
+
+<table width="100%">
+<tr>
+<td valign=top width=180px>
+<div style="Width:180px; height:422px">
+<br>
+
+&nbsp;&nbsp;&nbsp;<b>Examples</b><br> <br>
+<input type=radio name=examples checked onclick="loadExample('simpleForm')">Document<br>
+<input type=radio name=examples onclick="loadExample('table')"> Table<br>
+<input type=radio name=examples onclick="loadExample('graphic')"> Graphic<br>
+<input type=radio name=examples onclick="loadExample('form')"> Form<br>
+<input type=radio name=examples onclick="loadExample('report1')"> Report<br>
+<input type=radio name=examples onclick="loadExample('math1')"> Math Quiz<br>
+<input type=radio name=examples onclick="loadExample('image')"> Images<br>
+<input type=radio name=examples onclick="loadExample('3Dgraphics')"> 3D Graphics<br>
+<input type=radio name=examples onclick="loadExample('Font')"> Font Type 1<br>
+<input type=radio name=examples onclick="loadExample('Font_times')"> Font Encoding<br>
+<input type=radio name=examples onclick="loadExample('Script')"> Scripts<br>
+<input type=radio name=examples onclick="loadExample('Nested')"> Nested HTML<br>
+<input type=radio name=examples onclick="loadExample('Bookmark')"> Bookmarks<br>
+<input type=radio name=examples onclick="loadExample('Protractor')"> Protractors<br>
+<input type=radio name=examples onclick="loadExample('Grid')"> Grid<br>
+<input type=radio name=examples onclick="loadExample('Map')"> Map (25+ seconds)<br>
+
+<input type=radio name=examples onclick="loadExample('mathEquation')"> Math Equation<br>
+<input type=radio name=examples onclick="loadExample('sqlReport')"> Report Groups<br>
+<input type=radio name=examples onclick="loadExample('test')"> Test<br>
+<br>
+See Also:<br>
+ <a target=_blank href=CollinsPdf_Characters.pdf>Character Macros</a><br>
+ <a target=_blank href=ExampleData/TestSheet_HTML_htmlcodes.htm>Character Encoding</a>
+
+
+</div>
+
+</td>
+<td valign=TOP width=*>
+<div class="tablive" > 
+<!-- ==================================================================
+						Tabs
+======================================================================== -->						
+  <ul class="tabnav" style="margin:0">
+
+	<li id="tab1" class="tabactive" onclick="tabActive(this)">
+	  <A onclick="" nohref style="cursor:hand">HTML Data</A>
+	</li>
+
+	<li id="tab2" class="active" onclick="tabActive(this); previewHTML(); ">
+	<A onclick="" nohref style="cursor:hand">Browser Preview</A>
+	</li>
+						 
+	<li id="tab3" class="active" onclick="tabActive(this);previewPDF();">
+	<A onclick="" nohref style="cursor:hand">PDF Preview</A>
+	</li>
+					 
+  </ul>
+</div>
+
+<!-- ****************************************************************
+						html
+*********************************************************************-->
+<div id="page1" class="pagevisible" style="WIDTH:100%;HEIGHT:800px;margin-left:10px">
+<form style="margin:0" id=htmlForm method=post action="Receive_CollinsPDF.asp" target="iframe_pdf">
+<input type=hidden name=access value="45311KD2445A2210096501%-K3452334DEW">
+<input type=hidden id=verb name=verb value="send">
+<input type=hidden id=format name=format value="pdf">
+
+<font color="#0000FF">HTML Text to be converted to PDF. Edits made here are 
+shown in the preview tabs</font> 
+<input type=button onClick='resize(true)' value="Larger">&nbsp;&nbsp;
+<input type=button onClick='resize(false)' value="Smaller">
+
+<textarea wrap=off spellcheck=false name=htmlData rows=32 id=htmlData style="height:600;Width:100%" 
+onkeydown="setModified()" oncut="setModified()" onpaste="setModified()" onchange="setModified()">
+</textarea>
+
+</form>
+
+</div>
+<!-- **************************************************************************************************
+											   PAGE 2 (HTML Preview)
+******************************************************************************************************-->
+<div id="page2" class="pagehidden" style="WIDTH:100%;HEIGHT:600px">
+
+<iframe id=iframe_html name=iframe_html width="100%" height="100%" frameborder=0 scrolling=auto></iframe>
+</div>
+
+<!-- **************************************************************************************************
+											   PAGE 3 (PDF)
+******************************************************************************************************-->
+<div id="page3" class="pagehidden" style="WIDTH:100%;HEIGHT:600px">
+<div id=myTicker ><font color=blue size=3> Loading...</font></div>
+<iframe id=iframe_pdf name=iframe_pdf width="100%" height="100%" frameborder=0 scrolling=auto></iframe>
+</div>
+
+
+<!-- **************************************************************************************************
+											   PAGE 4 (GHTML)
+******************************************************************************************************-->
+<div id="page4" class="pagehidden" style="WIDTH:100%;HEIGHT:600px">
+<br>
+<br>
+<br>
+
+<center><b>In Development</b>
+<br>
+<br>
+<br>
+The objective is to produce a dynamic web page of the same content generated for the PDF<br>
+Using canvas and the capabilties of the Web browsers, the generated pages can be dynamic versus the Static pages of a PDF
+<br><br>
+Generated HTML / CANVAS / Server Side Images
+<table width=500>
+<tr>
+<td>
+
+<br>
+<li>Produce Math and Graphic Canvas Images for HTML5 capable browsers</li>
+<li>Produce Dynamic Images on HTML5 Canvas</li>
+<li>Produce Server Side Math and Graphic Jpeg Images for other browsers</li>
+<li>Produce standard HTML from report and macro functions</li>
+</td>
+</tr>
+</table>
+</center>
+
+
+</div>
+
+
+
+</div>
+
+</td>
+</tr>
+</table>
+
+</center>
+
+<iframe name="iframe_hidden" style="display:none" width=700 height=380></iframe>
+</div>
+
+</td>
+</tr>
+</table>
+
+<table width=100%>
+<tr>
+<td align=center>
+<font size=2>Copyright © 2019 <a href="http://CollinsSoftware.com">Collins Software</a>, all rights are reserved</font> </tr>
+</td>
+</table>
+
+</body></html>

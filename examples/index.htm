@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link  href=../../CollinsSoftware.css type=text/css rel=stylesheet>
+<title>CollinsPDF</title>
+<script src=CollinsPDF.js></script>
+<meta name="keywords" content="HTML,PDF,GRAPHICS,TYPE-1,2D,3D,JavaScript,Form,Font,.U3D,Client,Server,Script">
+<meta name="author" content="Clif Collins">
+</head>
+<script> 
+ 
+function pdf(id)
+{
+	var ele,text;
+	
+	ele = document.getElementById(id);
+	if (! ele) return;
+	
+	text = ele.value;
+	if (text.indexOf('<') >= 0 || text.toLowerCase().indexOf('url=') < 0) return CollinsPDF('',text);
+	CollinsPDF(text);
+}
+</script>
+<body>
+
+<table width=100%>
+<tr>
+<td width=150px valign="top">
+<p align="center"><u><b><a href="PDF_FAQ.htm">FAQ</a></b></u></p>
+<p align="center"><b><a href="PDF_Spec.htm">Specification</a></b></p>
+<p align="center"><b><a href="PDF_Graphics.htm">Graphics</a></b></p>
+<p align="center"><b><a href=# onclick="document.location.href = 'PDF_Examples.htm?' + new Date()">Examples</a></b><br>
+<br>
+<img border="0" src="bottle.jpg" hspace="10" width="174" height="204"></td>
+<td valign=top>
+
+<p><font size="4" color="#000080"> <b>HTML to PDF client side generator (100% 
+JavaScript)</b></font><font size="2">&nbsp;</font><b><font color="#000080" size="4"><br>
+</font></b><font size="2"><br>
+</font><i><font size="2">Create paginated PDF documents from client or server JavaScript&nbsp;using 
+HTML text. 2D and 3D Graphics, bookmarks, PDF forms, foreign language type-1 
+fonts, macros, reports. Fast online 
+document generation </font></i></p>
+
+<hr>
+
+
+<font color="#808080" size="2">
+	
+<center><a target="_blank" href="CollinsPDF.js"><b style="font-size:16pt">VIEW SOURCE CODE of CollinsPDF.js</b></a></center>
+<br>
+	
+JavaScript accepts HTML 
+formatted text and converts it 
+into a paginated PDF Document.<br>
+100% JavaScript and can be run on 
+the <b>Client</b>, <b>ASP.NET</b>, <b>Classic ASP</b>, or as a <b>Windows script</b><br>
+&nbsp;</font><p align="left">
+<font size="2" color="#808080">100% Client side PDF Generation: <b>Chrome, Safari,&nbsp; Opera,&nbsp; 
+FireFox, IE11, Edge</b></font><p align="left"><font size="2" color="#808080">Server 
+Side generation: <b>All 
+Browsers</b></font><blockquote>
+	<blockquote>
+		<p align="left"><font size="3"><b>CollinsPDF.js</b></font><font size="2"> 
+					(build 10) 
+		</font>
+		<p align="left">
+		I'm in the process of converting this to HTML5 capabilities...<font color="#000080"> 
+		35,000 lines, 990 functions</font><br>
+		I will also clean the code up, I shoved things together quickly... 
+		converted to asynchronous, byte array and other</p>
+	</blockquote>
+</blockquote><hr>
+<p>&nbsp;</p>
+	<p><a href="pdf_api_sample1.htm">Using the PDF API Example</a>: Bypass the HTML and create PDF directly from the API Interface (faster when generating complex, large or multiple tables) </p>
+<p><a href="SampleCanvas.htm">Canvas to PDF Live Example</a>: Signature to PDF 
+and such...</p>
+<p><a href="Minimum.htm">Minimum Code</a> to create a PDF from HTML source code</p>
+<div class=code style="width: 864px; height: 180px">
+	<p>More Live examples:</p>
+	<input type=button onclick=pdf("t1") value="to PDF">
+	<input id=t1 type=text size=100 
+value="<center>Hello World<br><img src=../images/street.jpg width=200></center>">
+	<br><br><input type=button onclick=pdf("t2") value="to PDF">
+	<input id=t2 type=text size=100 value="url=sample.htm">
+&nbsp;<a href=sample.htm target="_blank">sample.htm</a> <br><br>
+	<input type=button onclick=pdf("t3") value="to PDF">
+	<input id=t3 type=text size=100 value="{datetime}<br><br><font size=5>X = <divide> - b |+-| <root> b|^2| - 4ac </root><by> 2a </divide>">
+	<br><br><input type=button onclick=pdf("t4") value="to PDF">
+	<input id=t4 type=text size=100 value="<DOC margin=0.5><eval>{pdf}.drawFontGrid('dingbat,standard');</eval>">
+	<br><br></div><br><font color="#808080">See Also: links (top left) for more examples</font>
+
+</tr>
+</tr>
+</table>
+</body>
+</html>

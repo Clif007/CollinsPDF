@@ -1,0 +1,72 @@
+<head>
+<style>
+
+div
+{
+	background-color:#eeeeee;
+	font-familty:courier;
+	font-size:10pt;
+}
+
+</style>
+<base target="main">
+</head>
+
+<body>
+<span style="Width:250;font-size:10pt">
+Macro Example 2<br>
+</span>
+
+<div>
+<pre>
+&lt;pdf margin=1.0>
+
+&lt;font size=4 color=blue>
+Sample Math Worksheet Generation&lt;br>&lt;/font>
+Answers are on second page&lt;br>
+A new set of random questions are created each time the script is run&lt;br>
+&lt;br>
+&lt;br>
+
+&lt;assign id=count value="35">
+
+&lt;random id=a min=50 max=99>
+&lt;random id=b min=50 max=99>
+&lt;random id=sign_a list=",-">
+&lt;random id=sign_b list=",-">
+&lt;random id=op list="+,-">
+
+&lt;group id=g count={count} columns=5 columnOrder=true >
+&lt;style> td {font-size:14pt} &lt;/style>
+
+  &lt;table cellpadding=0 cellspacing=0>
+  &lt;tr>
+      &lt;td width=20 align=right>&lt;font size=1>({g.count})&lt;/font>&lt;/td>
+      &lt;td width=15>&lt;/td>
+      &lt;td width=28 align=right>|{sign_a}|{a}&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+      &lt;td width=20>&lt;/td>
+      &lt;td width=15>&lt;b>|{op}|&lt;/b>&lt;/td>
+      &lt;td width=28 align=right>&lt;u> |{sign_b}|{b}&lt;/u>&lt;/td>
+  &lt;/tr>
+  &lt;/table>
+
+  &lt;div style="height:70">&lt;/div>
+
+&lt;store id=answers value="{eval({sign_a.last}{a.last} {op.last} {sign_b.last}{b.last}}">
+&lt;br>
+&lt;/group> 
+
+&lt;pagebreak>
+Answers&lt;br>
+&lt;group id=g count={count} columns=5 columnOrder=true>
+({g.count}) {answers}
+&lt;/group>
+
+
+</pre>
+</div>
+
+</body>
+</html>

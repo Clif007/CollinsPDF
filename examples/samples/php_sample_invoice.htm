@@ -1,0 +1,180 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>PHP - PDF File Creation</title>
+</head>
+
+<body>
+
+<p><b><a href="../../../Default.htm">Collins Software</a></b> </p>
+<p>PHP - PDF File Creation<br>
+&nbsp;<a href="sample_invoice.php">Run Live PHP E</a><a target="_blank" href="sample_invoice.php">xample</a> </p>
+<div style="background-Color:#ffffbf">
+<pre>
+<font face="courier">
+&lt;?php
+//--------------------- initilize --------------------------
+ini_set( "display_errors", "1" );  
+error_reporting( E_ALL & ~E_NOTICE  & ~E_WARNING ); 
+date_default_timezone_set('America/Chicago'); 
+require('PDF_Library.php');
+require('PDF.php');
+//-----------------------------------------------------------
+
+	execute();
+
+//=========================================================================
+//                         execute
+//=========================================================================
+function execute()
+{
+$date = date("l dS \of F Y h:i:s A");
+
+$pdf = new pdf();
+
+$pdf->setMargin(1,1,1.4,1);
+$pdf->setFontSize(12);
+$pdf->onPageHeader = 'onPageHeader';
+$pdf->onPageFooter = 'onPageFooter';
+
+$pdf->addText($date);
+$pdf->lineBreak();
+$pdf->lineBreak();
+$pdf->lineBreak();
+
+$pdf->setBold(true);
+$pdf->addText("Thank you for your purchase");
+$pdf->setBold(false);
+
+$pdf->lineBreak();
+$pdf->lineBreak();
+
+//------------------ order details --------------------
+
+$CR = "\r\n";
+
+$orderNumber = "10034";
+$dateOrdered = "May 5, 2010 3:31 pm";
+$shipTo = "Rachel Collins" . $CR . "7710 Janak Drive" . $CR . "Houston, TX 77055";
+$shipMethod = "Next Day Air";
+$phone = "(713) 682-1556";
+$billAmount = "$300.00";
+$billTotal = "$357.56";
+$billTax = "$45.56";
+$billShipping = "$12.00";
+
+orderDetail($pdf,$orderNumber,$dateOrdered,$shipTo,$shipMethod,$phone,$billAmount,$billTotal,$billTax,$billShipping);
+
+$pdf->ruler->end();
+$pdf->lineBreak();
+$pdf->lineBreak();
+
+//--------------------Items Ordered ----------------------
+
+$pdf->pageBreak();
+
+$borderWidth = 1;
+$pdf->setRuler("1,1.6W,5.5W,7",$borderWidth);
+$pdf->setBold(true);
+
+$text = "QTY" . $pdf->tabCharacter . "Product Name" . $pdf->tabCharacter . "Price"; 
+$pdf->reportAddText($text);
+$pdf->setBold(false);
+
+// -------- Item 1 -----
+
+$item_qty = 1;
+$item_name = "Common Groud 2000 CPU License";
+$item_total = "$100.00";
+
+orderItem($pdf,$item_qty,$item_name,$item_total);
+
+
+// -------- Item 2 -----
+
+$item_qty = 1;
+$item_name = "ICMap CPU License";
+$item_total = "$200.00";
+
+orderItem($pdf,$item_qty,$item_name,$item_total);
+
+//--------------------------------------------------------
+
+$pdf->ruler->end();
+
+$text = "Thank you for the order";
+$pdf->setFontColor("Gray");
+$pdf->setFontSize(10);
+
+$pdf->centerText($text); 
+$pdf->sendToClient();
+}
+//================================================================
+//                 onPageHeader
+//================================================================
+function onPageHeader($page,$total,$pdf)
+{
+	$filename = realpath("./images/CollinsSoftwareInvoice.jpg");
+	$pdf->placeImage(1.5,0.1,$filename,1);
+}
+//================================================================
+//                 onPageFooter
+//================================================================
+function onPageFooter($page,$total,$pdf)
+{
+	$text = "Page " . $page . " of " . $total;
+	$pdf->centerText($text);
+}
+//================================================================
+//                 orderDetail
+//================================================================
+function orderDetail($pdf,$orderNumber,$dateOrdered,$shipTo,$shipMethod,$phone,$billAmount,$billTotal,$billTax,$billShipping)
+{
+ 	$pdf->setRuler("1,3W,7");
+ 	
+	$text = "Order Number:" . $pdf->tabCharacter . $orderNumber;
+	$pdf->reportAddText($text);
+
+	$text = "Order Date:" . $pdf->tabCharacter . $dateOrdered;
+	$pdf->reportAddText($text);
+
+	$text = "Ship to:" . $pdf->tabCharacter . $shipTo;
+	$pdf->reportAddText($text);
+
+	$text = "Phone:" . $pdf->tabCharacter . $phone;
+	$pdf->reportAddText($text);
+
+	$text = "Shipping Method:" . $pdf->tabCharacter . $shipMethod;
+	$pdf->reportAddText($text);
+
+	$text = "Order Amount:" . $pdf->tabCharacter . $billAmount;
+	$pdf->reportAddText($text);
+
+	$text = "Order State Tax (Texas):" . $pdf->tabCharacter . $billTax;
+	$pdf->reportAddText($text);
+	
+	$text = "Order Shipping:" . $pdf->tabCharacter . $billShipping;
+	$pdf->reportAddText($text);
+
+	$text= "Order Total:" . $pdf->tabCharacter . $billTotal;
+	$pdf->reportAddText($text);
+
+
+
+}
+//================================================================
+//                orderItem
+//================================================================
+function orderItem($pdf,$item_qty,$item_name,$item_total)
+{
+	$text = $item_qty . $pdf->tabCharacter . $item_name . $pdf->tabCharacter . $item_total;
+	$pdf->reportAddText($text);
+}
+?>
+</font>
+</div>
+</pre>
+</body>
+
+</html>
